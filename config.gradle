@@ -1,0 +1,35 @@
+ext {
+    latestRelease = 'latest.release'
+    sdkVersion = 25
+    supportLibraryVersion = '25.3.1'
+    android =
+            [
+                    // Sdk and tools(构建工具)
+                    minSdkVersion    : 15,
+                    targetSdkVersion : sdkVersion,
+                    compileSdkVersion: sdkVersion,
+                    buildToolsVersion: '25.0.3',
+                    //版本
+                    versionCode      : 1,//版本号
+                    versionName      : '1.0'//版本名称
+            ]
+    dependencies =
+            [
+                    // App dependencies(添加依赖)
+                    supportLibraryVersion: supportLibraryVersion,//支持库版本
+                    espressoCore         : '2.2.2',//测试类库
+                    constraintLayout     : '1.0.2',//约束布局
+                    junit                : '4.12',//测试库
+                    fragmentation        : '1.0.7',//fragment管理工具
+                    swipeToLoadLayout    : '1.0.4',//上拉刷新下拉加载框架
+                    logger               : '2.1.1',//日志输出工具
+                    gosn                 : '2.8.0',//JSON解析工具
+                    rxJava               : '2.1.0',//异步操作库
+                    rxAndroid            : '2.0.1',//异步拓展库
+                    retrofit             : '2.3.0',//网络请求库
+                    eventbus             : '3.0.0',//事件订阅处理
+                    butterknife          : '8.7.0',//控件绑定
+                    overscroll           : '1.0.4',//弹性滑动
+                    MPAndroidChart       : 'v3.0.2'//统计图表
+            ]
+}

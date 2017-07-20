@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorBottomBarCheckedTrue">#5B6BC3</color>
+    <color name="colorBottomBarCheckedFalse">#808080</color>
+    <color name="window_background_color">#EFEFF4</color>
+</resources>

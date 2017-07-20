@@ -1,0 +1,9 @@
+<resources>
+    <!-- 界面风格 -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@color/window_background_color</item>
+        <item name="android:colorControlActivated">@android:color/transparent</item>
+        <item name="android:colorControlHighlight">@android:color/transparent</item>
+        <item name="android:colorControlNormal">@android:color/transparent</item>
+    </style>
+</resources>
