@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 方块输入框的属性 -->
+    <declare-styleable name="InputBox">
+        <!-- 输入个数 -->
+        <attr name="ib_input_count" format="integer"/>
+        <!-- 方框的颜色 -->
+        <attr name="ib_box_line_color" format="color"/>
+        <!-- 方框线的宽度 -->
+        <attr name="ib_box_line_width" format="dimension"/>
+        <!-- 方框的边长 -->
+        <attr name="ib_box_line_size" format="dimension"/>
+        <!-- 文字的大小 -->
+        <attr name="ib_input_text_size" format="dimension"/>
+        <!-- 文字的颜色 -->
+        <attr name="ib_input_text_color" format="color"/>
+    </declare-styleable>
+</resources>
