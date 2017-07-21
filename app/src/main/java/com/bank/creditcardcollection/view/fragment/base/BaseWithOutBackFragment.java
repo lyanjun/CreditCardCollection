@@ -8,7 +8,7 @@ import com.bank.creditcardcollection.constant.Constant;
  * Created by liyanjun on 2017/7/19.
  */
 
-public abstract class BaseWothOutBackFragment extends BaseTitleFragment{
+public abstract class BaseWithOutBackFragment extends BaseTitleFragment{
     @Override
     protected int setRootLayoutType() {
         return Constant.LINEAR_LAYOUT;

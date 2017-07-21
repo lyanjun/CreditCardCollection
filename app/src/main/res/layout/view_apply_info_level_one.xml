@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroll_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="none">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!-- 步骤名称 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="您申请的卡种"
+            style="@style/ApplyInfoItemMargin"
+            />
+        <!-- 卡种简称 卡种代码 -->
+
+        <!-- 选项1 -->
+        <!-- 选项2 -->
+        <!-- 会员卡号 -->
+        <!-- 是否有农商银行信用卡 -->
+    </LinearLayout>
+</ScrollView>

@@ -28,7 +28,7 @@ public class App extends MineApplication {
      * 初始化Log工具
      */
     private void initLogger() {
-        Logger.addLogAdapter(new AndroidLogAdapter(PrettyFormatStrategy.newBuilder().tag("多银行").build()) {
+        Logger.addLogAdapter(new AndroidLogAdapter(PrettyFormatStrategy.newBuilder().tag("信用卡").build()) {
             @Override
             public boolean isLoggable(int priority, String tag) {
                 return BuildConfig.DEBUG;//调试模式下开启Log输出

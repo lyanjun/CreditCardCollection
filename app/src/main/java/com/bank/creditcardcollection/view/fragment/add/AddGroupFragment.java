@@ -1,4 +1,4 @@
-package com.bank.creditcardcollection.view.fragment.mine;
+package com.bank.creditcardcollection.view.fragment.add;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 
 import com.bank.creditcardcollection.R;
 import com.bank.creditcardcollection.view.fragment.base.BaseGroupFragment;
-import com.bank.creditcardcollection.view.fragment.mine.level1.MineFragment;
+import com.bank.creditcardcollection.view.fragment.add.level1.AddFragment;
 
 
 /**
@@ -14,28 +14,22 @@ import com.bank.creditcardcollection.view.fragment.mine.level1.MineFragment;
  * Created by liyanjun on 2017/7/19.
  */
 
-public class MineGroupFragment extends BaseGroupFragment {
+public class AddGroupFragment extends BaseGroupFragment {
     /**
      * 获取对象
      * @return
      */
-    public static MineGroupFragment newInstance() {
+    public static AddGroupFragment newInstance() {
         Bundle args = new Bundle();
-        MineGroupFragment fragment = new MineGroupFragment();
+        AddGroupFragment fragment = new AddGroupFragment();
         fragment.setArguments(args);
         return fragment;
-    }
-
-    @Override
-    protected void setFunction() {
-        super.setFunction();
-        mRootView.setBackgroundColor(Color.GREEN);
     }
     @Override
     public void onLazyInitView(@Nullable Bundle savedInstanceState) {
         super.onLazyInitView(savedInstanceState);
-        if (findChildFragment(MineFragment.class) == null) {
-            loadRootFragment(R.id.group_home, MineFragment.newInstance());
+        if (findChildFragment(AddFragment.class) == null) {
+            loadRootFragment(R.id.group_home, AddFragment.newInstance());
         }
     }
 }

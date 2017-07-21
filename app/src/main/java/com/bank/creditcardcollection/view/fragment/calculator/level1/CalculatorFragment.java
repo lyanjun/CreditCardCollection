@@ -1,10 +1,9 @@
 package com.bank.creditcardcollection.view.fragment.calculator.level1;
 
 import android.os.Bundle;
-import android.widget.Toast;
 
 import com.bank.creditcardcollection.R;
-import com.bank.creditcardcollection.view.fragment.base.BaseWothOutBackFragment;
+import com.bank.creditcardcollection.view.fragment.base.BaseWithOutBackFragment;
 import com.lyan.tools.utils.ToastUtils;
 
 
@@ -13,7 +12,7 @@ import com.lyan.tools.utils.ToastUtils;
  * Created by liyanjun on 2017/7/19.
  */
 
-public class CalculatorFragment extends BaseWothOutBackFragment {
+public class CalculatorFragment extends BaseWithOutBackFragment {
     /**
      * 获取对象
      * @return

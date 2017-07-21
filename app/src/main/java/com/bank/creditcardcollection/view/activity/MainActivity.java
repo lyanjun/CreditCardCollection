@@ -4,17 +4,16 @@ import android.os.Bundle;
 import android.util.SparseArray;
 
 import com.bank.creditcardcollection.R;
+import com.bank.creditcardcollection.base.activity.MineBaseActivity;
 import com.bank.creditcardcollection.constant.Constant;
 import com.bank.creditcardcollection.view.fragment.base.BaseGroupFragment;
 import com.bank.creditcardcollection.view.fragment.calculator.CalculatorGroupFragment;
 import com.bank.creditcardcollection.view.fragment.camera.CameraGroupFragment;
 import com.bank.creditcardcollection.view.fragment.home.HomeGroupFragment;
-import com.bank.creditcardcollection.view.fragment.mine.MineGroupFragment;
-import com.lyan.tools.activity.BaseActivity;
+import com.bank.creditcardcollection.view.fragment.add.AddGroupFragment;
 import com.lyan.tools.view.BottomBar;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator;
 
 
@@ -22,7 +21,7 @@ import me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator;
  * 主界面
  * Created by liyanjun on 2017/7/18.
  */
-public class MainActivity extends BaseActivity{
+public class MainActivity extends MineBaseActivity{
 
     @BindView(R.id.bottom_bar)//底部界面切换栏
     BottomBar bottomBar;
@@ -31,14 +30,13 @@ public class MainActivity extends BaseActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);//绑定
         initFragment();//初始化Fragment
         //设置顶部切换栏
         bottomBar.setItemTextColor(R.color.bottom_bar_text);//设置切换文字的字体颜色
         bottomBar.addItem(R.drawable.bottom_bar_home, getString(R.string.clms_home));//添加首页选项
         bottomBar.addItem(R.drawable.bottom_bar_calculator, getString(R.string.clms_calculator));//添加计算器选项
         bottomBar.addItem(R.drawable.bottom_bar_camera, getString(R.string.clms_camera));//添加相机选项
-        bottomBar.addItem(R.drawable.bottom_bar_mine, getString(R.string.clms_mine));//添加我的选项
+        bottomBar.addItem(R.drawable.bottom_bar_mine, getString(R.string.clms_add));//添加我的选项
         bottomBar.checkedItem(BottomBar.INDEX_FIRST);//默认选择第一个
         bottomBar.setOnBottomBarItemSelectedListener(position -> showHideFragment(mFragments.get(position)));//设置选择监听
     }
@@ -52,7 +50,7 @@ public class MainActivity extends BaseActivity{
             mFragments.append(Constant.HOME, HomeGroupFragment.newInstance());
             mFragments.append(Constant.CALCULATOR, CalculatorGroupFragment.newInstance());
             mFragments.append(Constant.CAMERA, CameraGroupFragment.newInstance());
-            mFragments.append(Constant.MINE, MineGroupFragment.newInstance());
+            mFragments.append(Constant.MINE, AddGroupFragment.newInstance());
             //添加要加载的视图
             loadMultipleRootFragment(R.id.frag_home, Constant.HOME,
                     mFragments.get(Constant.HOME),
@@ -63,7 +61,7 @@ public class MainActivity extends BaseActivity{
             mFragments.put(Constant.HOME,firstFragment);
             mFragments.put(Constant.CALCULATOR,findFragment(CalculatorGroupFragment.class));
             mFragments.put(Constant.CAMERA,findFragment(CameraGroupFragment.class));
-            mFragments.put(Constant.MINE,findFragment(MineGroupFragment.class));
+            mFragments.put(Constant.MINE,findFragment(AddGroupFragment.class));
         }
         setFragmentAnimator(new DefaultHorizontalAnimator());//设置切换动画
     }

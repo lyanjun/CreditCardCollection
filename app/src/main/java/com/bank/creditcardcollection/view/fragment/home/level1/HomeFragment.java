@@ -4,9 +4,8 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import com.bank.creditcardcollection.R;
-import com.bank.creditcardcollection.constant.information.Information;
 import com.bank.creditcardcollection.constant.information.InformationUtils;
-import com.bank.creditcardcollection.view.fragment.base.BaseWothOutBackFragment;
+import com.bank.creditcardcollection.view.fragment.base.BaseWithOutBackFragment;
 import com.lyan.tools.utils.ToastUtils;
 import com.orhanobut.logger.Logger;
 
@@ -17,7 +16,7 @@ import butterknife.BindView;
  * Created by liyanjun on 2017/7/19.
  */
 
-public class HomeFragment extends BaseWothOutBackFragment implements HomeContract.View<HomePresenter> {
+public class HomeFragment extends BaseWithOutBackFragment implements HomeContract.View<HomePresenter> {
 
     @BindView(R.id.test)
     Button testBtn;
@@ -82,8 +81,8 @@ public class HomeFragment extends BaseWothOutBackFragment implements HomeContrac
         super.setFunction();
         new HomePresenter(this);
         mHomePresenter.initData();//初始化数据
-//        testBtn.setOnClickListener(v -> mHomePresenter.test());
-        testBtn.setOnClickListener(v -> ToastUtils.shortToast(mContext,InformationUtils.getInfo().getCredentialType().get(1)));
+        testBtn.setOnClickListener(v -> mHomePresenter.test());
+//        testBtn.setOnClickListener(v -> ToastUtils.shortToast(mContext,InformationUtils.getInfo().getCredentialType().get(1)));
     }
 
     /**

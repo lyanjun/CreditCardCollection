@@ -3,7 +3,7 @@ package com.bank.creditcardcollection.view.fragment.camera.level1;
 import android.os.Bundle;
 
 import com.bank.creditcardcollection.R;
-import com.bank.creditcardcollection.view.fragment.base.BaseWothOutBackFragment;
+import com.bank.creditcardcollection.view.fragment.base.BaseWithOutBackFragment;
 import com.lyan.tools.utils.ToastUtils;
 
 
@@ -12,7 +12,7 @@ import com.lyan.tools.utils.ToastUtils;
  * Created by liyanjun on 2017/7/19.
  */
 
-public class CameraFragment extends BaseWothOutBackFragment {
+public class CameraFragment extends BaseWithOutBackFragment {
     /**
      * 获取对象
      * @return
