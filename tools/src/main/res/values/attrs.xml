@@ -14,5 +14,10 @@
         <attr name="ib_input_text_size" format="dimension"/>
         <!-- 文字的颜色 -->
         <attr name="ib_input_text_color" format="color"/>
+        <!-- 设置输入类型 -->
+        <attr name="ib_input_text_type" format="enum">
+            <enum name="text" value="0"/>
+            <enum name="number" value="1"/>
+        </attr>
     </declare-styleable>
 </resources>
