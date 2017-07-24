@@ -1,11 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scroll_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="none">
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="第二步"
-        android:gravity="center"
-        android:textSize="50sp"/>
-</LinearLayout>
+        android:orientation="vertical">
+        <!-- 步骤名称 -->
+        <TextView
+            style="@style/ApplyInfoItemMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="您的基本信息"
+            android:textColor="@color/black" />
+        <!-- 姓名、国籍 -->
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <!-- 中文姓名 -->
+            <LinearLayout
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="中文姓名"
+                    android:textColor="@color/black" />
+
+                <com.lyan.tools.view.BoxEditText
+                    android:id="@+id/chinese_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_18"
+                    android:layout_marginLeft="@dimen/dp_6"
+                    android:background="@drawable/apply_input_box_background"
+                    android:paddingLeft="@dimen/dp_3" />
+            </LinearLayout>
+            <!-- 国籍 -->
+            <LinearLayout
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="国籍"
+                    android:textColor="@color/black" />
+
+                <com.lyan.tools.view.BoxEditText
+                    android:id="@+id/nationality"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_18"
+                    android:layout_marginLeft="@dimen/dp_6"
+                    android:background="@drawable/apply_input_box_background"
+                    android:paddingLeft="@dimen/dp_3" />
+            </LinearLayout>
+        </LinearLayout>
+        <!-- 拼音姓名 -->
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:layout_marginTop="@dimen/dp_2"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="拼音姓名"
+                android:textColor="@color/black" />
+            <!-- 方框输入框 -->
+            <com.lyan.tools.view.InputBox
+                style="@style/InputBoxSize"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
+                app:ib_box_line_size="@dimen/dp_18"
+                app:ib_input_count="15"
+                app:ib_input_text_color="@color/black" />
+        </LinearLayout>
+        <!-- 出生日期和性别 -->
+        <LinearLayout
+            android:layout_marginTop="@dimen/dp_2"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            style="@style/LevelApplyInfoBodyPadding">
+            <!-- 出生日期 -->
+            <LinearLayout
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="出生日期"
+                    android:textColor="@color/black" />
+                <TextView
+                    android:id="@+id/birthday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="xxxx年xx月xx日"
+                    android:gravity="right"
+                    />
+                </LinearLayout>
+            <!-- 性别 -->
+            <LinearLayout
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginRight="@dimen/dp_40"
+                    android:layout_height="wrap_content"
+                    android:text="性别"
+                    android:textColor="@color/black" />
+                <include layout="@layout/view_apply_info_level_two_select"/>
+            </LinearLayout>
+        </LinearLayout>
+        <!-- 证件类型 -->
+
+    </LinearLayout>
+</ScrollView>

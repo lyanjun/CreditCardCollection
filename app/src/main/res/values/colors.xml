@@ -3,4 +3,7 @@
     <color name="colorBottomBarCheckedTrue">#5B6BC3</color>
     <color name="colorBottomBarCheckedFalse">#808080</color>
     <color name="window_background_color">#EFEFF4</color>
+    <color name="apply_info_box_color">#AAAAAA</color>
+    <color name="apply_info_button_next_color_up">#036AB2</color>
+    <color name="apply_info_button_next_color_down">#025c9b</color>
 </resources>

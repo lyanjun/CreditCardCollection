@@ -2,8 +2,10 @@ package com.bank.creditcardcollection.weight.view.level;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
+import android.text.Html;
 import android.util.AttributeSet;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 import com.bank.creditcardcollection.R;
 
@@ -30,8 +32,9 @@ public class LevelOneView extends LevelView{
     }
 
     @BindView(R.id.scroll_root)
-    ScrollView rootView;
-
+    ScrollView rootView;//最外层滑动布局
+    @BindView(R.id.level_one_hint_text)
+    TextView hintTextTv;//提示文字
     /**
      * 第一步的布局
      * @return
@@ -47,5 +50,7 @@ public class LevelOneView extends LevelView{
     @Override
     protected void setFunction() {
         OverScrollDecoratorHelper.setUpOverScroll(rootView);//弹性滑动效果
+        hintTextTv.setText(Html.fromHtml("点击‘下一步’意味着您已阅、知晓并同意遵守" + "<font color = '#2F20FF'>"+
+                "《长春农村商业银行信用卡章程》《长春农村商业银行性用卡领用合约》" +"</font>"));
     }
 }
