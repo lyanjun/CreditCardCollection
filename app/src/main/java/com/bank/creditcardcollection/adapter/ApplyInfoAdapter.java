@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * Created by liyanjun on 2017/7/21.
  */
 
-public class ApplyInfoAdapter extends PagerAdapter{
+public final class ApplyInfoAdapter extends PagerAdapter{
 
     private ArrayList<LevelView> levelViews;//数据源
 
