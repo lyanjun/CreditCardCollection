@@ -25,8 +25,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dp_5"
-                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
                 android:text="卡种简称"
                 android:textColor="@color/black" />
 
@@ -34,37 +34,37 @@
                 android:id="@+id/input_card_alias"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_18"
-                android:layout_marginBottom="@dimen/dp_5"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
                 android:layout_marginLeft="@dimen/dp_10"
-                android:layout_marginTop="@dimen/dp_10"
                 android:layout_marginRight="@dimen/dp_100"
-                android:textSize="@dimen/sp_14"
-                android:paddingLeft="@dimen/dp_3"
-                android:background="@drawable/apply_input_box_background"
+                style="@style/BoxEditStyle"
                 android:gravity="center_vertical"
                 android:lines="1" />
         </LinearLayout>
+        <include layout="@layout/view_item_cut_line"/>
         <LinearLayout style="@style/LevelOneApplyInfoBodyPadding">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dp_5"
-                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
                 android:text="卡种代码"
                 android:textColor="@color/black" />
 
             <com.lyan.tools.view.InputBox
                 android:id="@+id/input_card_code"
                 style="@style/InputBoxSize"
-                android:layout_marginBottom="@dimen/dp_5"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
                 android:layout_marginLeft="@dimen/dp_10"
-                android:layout_marginTop="@dimen/dp_10"
                 app:ib_box_line_size="@dimen/dp_18"
                 app:ib_input_count="6"
                 app:ib_input_text_color="@color/black" />
 
         </LinearLayout>
+        <include layout="@layout/view_item_cut_line"/>
         <!-- 选项1 -->
         <LinearLayout
             style="@style/LevelOneApplyInfoBodyPadding">
@@ -72,14 +72,15 @@
                 android:layout_width="@dimen/dp_0"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dp_5"
-                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
                 android:text="若申请的卡种未获批准，是否同意接受银\n行推荐的其他信用卡"
                 android:textColor="@color/black" />
             <include
                 android:id="@+id/level_one_select_one"
                 layout="@layout/view_apply_info_level_one_select" />
         </LinearLayout>
+        <include layout="@layout/view_item_cut_line"/>
         <!-- 选项2 -->
         <LinearLayout
             style="@style/LevelOneApplyInfoBodyPadding">
@@ -87,14 +88,15 @@
                 android:layout_width="@dimen/dp_0"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dp_5"
-                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
                 android:text="本卡片设有白金卡、金卡、普通卡三个级\n别，若申请卡片级别未获批准，是否同意\n接受银行合法的相应低级别的卡片"
                 android:textColor="@color/black" />
             <include
                 android:id="@+id/level_one_select_two"
                 layout="@layout/view_apply_info_level_one_select" />
         </LinearLayout>
+        <include layout="@layout/view_item_cut_line"/>
         <!-- 会员卡号 -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -107,15 +109,15 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dp_5"
-                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginBottom="@dimen/dp_3"
+                android:layout_marginTop="@dimen/dp_8"
                 android:textColor="@color/black"
                 android:text="*若申请本行联名卡，请填写会员卡号，以便为您提供更优质服务"/>
             <!-- 会员卡号 -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dp_5"
+                android:layout_marginBottom="@dimen/dp_3"
                 android:textColor="@color/black"
                 android:text="会员卡号"/>
             <!-- 卡号输入框 -->
@@ -125,16 +127,17 @@
                 app:ib_box_line_size="@dimen/dp_18"
                 app:ib_input_count="19"
                 app:ib_input_text_type="number"
-                android:layout_marginBottom="@dimen/dp_5" />
+                android:layout_marginBottom="@dimen/dp_8" />
         </LinearLayout>
+        <include layout="@layout/view_item_cut_line"/>
         <!-- 是否有农商银行信用卡 -->
         <LinearLayout style="@style/LevelOneApplyInfoBodyPadding">
             <TextView
                 android:layout_width="@dimen/dp_0"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dp_10"
-                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
                 android:text="是否已有长春农村商业银行信用卡"
                 android:textColor="@color/black" />
             <include
@@ -163,6 +166,6 @@
             android:layout_marginRight="@dimen/dp_10"
             android:textSize="@dimen/sp_12"
             android:layout_marginTop="@dimen/dp_3"
-            android:layout_marginBottom="@dimen/dp_10"/>
+            android:layout_marginBottom="@dimen/dp_20"/>
     </LinearLayout>
 </ScrollView>

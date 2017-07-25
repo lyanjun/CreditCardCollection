@@ -41,11 +41,10 @@
 
                 <com.lyan.tools.view.BoxEditText
                     android:id="@+id/chinese_name"
+                    style="@style/BoxEditStyle"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp_18"
-                    android:layout_marginLeft="@dimen/dp_6"
-                    android:background="@drawable/apply_input_box_background"
-                    android:paddingLeft="@dimen/dp_3" />
+                    android:layout_marginLeft="@dimen/dp_6" />
             </LinearLayout>
             <!-- 国籍 -->
             <LinearLayout
@@ -66,17 +65,17 @@
 
                 <com.lyan.tools.view.BoxEditText
                     android:id="@+id/nationality"
+                    style="@style/BoxEditStyle"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp_18"
-                    android:layout_marginLeft="@dimen/dp_6"
-                    android:background="@drawable/apply_input_box_background"
-                    android:paddingLeft="@dimen/dp_3" />
+                    android:layout_marginLeft="@dimen/dp_6" />
             </LinearLayout>
         </LinearLayout>
         <!-- 拼音姓名 -->
+        <include layout="@layout/view_item_cut_line" />
+
         <LinearLayout
             style="@style/LevelApplyInfoBodyPadding"
-            android:layout_marginTop="@dimen/dp_2"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -98,11 +97,12 @@
                 app:ib_input_text_color="@color/black" />
         </LinearLayout>
         <!-- 出生日期和性别 -->
+        <include layout="@layout/view_item_cut_line" />
+
         <LinearLayout
-            android:layout_marginTop="@dimen/dp_2"
+            style="@style/LevelApplyInfoBodyPadding"
             android:gravity="center_vertical"
-            android:orientation="horizontal"
-            style="@style/LevelApplyInfoBodyPadding">
+            android:orientation="horizontal">
             <!-- 出生日期 -->
             <LinearLayout
                 android:layout_width="@dimen/dp_0"
@@ -112,39 +112,790 @@
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="出生日期"
                     android:textColor="@color/black" />
-                <TextView
-                    android:id="@+id/birthday"
-                    android:layout_width="match_parent"
+
+                <!--<TextView-->
+                    <!--android:id="@+id/birthday"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:gravity="right"-->
+                    <!--android:text="xxxx年xx月xx日" />-->
+                <!-- 输入年月日 -->
+                <com.lyan.tools.view.BoxEditText
+                    style="@style/BoxEditStyle"
+                    android:layout_width="@dimen/dp_40"
                     android:layout_height="wrap_content"
-                    android:text="xxxx年xx月xx日"
-                    android:gravity="right"
-                    />
-                </LinearLayout>
+                    android:layout_marginLeft="@dimen/dp_6"
+                    android:gravity="center_horizontal"
+                    android:inputType="number"
+                    android:maxLength="4" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="年"
+                    android:textSize="@dimen/sp_14" />
+
+                <com.lyan.tools.view.BoxEditText
+                    style="@style/BoxEditStyle"
+                    android:layout_width="@dimen/dp_24"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:inputType="number"
+                    android:maxLength="2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="月"
+                    android:textSize="@dimen/sp_14" />
+
+                <com.lyan.tools.view.BoxEditText
+                    style="@style/BoxEditStyle"
+                    android:layout_width="@dimen/dp_24"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:inputType="number"
+                    android:maxLength="2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="日"
+                    android:textSize="@dimen/sp_14" />
+            </LinearLayout>
             <!-- 性别 -->
             <LinearLayout
-                android:layout_width="@dimen/dp_0"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="@dimen/dp_8"
                 android:layout_marginTop="@dimen/dp_8"
-                android:layout_weight="1"
-                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_20"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_marginRight="@dimen/dp_40"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp_20"
                     android:text="性别"
                     android:textColor="@color/black" />
-                <include layout="@layout/view_apply_info_level_two_select"/>
+
+                <include layout="@layout/view_apply_info_level_two_select" />
             </LinearLayout>
         </LinearLayout>
         <!-- 证件类型 -->
+        <include layout="@layout/view_item_cut_line" />
 
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_8"
+                android:gravity="start"
+                android:text="证件类型"
+                android:textColor="@color/black" />
+            <!-- 选项 -->
+            <!-- 待抽成自定义单选容器 -->
+            <android.support.v7.widget.GridLayout
+                android:layout_width="@dimen/dp_160"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_4"
+                android:layout_marginTop="@dimen/dp_4"
+                app:columnCount="2">
+
+                <RadioButton
+                    style="@style/SelectButtonStyle"
+                    android:text="身份证"
+                    app:layout_columnWeight="1" />
+
+                <RadioButton
+                    style="@style/SelectButtonStyle"
+                    android:text="外国护照"
+                    app:layout_columnWeight="1" />
+
+                <RadioButton
+                    style="@style/SelectButtonStyle"
+                    android:text="港澳通行证"
+                    app:layout_columnWeight="1" />
+
+                <RadioButton
+                    style="@style/SelectButtonStyle"
+                    android:text="其他证件"
+                    app:layout_columnWeight="1" />
+            </android.support.v7.widget.GridLayout>
+            <!-- 请说明 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="@dimen/dp_4"
+                android:text="(请说明)"
+                android:textColor="@color/red"
+                android:textSize="@dimen/sp_8" />
+            <!-- 说明输入框 -->
+            <com.lyan.tools.view.BoxEditText
+                android:id="@+id/declare"
+                style="@style/BoxEditStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_18"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="@dimen/dp_4"
+                android:layout_marginLeft="@dimen/dp_2" />
+        </LinearLayout>
+        <!-- 证件号码 -->
+        <include layout="@layout/view_item_cut_line" />
+
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_4"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="证件号码"
+                android:textColor="@color/black" />
+            <!-- 身份证输入框 -->
+            <com.lyan.tools.view.InputBox
+                style="@style/InputBoxSize"
+                android:layout_marginBottom="@dimen/dp_8"
+                app:ib_box_line_size="@dimen/dp_18"
+                app:ib_input_count="18"
+                app:ib_input_text_color="@color/black"
+                app:ib_input_text_type="number" />
+        </LinearLayout>
+        <!-- 证件有效期至 -->
+        <include layout="@layout/view_item_cut_line" />
+
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <!-- 标题 -->
+            <TextView
+                style="@style/TitleWithMargin"
+                android:text="证件有效期至" />
+            <!-- 输入年月日 -->
+            <com.lyan.tools.view.BoxEditText
+                style="@style/BoxEditStyle"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_6"
+                android:gravity="center_horizontal"
+                android:inputType="number"
+                android:maxLength="4" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="年"
+                android:textSize="@dimen/sp_14" />
+
+            <com.lyan.tools.view.BoxEditText
+                style="@style/BoxEditStyle"
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:inputType="number"
+                android:maxLength="2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="月"
+                android:textSize="@dimen/sp_14" />
+
+            <com.lyan.tools.view.BoxEditText
+                style="@style/BoxEditStyle"
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:inputType="number"
+                android:maxLength="2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="日"
+                android:textSize="@dimen/sp_14" />
+            <!--  勾选按钮 -->
+            <CheckBox
+                style="@style/SelectButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_20"
+                android:text="长期" />
+        </LinearLayout>
+        <!-- 婚姻状况 -->
+        <include layout="@layout/view_item_cut_line" />
+
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_8"
+                android:gravity="start"
+                android:text="婚姻状况"
+                android:textColor="@color/black" />
+            <!-- 选项 -->
+            <android.support.v7.widget.GridLayout
+                android:layout_width="@dimen/dp_280"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_4"
+                android:layout_marginTop="@dimen/dp_4"
+                app:columnCount="3">
+
+                <RadioButton
+                    style="@style/SelectButtonStyle"
+                    android:text="未婚"
+                    app:layout_columnWeight="1" />
+
+                <RadioButton
+                    style="@style/SelectButtonStyle"
+                    android:text="已婚有子女"
+                    app:layout_columnWeight="1" />
+
+                <RadioButton
+                    style="@style/SelectButtonStyle"
+                    android:text="已婚无子女"
+                    app:layout_columnWeight="1" />
+
+                <RadioButton
+                    style="@style/SelectButtonStyle"
+                    android:text="离婚"
+                    app:layout_columnWeight="1" />
+
+                <RadioButton
+                    style="@style/SelectButtonStyle"
+                    android:text="其他"
+                    app:layout_columnWeight="1" />
+            </android.support.v7.widget.GridLayout>
+        </LinearLayout>
+        <!-- 教育程度 -->
+        <include layout="@layout/view_item_cut_line" />
+
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_8"
+                android:gravity="start"
+                android:text="教育程度"
+                android:textColor="@color/black" />
+            <!-- 选项 -->
+            <android.support.v7.widget.GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_4"
+                android:layout_marginTop="@dimen/dp_4"
+                app:columnCount="3">
+
+                <RadioButton
+                    style="@style/SelectButtonStyle"
+                    android:text="博士"
+                    app:layout_columnWeight="1" />
+
+                <RadioButton
+                    style="@style/SelectButtonStyle"
+                    android:text="硕士"
+                    app:layout_columnWeight="1" />
+
+                <RadioButton
+                    style="@style/SelectButtonStyle"
+                    android:text="本科"
+                    app:layout_columnWeight="1" />
+
+                <RadioButton
+                    style="@style/SelectButtonStyle"
+                    android:text="大专"
+                    app:layout_columnWeight="1" />
+
+                <RadioButton
+                    style="@style/SelectButtonStyle"
+                    android:text="高中及中专"
+                    app:layout_columnWeight="1" />
+
+                <RadioButton
+                    style="@style/SelectButtonStyle"
+                    android:text="初中及以下"
+                    app:layout_columnWeight="1" />
+            </android.support.v7.widget.GridLayout>
+        </LinearLayout>
+        <!-- 移动电话 -->
+        <include layout="@layout/view_item_cut_line" />
+
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TitleWithOutMargin"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="移动电话" />
+            <!-- 输入电话号码 -->
+            <com.lyan.tools.view.InputBox
+                style="@style/InputBoxSize"
+                app:ib_box_line_size="@dimen/dp_18"
+                app:ib_input_count="11"
+                app:ib_input_text_color="@color/black"
+                app:ib_input_text_type="number" />
+        </LinearLayout>
+        <!-- 住宅电话区号及号码 -->
+        <include layout="@layout/view_item_cut_line" />
+
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TitleWithOutMargin"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="住宅电话区号及号码" />
+            <!-- 输入电话号码 -->
+            <com.lyan.tools.view.BoxEditText
+                style="@style/BoxEditStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_18"
+                android:inputType="phone"
+                android:maxLength="15" />
+        </LinearLayout>
+        <!-- 住宅地址 -->
+        <include layout="@layout/view_item_cut_line" />
+
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/dp_6"
+                android:textSize="@dimen/sp_14"
+                android:textColor="@color/black"
+                android:text="住宅地址"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:gravity="start" />
+            <!-- 省市区室邮编 -->
+            <LinearLayout
+                android:layout_marginTop="@dimen/dp_4"
+                android:layout_marginBottom="@dimen/dp_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <!-- 省市区 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:layout_marginBottom="@dimen/dp_4"
+                    android:gravity="center_vertical">
+                    <!-- 省 -->
+                    <com.lyan.tools.view.BoxEditText
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="@dimen/dp_18"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        style="@style/BoxEditStyle"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="省"
+                        android:textSize="@dimen/sp_14" />
+                    <!-- 市 -->
+                    <com.lyan.tools.view.BoxEditText
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="@dimen/dp_18"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        style="@style/BoxEditStyle"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="市"
+                        android:textSize="@dimen/sp_14" />
+                    <!-- 区(县) -->
+                    <com.lyan.tools.view.BoxEditText
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="@dimen/dp_18"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        style="@style/BoxEditStyle"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="区(县)"
+                        android:textSize="@dimen/sp_14" />
+                </LinearLayout>
+                <!-- 室邮编 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:layout_marginBottom="@dimen/dp_4">
+                    <!-- 室(号) -->
+                    <com.lyan.tools.view.BoxEditText
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="@dimen/dp_18"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        style="@style/BoxEditStyle"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="室(号)"
+                        android:textSize="@dimen/sp_14" />
+                    <!-- 邮编 -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="邮编"
+                        android:textSize="@dimen/sp_14"
+                        android:textColor="@color/black"
+                        android:layout_marginLeft="@dimen/dp_3"
+                        android:layout_marginRight="@dimen/dp_3"/>
+
+                    <!-- 邮编号 -->
+                    <com.lyan.tools.view.InputBox
+                        style="@style/InputBoxSize"
+                        app:ib_box_line_size="@dimen/dp_18"
+                        app:ib_input_text_color="@color/black"
+                        app:ib_input_count="6"
+                        app:ib_input_text_type="number"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <!--  ******************************************************************  -->
+        <!-- 直系亲属联系人 -->
+        <TextView
+            style="@style/ApplyInfoItemMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="直系亲属联系人"
+            android:textColor="@color/black" />
+        <!-- 中文姓名 -->
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TitleWithOutMargin"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="中文姓名" />
+            <!-- 中文姓名 -->
+            <com.lyan.tools.view.BoxEditText
+                style="@style/BoxEditStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_18"
+                android:maxLength="15" />
+        </LinearLayout>
+        <!-- 与申请人关系 -->
+        <include layout="@layout/view_item_cut_line" />
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_8"
+                android:gravity="start"
+                android:text="与申请人关系"
+                android:textColor="@color/black" />
+            <!-- 选项 -->
+            <android.support.v7.widget.GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_4"
+                android:layout_marginTop="@dimen/dp_4"
+                app:columnCount="2">
+
+                <RadioButton
+                    style="@style/SelectButtonStyle"
+                    android:text="配偶"
+                    app:layout_columnWeight="1" />
+
+                <RadioButton
+                    style="@style/SelectButtonStyle"
+                    android:text="子女"
+                    app:layout_columnWeight="1" />
+
+                <RadioButton
+                    style="@style/SelectButtonStyle"
+                    android:text="父母"
+                    app:layout_columnWeight="1" />
+
+                <RadioButton
+                    style="@style/SelectButtonStyle"
+                    android:text="兄弟姐妹"
+                    app:layout_columnWeight="1" />
+            </android.support.v7.widget.GridLayout>
+        </LinearLayout>
+        <!-- 移动电话 -->
+        <include layout="@layout/view_item_cut_line" />
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TitleWithOutMargin"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="移动电话" />
+            <!-- 输入电话号码 -->
+            <com.lyan.tools.view.InputBox
+                style="@style/InputBoxSize"
+                app:ib_box_line_size="@dimen/dp_18"
+                app:ib_input_count="11"
+                app:ib_input_text_color="@color/black"
+                app:ib_input_text_type="number" />
+        </LinearLayout>
+        <!-- 单位电话区号及号码 -->
+        <include layout="@layout/view_item_cut_line" />
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TitleWithOutMargin"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="单位电话区号及号码" />
+            <!-- 中文姓名 -->
+            <com.lyan.tools.view.BoxEditText
+                style="@style/BoxEditStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_18"
+                android:maxLength="15"
+                android:inputType="phone"/>
+        </LinearLayout>
+        <!-- 单位名称 -->
+        <include layout="@layout/view_item_cut_line" />
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TitleWithOutMargin"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="单位名称" />
+            <!-- 单位名称 -->
+            <com.lyan.tools.view.BoxEditText
+                style="@style/BoxEditStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_18" />
+        </LinearLayout>
+        <!--  ******************************************************************  -->
+        <!-- 紧急联系人 -->
+        <TextView
+            style="@style/ApplyInfoItemMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="紧急联系人"
+            android:textColor="@color/black" />
+        <!-- 中文姓名 -->
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TitleWithOutMargin"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="中文姓名" />
+            <!-- 中文姓名 -->
+            <com.lyan.tools.view.BoxEditText
+                style="@style/BoxEditStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_18"
+                android:maxLength="15" />
+        </LinearLayout>
+        <!-- 与申请人关系 -->
+        <include layout="@layout/view_item_cut_line" />
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_8"
+                android:gravity="start"
+                android:text="与申请人关系"
+                android:textColor="@color/black" />
+            <!-- 选项 -->
+            <android.support.v7.widget.GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_4"
+                android:layout_marginTop="@dimen/dp_4"
+                app:columnCount="2">
+
+                <RadioButton
+                    style="@style/SelectButtonStyle"
+                    android:text="配偶"
+                    app:layout_columnWeight="1" />
+
+                <RadioButton
+                    style="@style/SelectButtonStyle"
+                    android:text="亲属"
+                    app:layout_columnWeight="1" />
+
+                <RadioButton
+                    style="@style/SelectButtonStyle"
+                    android:text="朋友"
+                    app:layout_columnWeight="1" />
+
+                <RadioButton
+                    style="@style/SelectButtonStyle"
+                    android:text="同事"
+                    app:layout_columnWeight="1" />
+            </android.support.v7.widget.GridLayout>
+        </LinearLayout>
+        <!-- 移动电话 -->
+        <include layout="@layout/view_item_cut_line" />
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TitleWithOutMargin"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="移动电话" />
+            <!-- 输入电话号码 -->
+            <com.lyan.tools.view.InputBox
+                style="@style/InputBoxSize"
+                app:ib_box_line_size="@dimen/dp_18"
+                app:ib_input_count="11"
+                app:ib_input_text_color="@color/black"
+                app:ib_input_text_type="number" />
+        </LinearLayout>
+        <!-- 单位电话区号及号码 -->
+        <include layout="@layout/view_item_cut_line" />
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TitleWithOutMargin"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="单位电话区号及号码" />
+            <!-- 中文姓名 -->
+            <com.lyan.tools.view.BoxEditText
+                style="@style/BoxEditStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_18"
+                android:maxLength="15"
+                android:inputType="phone"/>
+        </LinearLayout>
+        <!-- 单位名称 -->
+        <include layout="@layout/view_item_cut_line" />
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TitleWithOutMargin"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="单位名称" />
+            <!-- 单位名称 -->
+            <com.lyan.tools.view.BoxEditText
+                style="@style/BoxEditStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_18" />
+        </LinearLayout>
+        <!-- 上一步 下一步 按钮 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_10">
+            <!-- 上一步按钮 -->
+            <Button
+                android:id="@+id/input_last_btn"
+                android:layout_width="@dimen/dp_0"
+                android:layout_weight="1"
+                android:layout_height="@dimen/dp_40"
+                android:layout_marginRight="@dimen/dp_5"
+                android:text="上一步"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_18"
+                android:background="@drawable/button_submit_background"/>
+            <!-- 下一步按钮 -->
+            <Button
+                android:id="@+id/input_next_btn"
+                android:layout_width="@dimen/dp_0"
+                android:layout_weight="1"
+                android:layout_height="@dimen/dp_40"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:text="下一步"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_18"
+                android:background="@drawable/button_submit_background"/>
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

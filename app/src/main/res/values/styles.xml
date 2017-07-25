@@ -29,4 +29,34 @@
         <item name="android:paddingLeft">@dimen/dp_8</item>
         <item name="android:paddingRight">@dimen/dp_8</item>
     </style>
+
+    <!-- 选线按钮的样式 -->
+    <style name="SelectButtonStyle">
+        <item name="android:drawableLeft">@drawable/apply_info_selecter</item>
+        <item name="android:button">@null</item>
+        <item name="android:layout_marginTop">@dimen/dp_4</item>
+        <item name="android:layout_marginBottom">@dimen/dp_4</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <!-- item标题有边距-->
+    <style name="TitleWithMargin">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/dp_8</item>
+        <item name="android:layout_marginBottom">@dimen/dp_8</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <!-- item标题无边距-->
+    <style name="TitleWithOutMargin">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <!-- Info输入框 -->
+    <style name="BoxEditStyle">
+        <item name="android:background">@drawable/apply_input_line_background</item>
+        <item name="android:paddingLeft">@dimen/dp_3</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
 </resources>
