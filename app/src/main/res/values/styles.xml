@@ -34,6 +34,7 @@
     <style name="SelectButtonStyle">
         <item name="android:drawableLeft">@drawable/apply_info_selecter</item>
         <item name="android:button">@null</item>
+        <item name="android:layout_width">@dimen/dp_90</item>
         <item name="android:layout_marginTop">@dimen/dp_4</item>
         <item name="android:layout_marginBottom">@dimen/dp_4</item>
         <item name="android:textSize">@dimen/sp_14</item>

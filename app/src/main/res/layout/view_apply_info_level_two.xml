@@ -209,7 +209,7 @@
             <!-- 选项 -->
             <!-- 待抽成自定义单选容器 -->
             <android.support.v7.widget.GridLayout
-                android:layout_width="@dimen/dp_160"
+                android:layout_width="@dimen/dp_180"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/dp_4"
                 android:layout_marginTop="@dimen/dp_4"
@@ -358,7 +358,7 @@
                 android:textColor="@color/black" />
             <!-- 选项 -->
             <android.support.v7.widget.GridLayout
-                android:layout_width="@dimen/dp_280"
+                android:layout_width="@dimen/dp_270"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/dp_4"
                 android:layout_marginTop="@dimen/dp_4"
@@ -409,7 +409,7 @@
                 android:textColor="@color/black" />
             <!-- 选项 -->
             <android.support.v7.widget.GridLayout
-                android:layout_width="match_parent"
+                android:layout_width="@dimen/dp_270"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/dp_4"
                 android:layout_marginTop="@dimen/dp_4"
@@ -644,7 +644,7 @@
                 android:textColor="@color/black" />
             <!-- 选项 -->
             <android.support.v7.widget.GridLayout
-                android:layout_width="match_parent"
+                android:layout_width="@dimen/dp_270"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/dp_4"
                 android:layout_marginTop="@dimen/dp_4"
@@ -777,7 +777,7 @@
                 android:textColor="@color/black" />
             <!-- 选项 -->
             <android.support.v7.widget.GridLayout
-                android:layout_width="match_parent"
+                android:layout_width="@dimen/dp_270"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/dp_4"
                 android:layout_marginTop="@dimen/dp_4"
