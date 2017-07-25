@@ -209,7 +209,7 @@
             <!-- 选项 -->
             <!-- 待抽成自定义单选容器 -->
             <android.support.v7.widget.GridLayout
-                android:layout_width="@dimen/dp_180"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/dp_4"
                 android:layout_marginTop="@dimen/dp_4"
@@ -218,22 +218,22 @@
                 <RadioButton
                     style="@style/SelectButtonStyle"
                     android:text="身份证"
-                    app:layout_columnWeight="1" />
+                    />
 
                 <RadioButton
-                    style="@style/SelectButtonStyle"
+                    style="@style/SelectButtonStyle2"
                     android:text="外国护照"
-                    app:layout_columnWeight="1" />
+                    />
 
                 <RadioButton
                     style="@style/SelectButtonStyle"
                     android:text="港澳通行证"
-                    app:layout_columnWeight="1" />
+                     />
 
                 <RadioButton
-                    style="@style/SelectButtonStyle"
+                    style="@style/SelectButtonStyle2"
                     android:text="其他证件"
-                    app:layout_columnWeight="1" />
+                    />
             </android.support.v7.widget.GridLayout>
             <!-- 请说明 -->
             <TextView
