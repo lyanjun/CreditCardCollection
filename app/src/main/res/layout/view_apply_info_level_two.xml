@@ -216,22 +216,22 @@
                 app:columnCount="2">
 
                 <RadioButton
-                    style="@style/SelectButtonStyle"
+                    style="@style/SelectButtonStyleHaveWidth"
                     android:text="身份证"
                     />
 
                 <RadioButton
-                    style="@style/SelectButtonStyle2"
+                    style="@style/SelectButtonStyleNoWidth"
                     android:text="外国护照"
                     />
 
                 <RadioButton
-                    style="@style/SelectButtonStyle"
+                    style="@style/SelectButtonStyleHaveWidth"
                     android:text="港澳通行证"
                      />
 
                 <RadioButton
-                    style="@style/SelectButtonStyle2"
+                    style="@style/SelectButtonStyleNoWidth"
                     android:text="其他证件"
                     />
             </android.support.v7.widget.GridLayout>
@@ -333,7 +333,7 @@
                 android:textSize="@dimen/sp_14" />
             <!--  勾选按钮 -->
             <CheckBox
-                style="@style/SelectButtonStyle"
+                style="@style/SelectButtonStyleHaveWidth"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp_20"
@@ -365,27 +365,27 @@
                 app:columnCount="3">
 
                 <RadioButton
-                    style="@style/SelectButtonStyle"
+                    style="@style/SelectButtonStyleHaveWidth"
                     android:text="未婚"
                     app:layout_columnWeight="1" />
 
                 <RadioButton
-                    style="@style/SelectButtonStyle"
+                    style="@style/SelectButtonStyleHaveWidth"
                     android:text="已婚有子女"
                     app:layout_columnWeight="1" />
 
                 <RadioButton
-                    style="@style/SelectButtonStyle"
+                    style="@style/SelectButtonStyleHaveWidth"
                     android:text="已婚无子女"
                     app:layout_columnWeight="1" />
 
                 <RadioButton
-                    style="@style/SelectButtonStyle"
+                    style="@style/SelectButtonStyleHaveWidth"
                     android:text="离婚"
                     app:layout_columnWeight="1" />
 
                 <RadioButton
-                    style="@style/SelectButtonStyle"
+                    style="@style/SelectButtonStyleHaveWidth"
                     android:text="其他"
                     app:layout_columnWeight="1" />
             </android.support.v7.widget.GridLayout>
@@ -416,32 +416,32 @@
                 app:columnCount="3">
 
                 <RadioButton
-                    style="@style/SelectButtonStyle"
+                    style="@style/SelectButtonStyleHaveWidth"
                     android:text="博士"
                     app:layout_columnWeight="1" />
 
                 <RadioButton
-                    style="@style/SelectButtonStyle"
+                    style="@style/SelectButtonStyleHaveWidth"
                     android:text="硕士"
                     app:layout_columnWeight="1" />
 
                 <RadioButton
-                    style="@style/SelectButtonStyle"
+                    style="@style/SelectButtonStyleHaveWidth"
                     android:text="本科"
                     app:layout_columnWeight="1" />
 
                 <RadioButton
-                    style="@style/SelectButtonStyle"
+                    style="@style/SelectButtonStyleHaveWidth"
                     android:text="大专"
                     app:layout_columnWeight="1" />
 
                 <RadioButton
-                    style="@style/SelectButtonStyle"
+                    style="@style/SelectButtonStyleHaveWidth"
                     android:text="高中及中专"
                     app:layout_columnWeight="1" />
 
                 <RadioButton
-                    style="@style/SelectButtonStyle"
+                    style="@style/SelectButtonStyleHaveWidth"
                     android:text="初中及以下"
                     app:layout_columnWeight="1" />
             </android.support.v7.widget.GridLayout>
@@ -651,22 +651,22 @@
                 app:columnCount="2">
 
                 <RadioButton
-                    style="@style/SelectButtonStyle"
+                    style="@style/SelectButtonStyleHaveWidth"
                     android:text="配偶"
                     app:layout_columnWeight="1" />
 
                 <RadioButton
-                    style="@style/SelectButtonStyle"
+                    style="@style/SelectButtonStyleHaveWidth"
                     android:text="子女"
                     app:layout_columnWeight="1" />
 
                 <RadioButton
-                    style="@style/SelectButtonStyle"
+                    style="@style/SelectButtonStyleHaveWidth"
                     android:text="父母"
                     app:layout_columnWeight="1" />
 
                 <RadioButton
-                    style="@style/SelectButtonStyle"
+                    style="@style/SelectButtonStyleHaveWidth"
                     android:text="兄弟姐妹"
                     app:layout_columnWeight="1" />
             </android.support.v7.widget.GridLayout>
@@ -784,22 +784,22 @@
                 app:columnCount="2">
 
                 <RadioButton
-                    style="@style/SelectButtonStyle"
+                    style="@style/SelectButtonStyleHaveWidth"
                     android:text="配偶"
                     app:layout_columnWeight="1" />
 
                 <RadioButton
-                    style="@style/SelectButtonStyle"
+                    style="@style/SelectButtonStyleHaveWidth"
                     android:text="亲属"
                     app:layout_columnWeight="1" />
 
                 <RadioButton
-                    style="@style/SelectButtonStyle"
+                    style="@style/SelectButtonStyleHaveWidth"
                     android:text="朋友"
                     app:layout_columnWeight="1" />
 
                 <RadioButton
-                    style="@style/SelectButtonStyle"
+                    style="@style/SelectButtonStyleHaveWidth"
                     android:text="同事"
                     app:layout_columnWeight="1" />
             </android.support.v7.widget.GridLayout>

@@ -30,20 +30,23 @@
         <item name="android:paddingRight">@dimen/dp_8</item>
     </style>
 
-    <!-- 选线按钮的样式 -->
-    <style name="SelectButtonStyle">
+    <!-- 选线按钮的样式有宽度 -->
+    <style name="SelectButtonStyleHaveWidth">
         <item name="android:drawableLeft">@drawable/apply_info_selecter</item>
         <item name="android:button">@null</item>
         <item name="android:layout_width">@dimen/dp_90</item>
         <item name="android:layout_marginTop">@dimen/dp_4</item>
         <item name="android:layout_marginBottom">@dimen/dp_4</item>
         <item name="android:textSize">@dimen/sp_14</item>
+        <item name="android:background">@null</item>
         <item name="android:textColor">@color/black</item>
     </style>
-    <style name="SelectButtonStyle2">
+    <!-- 选线按钮的样式无确定宽度 -->
+    <style name="SelectButtonStyleNoWidth">
         <item name="android:drawableLeft">@drawable/apply_info_selecter</item>
         <item name="android:button">@null</item>
         <item name="android:layout_width">wrap_content</item>
+        <item name="android:background">@null</item>
         <item name="android:layout_marginTop">@dimen/dp_4</item>
         <item name="android:layout_marginBottom">@dimen/dp_4</item>
         <item name="android:textSize">@dimen/sp_14</item>
