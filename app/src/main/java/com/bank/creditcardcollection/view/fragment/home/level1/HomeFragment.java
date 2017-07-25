@@ -81,8 +81,9 @@ public class HomeFragment extends BaseWithOutBackFragment implements HomeContrac
         super.setFunction();
         new HomePresenter(this);
         mHomePresenter.initData();//初始化数据
-        testBtn.setOnClickListener(v -> mHomePresenter.test());
-//        testBtn.setOnClickListener(v -> ToastUtils.shortToast(mContext,InformationUtils.getInfo().getCredentialType().get(1)));
+        testBtn.setOnClickListener(v -> {
+
+        });
     }
 
     /**
