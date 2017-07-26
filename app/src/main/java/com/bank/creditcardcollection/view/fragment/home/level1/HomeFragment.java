@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import com.bank.creditcardcollection.R;
-import com.bank.creditcardcollection.constant.information.InformationUtils;
 import com.bank.creditcardcollection.net.retrofit.HttpUtils;
 import com.bank.creditcardcollection.view.fragment.base.BaseWithOutBackFragment;
 import com.google.gson.Gson;
@@ -85,11 +84,18 @@ public class HomeFragment extends BaseWithOutBackFragment implements HomeContrac
         mHomePresenter.initData();//初始化数据
         testBtn.setOnClickListener(v -> {
             HttpUtils.postJson(new Gson().toJson(new A(1)))
-                    .subscribe(s -> Logger.t("返回数据").i(s),throwable -> Logger.t("请求错误").w(throwable.getMessage()));
+                    .subscribe(s -> {
+                                Logger.t("返回数据").i(s);
+                                ToastUtils.shortToast(mContext, s);
+                            }
+                            , throwable -> {
+                                Logger.t("请求错误").w(throwable.getMessage());
+                                ToastUtils.shortToast(mContext, throwable.getMessage());
+                            });
         });
     }
 
-    class A{
+    class A {
         private int gid;
 
         public A(int gid) {
@@ -104,6 +110,7 @@ public class HomeFragment extends BaseWithOutBackFragment implements HomeContrac
             this.gid = gid;
         }
     }
+
     /**
      * 初始化界面的数据
      *
