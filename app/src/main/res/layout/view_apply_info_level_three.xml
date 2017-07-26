@@ -1,11 +1,761 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scroll_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="none">
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="第三步"
-        android:gravity="center"
-        android:textSize="50sp"/>
-</LinearLayout>
+        android:orientation="vertical">
+        <!-- 步骤名称 -->
+        <TextView
+            style="@style/ApplyInfoItemMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="工作信息"
+            android:textColor="@color/black" />
+        <!-- 单位名称 -->
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TitleWithOutMargin"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="单位名称" />
+            <!-- 单位名称 -->
+            <com.lyan.tools.view.BoxEditText
+                style="@style/BoxEditStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_18" />
+        </LinearLayout>
+        <!-- 任职部门、职务 -->
+        <include layout="@layout/view_item_cut_line" />
+
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <!-- 任职部门 -->
+            <LinearLayout
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="任职部门"
+                    android:textColor="@color/black" />
+
+                <com.lyan.tools.view.BoxEditText
+                    android:id="@+id/chinese_name"
+                    style="@style/BoxEditStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_18"
+                    android:layout_marginLeft="@dimen/dp_6" />
+            </LinearLayout>
+            <!-- 职务 -->
+            <LinearLayout
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="职务"
+                    android:textColor="@color/black" />
+
+                <com.lyan.tools.view.BoxEditText
+                    android:id="@+id/nationality"
+                    style="@style/BoxEditStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_18"
+                    android:layout_marginLeft="@dimen/dp_6" />
+            </LinearLayout>
+
+        </LinearLayout>
+        <!-- 行业性质 -->
+        <include layout="@layout/view_item_cut_line" />
+
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_8"
+                android:gravity="start"
+                android:text="行业性质"
+                android:textColor="@color/black" />
+            <!-- 选项 -->
+            <android.support.v7.widget.GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_4"
+                android:layout_marginTop="@dimen/dp_4"
+                app:columnCount="3">
+
+                <RadioButton
+                    style="@style/SelectButtonStyleNoWidth"
+                    android:text="机关·事业单位"
+                    app:layout_columnWeight="1" />
+
+                <RadioButton
+                    style="@style/SelectButtonStyleNoWidth"
+                    android:text="国有企业"
+                    app:layout_columnWeight="1" />
+
+                <RadioButton
+                    style="@style/SelectButtonStyleNoWidth"
+                    android:text="独资企业"
+                    app:layout_columnWeight="1" />
+
+                <RadioButton
+                    style="@style/SelectButtonStyleNoWidth"
+                    android:text="合资·合作单位"
+                    app:layout_columnWeight="1" />
+
+                <RadioButton
+                    style="@style/SelectButtonStyleNoWidth"
+                    android:text="股份制企业"
+                    app:layout_columnWeight="1" />
+
+                <RadioButton
+                    style="@style/SelectButtonStyleNoWidth"
+                    android:text="私人企业"
+                    app:layout_columnWeight="1" />
+
+                <RadioButton
+                    style="@style/SelectButtonStyleNoWidth"
+                    android:text="其他"
+                    app:layout_columnWeight="1" />
+            </android.support.v7.widget.GridLayout>
+        </LinearLayout>
+        <!-- 职务分类 -->
+        <include layout="@layout/view_item_cut_line" />
+
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_8"
+                android:gravity="start"
+                android:text="职务分类"
+                android:textColor="@color/black" />
+            <!-- 选项 -->
+            <android.support.v7.widget.GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_4"
+                android:layout_marginTop="@dimen/dp_4"
+                app:columnCount="3">
+
+                <RadioButton
+                    style="@style/SelectButtonStyleNoWidth"
+                    android:text="负责人/法人"
+                    app:layout_columnWeight="1" />
+
+                <RadioButton
+                    style="@style/SelectButtonStyleNoWidth"
+                    android:text="高层管理人员"
+                    app:layout_columnWeight="1" />
+
+                <RadioButton
+                    style="@style/SelectButtonStyleNoWidth"
+                    android:text="中层管理人员"
+                    app:layout_columnWeight="1" />
+
+                <RadioButton
+                    style="@style/SelectButtonStyleNoWidth"
+                    android:text="正式员工"
+                    app:layout_columnWeight="1" />
+
+                <RadioButton
+                    style="@style/SelectButtonStyleNoWidth"
+                    android:text="非正式员工"
+                    app:layout_columnWeight="1" />
+            </android.support.v7.widget.GridLayout>
+        </LinearLayout>
+        <!-- 单位地址 -->
+        <include layout="@layout/view_item_cut_line" />
+
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_8"
+                android:gravity="start"
+                android:text="单位地址"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_14" />
+            <!-- 省市区室邮编 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_4"
+                android:layout_marginTop="@dimen/dp_4"
+                android:orientation="vertical">
+                <!-- 省市区 -->
+                <LinearLayout style="@style/AppleInfoItemChildLayoutStyle">
+                    <!-- 省 -->
+                    <com.lyan.tools.view.BoxEditText
+                        style="@style/BoxEditStyle"
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="@dimen/dp_18"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal" />
+
+                    <TextView
+                        style="@style/ApplyInfoFlagTagTextStyle"
+                        android:text="省" />
+                    <!-- 市 -->
+                    <com.lyan.tools.view.BoxEditText
+                        style="@style/BoxEditStyle"
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="@dimen/dp_18"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal" />
+
+                    <TextView
+                        style="@style/ApplyInfoFlagTagTextStyle"
+                        android:text="市" />
+                    <!-- 区(县) -->
+                    <com.lyan.tools.view.BoxEditText
+                        style="@style/BoxEditStyle"
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="@dimen/dp_18"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal" />
+
+                    <TextView
+                        style="@style/ApplyInfoFlagTagTextStyle"
+                        android:text="区(县)" />
+                </LinearLayout>
+                <!-- 室邮编 -->
+                <LinearLayout style="@style/AppleInfoItemChildLayoutStyle">
+                    <!-- 室(号) -->
+                    <com.lyan.tools.view.BoxEditText
+                        style="@style/BoxEditStyle"
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="@dimen/dp_18"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="室(号)"
+                        android:textSize="@dimen/sp_14"
+                        android:visibility="invisible" />
+                    <!-- 邮编 -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp_3"
+                        android:layout_marginRight="@dimen/dp_3"
+                        android:text="邮编"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_14" />
+
+                    <!-- 邮编号 -->
+                    <com.lyan.tools.view.InputBox
+                        style="@style/InputBoxSize"
+                        app:ib_box_line_size="@dimen/dp_18"
+                        app:ib_input_count="6"
+                        app:ib_input_text_color="@color/black"
+                        app:ib_input_text_type="number" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <!-- 前单位全称 -->
+        <include layout="@layout/view_item_cut_line" />
+
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TitleWithOutMargin"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="前单位全称" />
+            <!-- 前单位全称 -->
+            <com.lyan.tools.view.BoxEditText
+                style="@style/BoxEditStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_18" />
+        </LinearLayout>
+        <!--  ******************************************************************  -->
+        <!-- 其他资料(有助于审核) -->
+        <!-- 步骤名称 -->
+        <TextView
+            style="@style/ApplyInfoItemMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="其他资料(有助于审核)"
+            android:textColor="@color/black" />
+        <!-- 房产信息 -->
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_8"
+                android:gravity="start"
+                android:text="房产信息"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_14" />
+            <!-- 省市区室邮编 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_4"
+                android:layout_marginTop="@dimen/dp_4"
+                android:orientation="vertical">
+                <!-- 选项第一行 -->
+                <LinearLayout style="@style/AppleInfoItemChildLayoutStyle">
+
+                    <RadioButton
+                        style="@style/SelectButtonStyleNone"
+                        android:text="自有住房" />
+
+                    <RadioButton
+                        style="@style/SelectButtonStyleNone"
+                        android:layout_marginLeft="@dimen/dp_20"
+                        android:text="贷款购房" />
+                    <!-- 前 -->
+                    <TextView
+                        style="@style/ApplyInfoFlagTagTextStyle"
+                        android:text="(月还款" />
+                    <!-- 输入钱 -->
+                    <com.lyan.tools.view.BoxEditText
+                        style="@style/BoxEditStyle"
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="@dimen/dp_18"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:inputType="number" />
+                    <!-- 后 -->
+                    <TextView
+                        style="@style/ApplyInfoFlagTagTextStyle"
+                        android:text="元)" />
+                </LinearLayout>
+                <!-- 选项第二行 -->
+                <LinearLayout style="@style/AppleInfoItemChildLayoutStyle">
+
+                    <RadioButton
+                        style="@style/SelectButtonStyleNone"
+                        android:text="租房　　" />
+
+                    <RadioButton
+                        style="@style/SelectButtonStyleNone"
+                        android:layout_marginLeft="@dimen/dp_20"
+                        android:text="与亲属合租" />
+                </LinearLayout>
+                <!-- 选项第三行 -->
+                <LinearLayout style="@style/AppleInfoItemChildLayoutStyle">
+
+                    <RadioButton
+                        style="@style/SelectButtonStyleNone"
+                        android:text="集体宿舍" />
+
+                    <RadioButton
+                        style="@style/SelectButtonStyleNone"
+                        android:layout_marginLeft="@dimen/dp_20"
+                        android:text="其他" />
+                    <!-- 请说明 -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:text="(请说明)"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/sp_8" />
+                    <!-- 说明输入框 -->
+                    <com.lyan.tools.view.BoxEditText
+                        android:id="@+id/declare"
+                        style="@style/BoxEditStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_18"
+                        android:layout_gravity="bottom"
+                        android:layout_marginLeft="@dimen/dp_2" />
+                </LinearLayout>
+                <!-- 输入信息 -->
+                <LinearLayout style="@style/AppleInfoItemChildLayoutStyle">
+                    <!-- 房产面积 -->
+                    <TextView
+                        style="@style/ApplyInfoFlagTagTextStyle"
+                        android:text="房产面积" />
+                    <!-- 输入面积 -->
+                    <com.lyan.tools.view.BoxEditText
+                        style="@style/BoxEditStyle"
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="@dimen/dp_18"
+                        android:layout_weight="0.6"
+                        android:gravity="center_horizontal"
+                        android:inputType="number" />
+                    <!-- 房产价值 -->
+                    <TextView
+                        style="@style/ApplyInfoFlagTagTextStyle"
+                        android:text="房产价值" />
+                    <!-- 输入价钱 -->
+                    <com.lyan.tools.view.BoxEditText
+                        style="@style/BoxEditStyle"
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="@dimen/dp_18"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:inputType="number" />
+                    <!-- 元 -->
+                    <TextView
+                        style="@style/ApplyInfoFlagTagTextStyle"
+                        android:text="元" />
+                    <!-- 房龄 -->
+                    <TextView
+                        style="@style/ApplyInfoFlagTagTextStyle"
+                        android:layout_marginLeft="@dimen/dp_2"
+                        android:text="房龄" />
+                    <!-- 输入价钱 -->
+                    <com.lyan.tools.view.BoxEditText
+                        style="@style/BoxEditStyle"
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="@dimen/dp_18"
+                        android:layout_weight="0.5"
+                        android:gravity="center_horizontal"
+                        android:inputType="number" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <!--&lt;!&ndash; 车辆信息 &ndash;&gt;-->
+        <!--<include layout="@layout/view_item_cut_line" />-->
+        <!--<LinearLayout-->
+            <!--style="@style/LevelApplyInfoBodyPadding"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_marginBottom="@dimen/dp_8"-->
+                <!--android:layout_marginRight="@dimen/dp_6"-->
+                <!--android:layout_marginTop="@dimen/dp_8"-->
+                <!--android:gravity="start"-->
+                <!--android:text="车辆信息"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textSize="@dimen/sp_14" />-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginBottom="@dimen/dp_4"-->
+                <!--android:layout_marginTop="@dimen/dp_4"-->
+                <!--android:orientation="vertical">-->
+                <!--&lt;!&ndash; 选项第一行 &ndash;&gt;-->
+                <!--<LinearLayout style="@style/AppleInfoItemChildLayoutStyle">-->
+                    <!--&lt;!&ndash; 车牌号码 &ndash;&gt;-->
+                    <!--<TextView-->
+                        <!--style="@style/ApplyInfoFlagTagTextStyle"-->
+                        <!--android:text="车牌号码" />-->
+                    <!--&lt;!&ndash; 输入 &ndash;&gt;-->
+                    <!--<com.lyan.tools.view.BoxEditText-->
+                        <!--style="@style/BoxEditStyle"-->
+                        <!--android:layout_width="@dimen/dp_0"-->
+                        <!--android:layout_height="@dimen/dp_18"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:gravity="center_horizontal"-->
+                        <!--android:inputType="number" />-->
+                    <!--&lt;!&ndash; 车辆品牌 &ndash;&gt;-->
+                    <!--<TextView-->
+                        <!--style="@style/ApplyInfoFlagTagTextStyle"-->
+                        <!--android:text="车辆品牌" />-->
+                    <!--&lt;!&ndash; 输入 &ndash;&gt;-->
+                    <!--<com.lyan.tools.view.BoxEditText-->
+                        <!--style="@style/BoxEditStyle"-->
+                        <!--android:layout_width="@dimen/dp_0"-->
+                        <!--android:layout_height="@dimen/dp_18"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:gravity="center_horizontal"-->
+                        <!--android:inputType="number" />-->
+                <!--</LinearLayout>-->
+                <!--&lt;!&ndash; 选项第二行 &ndash;&gt;-->
+                <!--<LinearLayout style="@style/AppleInfoItemChildLayoutStyle">-->
+                    <!--&lt;!&ndash; 购买价格 &ndash;&gt;-->
+                    <!--<TextView-->
+                        <!--style="@style/ApplyInfoFlagTagTextStyle"-->
+                        <!--android:text="购买价格" />-->
+                    <!--&lt;!&ndash; 输入 &ndash;&gt;-->
+                    <!--<com.lyan.tools.view.BoxEditText-->
+                        <!--style="@style/BoxEditStyle"-->
+                        <!--android:layout_width="@dimen/dp_0"-->
+                        <!--android:layout_height="@dimen/dp_18"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:gravity="center_horizontal"-->
+                        <!--android:inputType="number" />-->
+                    <!--&lt;!&ndash; 车辆识别代码 &ndash;&gt;-->
+                    <!--<TextView-->
+                        <!--style="@style/ApplyInfoFlagTagTextStyle"-->
+                        <!--android:text="车辆识别代码" />-->
+                    <!--&lt;!&ndash; 输入 &ndash;&gt;-->
+                    <!--<com.lyan.tools.view.BoxEditText-->
+                        <!--style="@style/BoxEditStyle"-->
+                        <!--android:layout_width="@dimen/dp_0"-->
+                        <!--android:layout_height="@dimen/dp_18"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:gravity="center_horizontal"-->
+                        <!--android:inputType="number" />-->
+                <!--</LinearLayout>-->
+                <!--&lt;!&ndash; 选项第三行 &ndash;&gt;-->
+                <!--<LinearLayout style="@style/AppleInfoItemChildLayoutStyle">-->
+                    <!--<TextView-->
+                        <!--style="@style/ApplyInfoFlagTagTextStyle"-->
+                        <!--android:text="车牌登记日期" />-->
+                    <!--&lt;!&ndash; 输入 &ndash;&gt;-->
+                    <!--<com.lyan.tools.view.BoxEditText-->
+                        <!--style="@style/BoxEditStyle"-->
+                        <!--android:layout_width="@dimen/dp_40"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="@dimen/dp_6"-->
+                        <!--android:gravity="center_horizontal"-->
+                        <!--android:inputType="number"-->
+                        <!--android:maxLength="4" />-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="年"-->
+                        <!--android:textSize="@dimen/sp_14" />-->
+
+                    <!--<com.lyan.tools.view.BoxEditText-->
+                        <!--style="@style/BoxEditStyle"-->
+                        <!--android:layout_width="23dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:gravity="center_horizontal"-->
+                        <!--android:inputType="number"-->
+                        <!--android:maxLength="2" />-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="月"-->
+                        <!--android:textSize="@dimen/sp_14" />-->
+
+                    <!--<com.lyan.tools.view.BoxEditText-->
+                        <!--style="@style/BoxEditStyle"-->
+                        <!--android:layout_width="@dimen/dp_24"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:gravity="center_horizontal"-->
+                        <!--android:inputType="number"-->
+                        <!--android:maxLength="2" />-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="日"-->
+                        <!--android:textSize="@dimen/sp_14" />-->
+                <!--</LinearLayout>-->
+            <!--</LinearLayout>-->
+        <!--</LinearLayout>-->
+        <!--&lt;!&ndash;  ******************************************************************  &ndash;&gt;-->
+        <!--&lt;!&ndash; 邮寄地址 &ndash;&gt;-->
+        <!--&lt;!&ndash; 步骤名称 &ndash;&gt;-->
+        <!--<TextView-->
+        <!--style="@style/ApplyInfoItemMargin"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="邮寄地址"-->
+        <!--android:textColor="@color/black" />-->
+        <!--<LinearLayout-->
+            <!--style="@style/LevelApplyInfoBodyPadding"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_marginBottom="@dimen/dp_4"-->
+                <!--android:layout_marginRight="@dimen/dp_6"-->
+                <!--android:layout_marginTop="@dimen/dp_8"-->
+                <!--android:gravity="start"-->
+                <!--android:text="请选择邮寄地址"-->
+                <!--android:textColor="@color/black" />-->
+            <!--&lt;!&ndash; 选项 &ndash;&gt;-->
+            <!--<android.support.v7.widget.GridLayout-->
+                <!--android:layout_width="@dimen/dp_180"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="@dimen/dp_4"-->
+                <!--app:columnCount="2">-->
+                <!--<RadioButton-->
+                    <!--style="@style/SelectButtonStyleHaveWidth"-->
+                    <!--android:text="住宅地址"-->
+                    <!--app:layout_columnWeight="1" />-->
+                <!--<RadioButton-->
+                    <!--style="@style/SelectButtonStyleHaveWidth"-->
+                    <!--android:text="单位地址"-->
+                    <!--app:layout_columnWeight="1" />-->
+            <!--</android.support.v7.widget.GridLayout>-->
+        <!--</LinearLayout>-->
+        <!--<TextView-->
+            <!--android:text="(卡函、对账单等邮件相关邮件寄送地址，不选择则默认为“住宅地址)"-->
+            <!--style="@style/ApplyInfoItemHintTextStyle" />-->
+        <!--&lt;!&ndash; 对账单发送电子邮箱 &ndash;&gt;-->
+        <!--<include layout="@layout/view_item_cut_line"/>-->
+        <!--<LinearLayout-->
+            <!--style="@style/LevelApplyInfoBodyPadding"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<TextView-->
+                <!--style="@style/TitleWithOutMargin"-->
+                <!--android:layout_marginBottom="@dimen/dp_4"-->
+                <!--android:layout_marginRight="@dimen/dp_6"-->
+                <!--android:layout_marginTop="@dimen/dp_8"-->
+                <!--android:text="对账单发送电子邮箱" />-->
+            <!--&lt;!&ndash; 单位名称 &ndash;&gt;-->
+            <!--<com.lyan.tools.view.BoxEditText-->
+                <!--style="@style/BoxEditStyle"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="@dimen/dp_18" />-->
+        <!--</LinearLayout>-->
+        <!--<TextView-->
+            <!--android:text="(如您需要纸质账单，可以收到信用卡卡片后通过客服进行申请)"-->
+            <!--style="@style/ApplyInfoItemHintTextStyle" />-->
+        <!--&lt;!&ndash;  ******************************************************************  &ndash;&gt;-->
+        <!--&lt;!&ndash; 约定账户还款授权 &ndash;&gt;-->
+        <!--&lt;!&ndash; 步骤名称 &ndash;&gt;-->
+        <!--<TextView-->
+        <!--style="@style/ApplyInfoItemMargin"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="约定账户还款授权"-->
+        <!--android:textColor="@color/black" />-->
+        <!--<LinearLayout-->
+            <!--style="@style/LevelApplyInfoBodyPadding"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_marginBottom="@dimen/dp_8"-->
+                <!--android:layout_marginRight="@dimen/dp_6"-->
+                <!--android:layout_marginTop="@dimen/dp_8"-->
+                <!--android:gravity="start"-->
+                <!--android:text="约定还款方式"-->
+                <!--android:textColor="@color/black" />-->
+            <!--&lt;!&ndash; 选项 &ndash;&gt;-->
+            <!--<android.support.v7.widget.GridLayout-->
+                <!--android:layout_width="@dimen/dp_180"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginBottom="@dimen/dp_4"-->
+                <!--android:layout_marginTop="@dimen/dp_4"-->
+                <!--app:columnCount="2">-->
+                <!--<RadioButton-->
+                    <!--style="@style/SelectButtonStyleHaveWidth"-->
+                    <!--android:text="全额还贷"-->
+                    <!--app:layout_columnWeight="1" />-->
+                <!--<RadioButton-->
+                    <!--style="@style/SelectButtonStyleHaveWidth"-->
+                    <!--android:text="最低还贷额"-->
+                    <!--app:layout_columnWeight="1" />-->
+            <!--</android.support.v7.widget.GridLayout>-->
+        <!--</LinearLayout>-->
+        <!--&lt;!&ndash; 对账单发送电子邮箱 &ndash;&gt;-->
+        <!--<include layout="@layout/view_item_cut_line"/>-->
+        <!--<LinearLayout-->
+            <!--style="@style/LevelApplyInfoBodyPadding"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<TextView-->
+                <!--style="@style/TitleWithOutMargin"-->
+                <!--android:layout_marginBottom="@dimen/dp_8"-->
+                <!--android:layout_marginRight="@dimen/dp_6"-->
+                <!--android:layout_marginTop="@dimen/dp_8"-->
+                <!--android:text="约定还款卡号" />-->
+            <!--&lt;!&ndash; 约定还款卡号 &ndash;&gt;-->
+            <!--<com.lyan.tools.view.InputBox-->
+                <!--style="@style/InputBoxSize"-->
+                <!--app:ib_box_line_size="@dimen/dp_18"-->
+                <!--app:ib_input_count="13"-->
+                <!--app:ib_input_text_color="@color/black"-->
+                <!--app:ib_input_text_type="number" />-->
+        <!--</LinearLayout>-->
+        <!--<TextView-->
+            <!--android:text="(约定还款卡号必须为本人持有的吉林农信借记卡，请确保该卡正常使用。)"-->
+            <!--style="@style/ApplyInfoItemHintTextStyle" />-->
+        <!--&lt;!&ndash; 上一步 下一步 按钮 &ndash;&gt;-->
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:layout_marginTop="@dimen/dp_20"-->
+            <!--android:layout_marginBottom="@dimen/dp_20"-->
+            <!--android:layout_marginRight="@dimen/dp_10"-->
+            <!--android:layout_marginLeft="@dimen/dp_10">-->
+            <!--&lt;!&ndash; 上一步按钮 &ndash;&gt;-->
+            <!--<Button-->
+                <!--android:id="@+id/input_last_btn"-->
+                <!--android:layout_width="@dimen/dp_0"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_height="@dimen/dp_40"-->
+                <!--android:layout_marginRight="@dimen/dp_5"-->
+                <!--android:text="上一步"-->
+                <!--android:textColor="@color/white"-->
+                <!--android:textSize="@dimen/sp_18"-->
+                <!--android:background="@drawable/button_submit_background"/>-->
+            <!--&lt;!&ndash; 下一步按钮 &ndash;&gt;-->
+            <!--<Button-->
+                <!--android:id="@+id/input_next_btn"-->
+                <!--android:layout_width="@dimen/dp_0"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_height="@dimen/dp_40"-->
+                <!--android:layout_marginLeft="@dimen/dp_5"-->
+                <!--android:text="下一步"-->
+                <!--android:textColor="@color/white"-->
+                <!--android:textSize="@dimen/sp_18"-->
+                <!--android:background="@drawable/button_submit_background"/>-->
+        <!--</LinearLayout>-->
+    </LinearLayout>
+</ScrollView>

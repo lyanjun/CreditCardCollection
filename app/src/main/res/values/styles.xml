@@ -52,6 +52,16 @@
         <item name="android:textSize">@dimen/sp_14</item>
         <item name="android:textColor">@color/black</item>
     </style>
+    <!-- 选线按钮的基本样式 -->
+    <style name="SelectButtonStyleNone">
+        <item name="android:drawableLeft">@drawable/apply_info_selecter</item>
+        <item name="android:button">@null</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+        <item name="android:background">@null</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
     <!-- item标题有边距-->
     <style name="TitleWithMargin">
         <item name="android:layout_width">wrap_content</item>
@@ -71,5 +81,30 @@
         <item name="android:background">@drawable/apply_input_line_background</item>
         <item name="android:paddingLeft">@dimen/dp_3</item>
         <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+    <!-- item的子布局 -->
+    <style name="AppleInfoItemChildLayoutStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/dp_4</item>
+        <item name="android:layout_marginTop">@dimen/dp_4</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="ApplyInfoFlagTagTextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+
+    <style name="ApplyInfoItemHintTextStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:paddingLeft">@dimen/dp_8</item>
+        <item name="android:paddingBottom">@dimen/dp_8</item>
+        <item name="android:textSize">@dimen/sp_10</item>
+        <item name="android:textColor">@color/red</item>
     </style>
 </resources>
