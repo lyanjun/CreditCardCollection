@@ -108,7 +108,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/dp_3"
                 android:layout_marginTop="@dimen/dp_8"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
             <!-- 会员卡号 -->
             <TextView
                 android:layout_width="match_parent"

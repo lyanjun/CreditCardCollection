@@ -2,13 +2,13 @@ package com.bank.creditcardcollection.weight.view.level;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
-import android.text.Html;
 import android.util.AttributeSet;
 import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.bank.creditcardcollection.R;
+import com.lyan.tools.utils.FormatUtils;
 
 import butterknife.BindView;
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
@@ -56,9 +56,8 @@ public class LevelOneView extends LevelView{
     protected void setFunction() {
         OverScrollDecoratorHelper.setUpOverScroll(rootView);//弹性滑动效果
         //设置部分字体特殊的文本框
-//        hintTextApplyFor.setText(Html.fromHtml(mContext.getString(R.string.apply_for_card_input_hint)));
-        hintTextAgreement.setText(Html.fromHtml("点击‘下一步’意味着您已阅、知晓并同意遵守" + "<font color = '#2F20FF'>"+
-                "《长春农村商业银行信用卡章程》《长春农村商业银行性用卡领用合约》" +"</font>"));
+        hintTextApplyFor.setText(FormatUtils.getHtml(mContext.getString(R.string.apply_for_card_input_hint)));
+        hintTextAgreement.setText(FormatUtils.getHtml(mContext.getString(R.string.apply_for_custom_agreement_hint)));
         //设置下一步操作
         nextStepBtn.setOnClickListener(v -> applyInfoListener.nextStep(Level.LEVEL2));
     }
