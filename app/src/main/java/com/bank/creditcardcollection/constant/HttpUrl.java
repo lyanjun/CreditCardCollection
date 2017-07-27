@@ -6,10 +6,10 @@ package com.bank.creditcardcollection.constant;
  */
 
 public class HttpUrl {
-//    //域名
-//    public static final String HTTP_URL = "http://192.168.0.118:8080/";
-//    public static final String FL = "xmgl/cardinfoAction!add.action";
     //域名
-    public static final String HTTP_URL = "http://192.168.0.145:8080/Test/";
-    public static final String FL = "getJson";
+    public static final String HTTP_URL = "http://192.168.0.118:8080/xmgl/";
+    public static final String FL = "userLoginAction!loginNoRandom.action";
+    //域名
+//    public static final String HTTP_URL = "http://192.168.0.145:8080/Test/";
+//    public static final String FL = "getJson";
 }

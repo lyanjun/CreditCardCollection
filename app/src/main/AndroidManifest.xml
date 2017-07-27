@@ -24,15 +24,15 @@
             </intent-filter>
         </activity>
         <!-- 申请信用卡界面 -->
-        <activity
-            android:name=".view.activity.ApplyInfoActivity"
-            android:screenOrientation="portrait">
+        <!--<activity-->
+            <!--android:name=".view.activity.ApplyInfoActivity"-->
+            <!--android:screenOrientation="portrait">-->
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.MAIN" />-->
 
                 <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
-        </activity>
+        <!--</activity>-->
     </application>
 
 </manifest>

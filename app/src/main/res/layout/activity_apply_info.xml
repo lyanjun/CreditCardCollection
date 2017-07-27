@@ -1,25 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#6e6868"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.bank.creditcardcollection.view.activity.ApplyInfoActivity">
 
-    <com.lyan.tools.view.InputBox
-        android:layout_width="wrap_content"
+    <!--<com.lyan.tools.view.InputBox-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_centerInParent="true"-->
+    <!--app:ib_input_text_color="@color/black"-->
+    <!--app:ib_input_text_size="@dimen/sp_12"-->
+    <!--app:ib_input_count="19"-->
+    <!--app:ib_box_line_size="@dimen/dp_18"-->
+    <!--app:ib_box_line_width="@dimen/dp_1"-->
+    <!--app:ib_box_line_color="@color/black"-->
+    <!--app:ib_input_text_type="number"-->
+    <!--android:background="#ffffff"/>-->
+
+    <com.lyan.tools.view.PaperView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        app:ib_input_text_color="@color/black"
-        app:ib_input_text_size="@dimen/sp_12"
-        app:ib_input_count="19"
-        app:ib_box_line_size="@dimen/dp_18"
-        app:ib_box_line_width="@dimen/dp_1"
-        app:ib_box_line_color="@color/black"
-        app:ib_input_text_type="number"
-        android:background="#ffffff"/>
-
-
+        android:background="@color/white"
+        app:pt_show_text="@string/sign_agreement"
+        app:pt_show_text_color="@color/red"
+        app:pt_show_text_rows="13"
+        app:pt_show_text_size="@dimen/sp_14" />
 </RelativeLayout>
 

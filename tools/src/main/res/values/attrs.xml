@@ -20,4 +20,15 @@
             <enum name="number" value="1"/>
         </attr>
     </declare-styleable>
+    <!-- 信纸类型的显示文本域 -->
+    <declare-styleable name="PaperView">
+        <!-- 要显示的文本 -->
+        <attr name="pt_show_text" format="string"/>
+        <!-- 文字字体大小 -->
+        <attr name="pt_show_text_size" format="dimension"/>
+        <!-- 文字的字体颜色 -->
+        <attr name="pt_show_text_color" format="color"/>
+        <!-- 文字的列数 -->
+        <attr name="pt_show_text_rows" format="integer"/>
+    </declare-styleable>
 </resources>

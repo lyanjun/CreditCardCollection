@@ -1,10 +1,13 @@
 package com.bank.creditcardcollection.weight.view.level;
 
 import android.content.Context;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 
+import com.bank.creditcardcollection.weight.view.listener.LevelApplyInfoListener;
+import com.bank.creditcardcollection.weight.view.listener.LevelResetListener;
 import com.orhanobut.logger.Logger;
 
 import butterknife.ButterKnife;
@@ -15,11 +18,11 @@ import butterknife.Unbinder;
  * Created by liyanjun on 2017/7/21.
  */
 
-public abstract class LevelView extends LinearLayout {
+public abstract class LevelView extends LinearLayout implements LevelResetListener{
     protected Context mContext;
     protected Unbinder mUnbinder;
     private boolean isFirstInit;//初始化
-
+    protected LevelApplyInfoListener applyInfoListener;
     public LevelView(Context context) {
         super(context);
         mContext = context;
@@ -52,6 +55,7 @@ public abstract class LevelView extends LinearLayout {
      *
      * @return
      */
+    @LayoutRes
     protected abstract int setContentView();
 
     /**
@@ -81,5 +85,13 @@ public abstract class LevelView extends LinearLayout {
         super.onDetachedFromWindow();
         mUnbinder.unbind();//解除绑定
         Logger.t("分离").i("从窗口上分离");
+    }
+
+    /**
+     * 设置步骤相关的操作
+     * @param applyInfoListener
+     */
+    public void setApplyInfoListener(LevelApplyInfoListener applyInfoListener) {
+        this.applyInfoListener = applyInfoListener;
     }
 }

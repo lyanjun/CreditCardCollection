@@ -14,10 +14,16 @@ import com.bank.creditcardcollection.weight.view.level.LevelOneView;
 import com.bank.creditcardcollection.weight.view.level.LevelThreeView;
 import com.bank.creditcardcollection.weight.view.level.LevelTwoView;
 import com.bank.creditcardcollection.weight.view.level.LevelView;
+import com.bank.creditcardcollection.weight.view.listener.LevelApplyInfoListener;
+import com.lyan.tools.utils.ToastUtils;
+import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 
 
 /**
@@ -25,7 +31,8 @@ import butterknife.BindView;
  * Created by liyanjun on 2017/7/19.
  */
 
-public class AddFragment extends BaseWithOutBackFragment implements ViewPager.OnPageChangeListener{
+public class AddFragment extends BaseWithOutBackFragment implements ViewPager.OnPageChangeListener
+        ,AddContract.View<AddPresenter> , LevelApplyInfoListener{
 
     @BindView(R.id.apply_indicate)
     ImageView applyIndicate;//指示器
@@ -75,10 +82,21 @@ public class AddFragment extends BaseWithOutBackFragment implements ViewPager.On
         super.setFunction();
         initTabImage();//初始化指示器图片
         initItemView();//初始化选项
+        setItemViewListener();//设置选项界面的监听事件
         applyInfoAdapter = new ApplyInfoAdapter(levelViews);//创建适配器
         applyInterPhase.setAdapter(applyInfoAdapter);//绑定适配器
         applyInterPhase.addOnPageChangeListener(this);
+    }
 
+    /**
+     * 设置监听事件
+     */
+    private void setItemViewListener() {
+        levelOneView.setApplyInfoListener(this);
+        levelTwoView.setApplyInfoListener(this);
+        levelThreeView.setApplyInfoListener(this);
+        levelFourView.setApplyInfoListener(this);
+        leve1FiveView.setApplyInfoListener(this);
     }
 
     /**
@@ -118,5 +136,38 @@ public class AddFragment extends BaseWithOutBackFragment implements ViewPager.On
     @Override
     public void onPageScrollStateChanged(int state) {
 
+    }
+
+    @Override
+    public void setPresenter(AddPresenter presenter) {
+
+    }
+
+    /**
+     * 下一步
+     * @param position
+     */
+    @Override
+    public void nextStep(int position) {
+        Logger.t("下一步").i("切换到%s" , position);
+        applyInterPhase.setCurrentItem(position);
+    }
+
+    /**
+     * 上一步
+     * @param position
+     */
+    @Override
+    public void lastStep(int position) {
+        Logger.t("上一步").i("切换到%s" , position);
+        applyInterPhase.setCurrentItem(position);
+    }
+
+    /**
+     * 提交
+     */
+    @Override
+    public void commit() {
+        ToastUtils.shortToast(mContext,"提交");
     }
 }

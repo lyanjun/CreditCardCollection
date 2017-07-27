@@ -97,7 +97,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/sp_14</item>
     </style>
-
+    <!-- 信息采集文字提示样式 -->
     <style name="ApplyInfoItemHintTextStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -106,5 +106,44 @@
         <item name="android:paddingBottom">@dimen/dp_8</item>
         <item name="android:textSize">@dimen/sp_10</item>
         <item name="android:textColor">@color/red</item>
+    </style>
+    <!-- 信息采集外部容器样式 -->
+    <style name="LevelParentStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:fillViewport">true</item>
+        <item name="android:scrollbars">none</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+    <!-- 填写步骤的左侧按钮 -->
+    <style name="CommitLeftBtnStyle">
+        <item name="android:layout_width">@dimen/dp_0</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">@dimen/dp_40</item>
+        <item name="android:layout_marginRight">@dimen/dp_5</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/sp_18</item>
+        <item name="android:background">@drawable/button_submit_background</item>
+    </style>
+    <!-- 填写步骤的右侧按钮 -->
+    <style name="CommitRightBtnStyle">
+        <item name="android:layout_width">@dimen/dp_0</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">@dimen/dp_40</item>
+        <item name="android:layout_marginLeft">@dimen/dp_5</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/sp_18</item>
+        <item name="android:background">@drawable/button_submit_background</item>
+    </style>
+    <!-- 提交信息的按钮的容器 -->
+    <style name="ApplyBtnGroupLayoutStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_marginTop">@dimen/dp_20</item>
+        <item name="android:layout_marginBottom">@dimen/dp_20</item>
+        <item name="android:layout_marginRight">@dimen/dp_10</item>
+        <item name="android:layout_marginLeft">@dimen/dp_10</item>
     </style>
 </resources>

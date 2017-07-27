@@ -3,6 +3,7 @@ package com.bank.creditcardcollection.view.fragment.home.level1;
 
 import com.bank.creditcardcollection.base.BasePresenter;
 import com.bank.creditcardcollection.base.BaseView;
+import com.bank.creditcardcollection.base.activity.LifePresenter;
 
 /**
  * 契约接口
@@ -20,7 +21,6 @@ public interface HomeContract {
     /**
      * 控制器
      */
-    interface Presenter extends BasePresenter<View> {
-        void onDestroy();//释放资源
+    interface Presenter extends LifePresenter<View> {
     }
 }

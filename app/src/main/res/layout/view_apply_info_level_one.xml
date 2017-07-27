@@ -2,10 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/scroll_root"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:scrollbars="none">
+    style="@style/LevelParentStyle">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,7 +34,6 @@
                 android:layout_marginBottom="@dimen/dp_8"
                 android:layout_marginTop="@dimen/dp_8"
                 android:layout_marginLeft="@dimen/dp_10"
-                android:layout_marginRight="@dimen/dp_100"
                 style="@style/BoxEditStyle"
                 android:gravity="center_vertical"
                 android:lines="1" />
@@ -107,12 +103,12 @@
             android:paddingRight="@dimen/dp_8">
             <!-- 文字提示 -->
             <TextView
+                android:id="@+id/input_card_hint_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/dp_3"
                 android:layout_marginTop="@dimen/dp_8"
-                android:textColor="@color/black"
-                android:text="*若申请本行联名卡，请填写会员卡号，以便为您提供更优质服务"/>
+                android:textColor="@color/black"/>
             <!-- 会员卡号 -->
             <TextView
                 android:layout_width="match_parent"

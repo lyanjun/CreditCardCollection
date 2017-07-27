@@ -83,7 +83,7 @@ public class HomeFragment extends BaseWithOutBackFragment implements HomeContrac
         new HomePresenter(this);
         mHomePresenter.initData();//初始化数据
         testBtn.setOnClickListener(v -> {
-            HttpUtils.postJson(new Gson().toJson(new A(1)))
+            HttpUtils.postJson(new Gson().toJson(new A("fanjian","111111")))
                     .subscribe(s -> {
                                 Logger.t("返回数据").i(s);
                                 ToastUtils.shortToast(mContext, s);
@@ -96,18 +96,28 @@ public class HomeFragment extends BaseWithOutBackFragment implements HomeContrac
     }
 
     class A {
-        private int gid;
+        private String  loginName;
+        private String  loginpwd;
 
-        public A(int gid) {
-            this.gid = gid;
+        public A(String loginName, String loginpwd) {
+            this.loginName = loginName;
+            this.loginpwd = loginpwd;
         }
 
-        public int getGid() {
-            return gid;
+        public String getLoginName() {
+            return loginName;
         }
 
-        public void setGid(int gid) {
-            this.gid = gid;
+        public void setLoginName(String loginName) {
+            this.loginName = loginName;
+        }
+
+        public String getLoginpwd() {
+            return loginpwd;
+        }
+
+        public void setLoginpwd(String loginpwd) {
+            this.loginpwd = loginpwd;
         }
     }
 

@@ -1,21 +1,226 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/scroll_root"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:scrollbars="none">
+    style="@style/LevelParentStyle">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+        <!-- 步骤名称 -->
+        <TextView
+            style="@style/ApplyInfoItemMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="您的声明及签署信息"
+            android:textColor="@color/black" />
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="第四步"
-            android:textSize="50sp" />
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingBottom="@dimen/dp_8"
+            android:paddingLeft="@dimen/dp_8"
+            android:paddingTop="@dimen/dp_8"
+            android:text="请确认后按照有关规定逐字抄录以下内容并签名:"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_14" />
+
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:orientation="horizontal">
+
+            <com.lyan.tools.view.PaperView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_8"
+                app:pt_show_text="@string/sign_agreement"
+                app:pt_show_text_rows="13" />
+        </LinearLayout>
+        <!-- 主卡申请人签名 -->
+        <include layout="@layout/view_item_cut_line" />
+
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TitleWithOutMargin"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="主卡申请人签名" />
+            <!-- 签名图片 -->
+            <ImageView
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_2"
+                android:layout_weight="1" />
+
+            <TextView
+                style="@style/ApplyInfoFlagTagTextStyle"
+                android:text="日期" />
+            <!-- 输入 -->
+            <com.lyan.tools.view.BoxEditText
+                style="@style/BoxEditStyle"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_6"
+                android:gravity="center_horizontal"
+                android:inputType="number"
+                android:maxLength="4" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="年"
+                android:textSize="@dimen/sp_14" />
+
+            <com.lyan.tools.view.BoxEditText
+                style="@style/BoxEditStyle"
+                android:layout_width="23dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:inputType="number"
+                android:maxLength="2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="月"
+                android:textSize="@dimen/sp_14" />
+
+            <com.lyan.tools.view.BoxEditText
+                style="@style/BoxEditStyle"
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:inputType="number"
+                android:maxLength="2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="日"
+                android:textSize="@dimen/sp_14" />
+        </LinearLayout>
+        <!-- 附属卡申请人签名 -->
+        <include layout="@layout/view_item_cut_line" />
+
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TitleWithOutMargin"
+                android:layout_marginBottom="@dimen/dp_4"
+                android:layout_marginRight="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="附属卡申请人签名" />
+            <!-- 签名图片 -->
+            <ImageView
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_2"
+                android:layout_marginLeft="@dimen/dp_2"
+                android:layout_marginRight="@dimen/dp_2"
+                android:layout_marginTop="@dimen/dp_6"
+                android:layout_weight="1" />
+
+            <TextView
+                style="@style/ApplyInfoFlagTagTextStyle"
+                android:layout_marginBottom="@dimen/dp_4"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="日期" />
+            <!-- 输入 -->
+            <com.lyan.tools.view.BoxEditText
+                style="@style/BoxEditStyle"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_4"
+                android:layout_marginLeft="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_8"
+                android:gravity="center_horizontal"
+                android:inputType="number"
+                android:maxLength="4" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_4"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="年"
+                android:textSize="@dimen/sp_14" />
+
+            <com.lyan.tools.view.BoxEditText
+                style="@style/BoxEditStyle"
+                android:layout_width="23dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_4"
+                android:layout_marginTop="@dimen/dp_8"
+                android:gravity="center_horizontal"
+                android:inputType="number"
+                android:maxLength="2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_4"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="月"
+                android:textSize="@dimen/sp_14" />
+
+            <com.lyan.tools.view.BoxEditText
+                style="@style/BoxEditStyle"
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_4"
+                android:layout_marginTop="@dimen/dp_8"
+                android:gravity="center_horizontal"
+                android:inputType="number"
+                android:maxLength="2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_4"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="日"
+                android:textSize="@dimen/sp_14" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/ApplyInfoItemHintTextStyle"
+            android:text="(附属卡申请人或其代理人:主卡人)" />
+
+        <!-- 步骤名称 -->
+        <TextView
+            style="@style/ApplyInfoItemMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="您的声明及签署文件"
+            android:textColor="@color/black" />
+        <!-- 上传查看按钮 -->
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_width="@dimen/dp_200"
+                android:layout_height="@dimen/dp_40"
+                android:layout_marginBottom="@dimen/dp_30"
+                android:layout_marginTop="@dimen/dp_30"
+                android:background="@drawable/button_submit_background"
+                android:text="上传并查看"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_18" />
+        </LinearLayout>
+
+        <!-- 上一步 下一步按钮 -->
+        <include layout="@layout/view_apply_info_next_with_last_btn"/>
     </LinearLayout>
 </ScrollView>

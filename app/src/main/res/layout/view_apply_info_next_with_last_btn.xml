@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 上一步 下一步 按钮 -->
+    <LinearLayout
+        style="@style/ApplyBtnGroupLayoutStyle">
+        <!-- 上一步按钮 -->
+        <Button
+            android:id="@+id/input_last_btn"
+            android:text="上一步"
+            style="@style/CommitLeftBtnStyle" />
+        <!-- 下一步按钮 -->
+        <Button
+            android:id="@+id/input_next_btn"
+            android:text="下一步"
+            style="@style/CommitRightBtnStyle"/>
+    </LinearLayout>
+</merge>

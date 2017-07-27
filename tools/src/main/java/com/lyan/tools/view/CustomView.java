@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import com.lyan.tools.utils.DensityUtils;
+import com.lyan.tools.utils.DrawUtils;
 
 
 /**
@@ -74,8 +75,9 @@ public abstract class CustomView extends View {
      * @return
      */
     protected final int baseLine(int bottom, int top){
-        Paint.FontMetrics fontMetrics = paint.getFontMetrics();
-        return (int) ((bottom + top - fontMetrics.bottom - fontMetrics.top)/2);
+//        Paint.FontMetrics fontMetrics = paint.getFontMetrics();
+//        return (int) ((bottom + top - fontMetrics.bottom - fontMetrics.top)/2);
+        return DrawUtils.getBaseLine(bottom,top,paint);
     }
     /**
      * 获取测量结果
@@ -84,7 +86,7 @@ public abstract class CustomView extends View {
      * @param setValues
      * @return
      */
-    private int size(int mode,int size ,int setValues){
+    protected final int size(int mode,int size ,int setValues){
         int result = 0;
         switch (mode){
             case MeasureSpec.EXACTLY:

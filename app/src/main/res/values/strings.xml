@@ -4,4 +4,10 @@
     <string name="clms_calculator">计算器</string>
     <string name="clms_camera">相机</string>
     <string name="clms_add">新增</string>
+    <!-- 第一步 -->
+    <!-- 提示文字 -->
+    <!--<string name="apply_for_card_input_hint">&lt;font color = &apos;#FF0000&apos;&gt;* &lt;/font&gt;若申请本行联名卡，请填写会员卡号，以便为您提供更优质服务</string>-->
+    <!-- 第四步 -->
+    <!-- 签署信息 -->
+    <string name="sign_agreement">本人已阅读全部申请资料，充分了解并清除知晓该信用卡产品的相关信息，愿意遵守利用合约（协议）的各项规则。</string>
 </resources>
