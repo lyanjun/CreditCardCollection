@@ -1,5 +1,7 @@
 package com.lyan.tools.utils;
 
+import android.text.Html;
+
 import java.text.DecimalFormat;
 
 /**
@@ -52,5 +54,18 @@ public class FormatUtils {
         String min = m < 10 ?  "0" + m : String.valueOf(m);
         String sec = s < 10 ?  "0" + s : String.valueOf(s);
         return min + ":" + sec;
+    }
+
+    /**
+     * 获取Html标记语言
+     * @param content
+     * @return
+     */
+    public static CharSequence getHtml(String content){
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+           return Html.fromHtml(content,Html.FROM_HTML_MODE_LEGACY);
+        } else {
+           return Html.fromHtml(content);
+        }
     }
 }
