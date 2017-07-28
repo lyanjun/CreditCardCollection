@@ -3,14 +3,23 @@ package com.bank.creditcardcollection.weight.view.level;
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.bank.creditcardcollection.R;
 import com.lyan.tools.utils.FormatUtils;
+import com.lyan.tools.utils.ToastUtils;
+import com.lyan.tools.view.BoxEditText;
+import com.lyan.tools.view.InputBox;
+import com.orhanobut.logger.Logger;
 
 import butterknife.BindView;
+import butterknife.BindViews;
+import butterknife.ButterKnife;
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
 
 /**
@@ -31,7 +40,7 @@ public class LevelOneView extends LevelView{
     public LevelOneView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
-
+    //绑定控件
     @BindView(R.id.scroll_root)
     ScrollView rootView;//最外层滑动布局
     @BindView(R.id.input_card_hint_text)
@@ -40,6 +49,18 @@ public class LevelOneView extends LevelView{
     TextView hintTextAgreement;//协议提示文字
     @BindView(R.id.input_next_btn)
     Button nextStepBtn;//下一步按钮
+    @BindView(R.id.level_1_card_alias)
+    BoxEditText inputCardAlias;//卡种简称
+    @BindView(R.id.level_1_card_code)
+    InputBox inputCardCode;//卡种代码
+    @BindView(R.id.level_1_select_one)
+    RadioGroup inputSelectGroupOne;//选项一
+    @BindView(R.id.level_1_select_two)
+    RadioGroup inputSelectGroupTwo;//选项二
+    @BindView(R.id.level_1_club_card)
+    InputBox inputClubCard;//卡种代码
+    @BindView(R.id.level_1_select_three)
+    RadioGroup inputSelectGroupThree;//选项三
     /**
      * 第一步的布局
      * @return

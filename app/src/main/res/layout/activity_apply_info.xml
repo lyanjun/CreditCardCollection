@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        app:pt_show_text="@string/sign_agreement"
+        app:pt_show_text="@string/level_four_apply_sign_agreement"
         app:pt_show_text_color="@color/red"
         app:pt_show_text_rows="13"
         app:pt_show_text_size="@dimen/sp_14" />

@@ -5,16 +5,11 @@
     style="@style/LevelParentStyle">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        style="@style/ApplyInfoLevelTwoRootViewStyle">
         <!-- 步骤名称 -->
         <TextView
-            style="@style/ApplyInfoItemMargin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="银行信息"
-            android:textColor="@color/black" />
+            style="@style/ApplyInfoItemMarginWithTextSet"
+            android:text="@string/level_five_apply_bank_info" />
         <!-- 推荐人姓名 -->
         <LinearLayout
             style="@style/LevelApplyInfoBodyPadding"
@@ -26,7 +21,7 @@
                 android:layout_marginBottom="@dimen/dp_8"
                 android:layout_marginRight="@dimen/dp_6"
                 android:layout_marginTop="@dimen/dp_8"
-                android:text="推荐人姓名" />
+                android:text="@string/level_five_apply_referrer_name" />
             <!-- 推荐人姓名 -->
             <com.lyan.tools.view.BoxEditText
                 style="@style/BoxEditStyle"
@@ -48,7 +43,7 @@
                 android:layout_marginRight="@dimen/dp_6"
                 android:layout_marginTop="@dimen/dp_8"
                 android:gravity="start"
-                android:text="行业性质"
+                android:text="@string/level_five_apply_relation_with_client"
                 android:textColor="@color/black" />
             <!-- 选项 -->
             <android.support.v7.widget.GridLayout
@@ -60,27 +55,27 @@
 
                 <RadioButton
                     style="@style/SelectButtonStyleNoWidth"
-                    android:text="亲戚"
+                    android:text="@string/level_five_apply_relation_relative"
                     app:layout_columnWeight="1" />
 
                 <RadioButton
                     style="@style/SelectButtonStyleNoWidth"
-                    android:text="朋友"
+                    android:text="@string/level_five_apply_relation_friend"
                     app:layout_columnWeight="1" />
 
                 <RadioButton
                     style="@style/SelectButtonStyleNoWidth"
-                    android:text="客户"
+                    android:text="@string/level_five_apply_relation_client"
                     app:layout_columnWeight="1" />
 
                 <RadioButton
                     style="@style/SelectButtonStyleNoWidth"
-                    android:text="同学"
+                    android:text="@string/level_five_apply_relation_student"
                     app:layout_columnWeight="1" />
 
                 <RadioButton
                     style="@style/SelectButtonStyleNoWidth"
-                    android:text="其他"
+                    android:text="@string/select_other"
                     app:layout_columnWeight="1" />
 
             </android.support.v7.widget.GridLayout>
@@ -97,7 +92,7 @@
                 android:layout_marginBottom="@dimen/dp_8"
                 android:layout_marginRight="@dimen/dp_6"
                 android:layout_marginTop="@dimen/dp_8"
-                android:text="推荐人机构名称" />
+                android:text="@string/level_five_apply_referrer_organization_name" />
             <!-- 推荐人机构名称 -->
             <com.lyan.tools.view.BoxEditText
                 style="@style/BoxEditStyle"
@@ -118,7 +113,7 @@
                 android:layout_marginBottom="@dimen/dp_8"
                 android:layout_marginRight="@dimen/dp_6"
                 android:layout_marginTop="@dimen/dp_8"
-                android:text="推荐人机构代码"
+                android:text="@string/level_five_apply_referrer_organization_code"
                 android:textColor="@color/black" />
             <!-- 方框输入框 -->
             <com.lyan.tools.view.InputBox
@@ -143,7 +138,7 @@
                 android:layout_marginBottom="@dimen/dp_8"
                 android:layout_marginRight="@dimen/dp_6"
                 android:layout_marginTop="@dimen/dp_8"
-                android:text="推荐人员工号　"
+                android:text="@string/level_five_apply_referrer_job_number"
                 android:textColor="@color/black" />
             <!-- 方框输入框 -->
             <com.lyan.tools.view.InputBox
@@ -168,7 +163,7 @@
                 android:layout_marginBottom="@dimen/dp_8"
                 android:layout_marginRight="@dimen/dp_6"
                 android:layout_marginTop="@dimen/dp_8"
-                android:text="推荐人手机号　"
+                android:text="@string/level_five_apply_referrer_mobile_number"
                 android:textColor="@color/black" />
             <!-- 方框输入框 -->
             <com.lyan.tools.view.InputBox
@@ -177,6 +172,7 @@
                 android:layout_marginTop="@dimen/dp_8"
                 app:ib_box_line_size="@dimen/dp_18"
                 app:ib_input_count="11"
+                app:ib_input_text_type="number"
                 app:ib_input_text_color="@color/black" />
         </LinearLayout>
         <!-- 上一步 提交 按钮 -->
@@ -184,12 +180,12 @@
             <!-- 上一步按钮 -->
             <Button
                 android:id="@+id/input_last_btn"
-                android:text="上一步"
+                android:text="@string/last_btn_text"
                 style="@style/CommitLeftBtnStyle" />
             <!-- 提交按钮 -->
             <Button
                 android:id="@+id/input_commit_btn"
-                android:text="提交"
+                android:text="@string/input_commit_btn"
                 style="@style/CommitRightBtnStyle" />
         </LinearLayout>
     </LinearLayout>

@@ -6,12 +6,12 @@
         <!-- 上一步按钮 -->
         <Button
             android:id="@+id/input_last_btn"
-            android:text="上一步"
+            android:text="@string/last_btn_text"
             style="@style/CommitLeftBtnStyle" />
         <!-- 下一步按钮 -->
         <Button
             android:id="@+id/input_next_btn"
-            android:text="下一步"
+            android:text="@string/next_btn_text"
             style="@style/CommitRightBtnStyle"/>
     </LinearLayout>
 </merge>

@@ -4,17 +4,11 @@
     android:id="@+id/scroll_root"
     style="@style/LevelParentStyle">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    <LinearLayout style="@style/ApplyInfoLevelTwoRootViewStyle">
         <!-- 步骤名称 -->
         <TextView
-            style="@style/ApplyInfoItemMargin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="您的基本信息"
-            android:textColor="@color/black" />
+            style="@style/ApplyInfoItemMarginWithTextSet"
+            android:text="@string/level_two_apply_client_info_title" />
         <!-- 姓名、国籍 -->
         <LinearLayout
             style="@style/LevelApplyInfoBodyPadding"
@@ -31,10 +25,8 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="中文姓名"
-                    android:textColor="@color/black" />
+                    style="@style/TitleWithOutMargin"
+                    android:text="@string/level_two_apply_chinese_name" />
 
                 <com.lyan.tools.view.BoxEditText
                     android:id="@+id/chinese_name"
@@ -57,7 +49,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="国籍"
+                    android:text="@string/level_two_apply_nationality"
                     android:textColor="@color/black" />
 
                 <com.lyan.tools.view.BoxEditText
@@ -77,13 +69,8 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dp_8"
-                android:layout_marginRight="@dimen/dp_6"
-                android:layout_marginTop="@dimen/dp_8"
-                android:text="拼音姓名"
-                android:textColor="@color/black" />
+                style="@style/TitleWithMarginRight"
+                android:text="@string/level_two_apply_spell_name" />
             <!-- 方框输入框 -->
             <com.lyan.tools.view.InputBox
                 style="@style/InputBoxSize"
@@ -113,15 +100,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="出生日期"
+                    android:text="@string/level_two_apply_birth_date"
                     android:textColor="@color/black" />
 
-                <!--<TextView-->
-                    <!--android:id="@+id/birthday"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:gravity="right"-->
-                    <!--android:text="xxxx年xx月xx日" />-->
                 <!-- 输入年月日 -->
                 <com.lyan.tools.view.BoxEditText
                     style="@style/BoxEditStyle"
@@ -135,7 +116,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="年"
+                    android:text="@string/select_year"
                     android:textSize="@dimen/sp_14" />
 
                 <com.lyan.tools.view.BoxEditText
@@ -149,7 +130,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="月"
+                    android:text="@string/select_month"
                     android:textSize="@dimen/sp_14" />
 
                 <com.lyan.tools.view.BoxEditText
@@ -163,7 +144,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="日"
+                    android:text="@string/select_day"
                     android:textSize="@dimen/sp_14" />
             </LinearLayout>
             <!-- 性别 -->
@@ -171,8 +152,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="@dimen/dp_8"
-                android:layout_marginTop="@dimen/dp_8"
                 android:layout_marginRight="@dimen/dp_20"
+                android:layout_marginTop="@dimen/dp_8"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -180,7 +161,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/dp_20"
-                    android:text="性别"
+                    android:text="@string/level_two_apply_gender"
                     android:textColor="@color/black" />
 
                 <include layout="@layout/view_apply_info_level_two_select" />
@@ -201,7 +182,7 @@
                 android:layout_marginRight="@dimen/dp_6"
                 android:layout_marginTop="@dimen/dp_8"
                 android:gravity="start"
-                android:text="证件类型"
+                android:text="@string/level_two_apply_pass_type"
                 android:textColor="@color/black" />
             <!-- 选项 -->
             <!-- 待抽成自定义单选容器 -->
@@ -214,23 +195,19 @@
 
                 <RadioButton
                     style="@style/SelectButtonStyleHaveWidth"
-                    android:text="身份证"
-                    />
+                    android:text="@string/level_two_apply_id_card" />
 
                 <RadioButton
                     style="@style/SelectButtonStyleNoWidth"
-                    android:text="外国护照"
-                    />
+                    android:text="@string/level_two_apply_passport" />
 
                 <RadioButton
                     style="@style/SelectButtonStyleHaveWidth"
-                    android:text="港澳通行证"
-                     />
+                    android:text="@string/level_two_apply_gate_pass" />
 
                 <RadioButton
                     style="@style/SelectButtonStyleNoWidth"
-                    android:text="其他证件"
-                    />
+                    android:text="@string/level_two_apply_other_card" />
             </android.support.v7.widget.GridLayout>
             <!-- 请说明 -->
             <TextView
@@ -238,7 +215,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:layout_marginBottom="@dimen/dp_4"
-                android:text="(请说明)"
+                android:text="@string/level_two_apply_please_explain"
                 android:textColor="@color/red"
                 android:textSize="@dimen/sp_8" />
             <!-- 说明输入框 -->
@@ -263,7 +240,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/dp_4"
                 android:layout_marginTop="@dimen/dp_8"
-                android:text="证件号码"
+                android:text="@string/level_two_apply_credentials_number"
                 android:textColor="@color/black" />
             <!-- 身份证输入框 -->
             <com.lyan.tools.view.InputBox
@@ -284,7 +261,7 @@
             <!-- 标题 -->
             <TextView
                 style="@style/TitleWithMargin"
-                android:text="证件有效期至" />
+                android:text="@string/level_two_apply_uesful_life" />
             <!-- 输入年月日 -->
             <com.lyan.tools.view.BoxEditText
                 style="@style/BoxEditStyle"
@@ -298,7 +275,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="年"
+                android:text="@string/select_year"
                 android:textSize="@dimen/sp_14" />
 
             <com.lyan.tools.view.BoxEditText
@@ -312,7 +289,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="月"
+                android:text="@string/select_month"
                 android:textSize="@dimen/sp_14" />
 
             <com.lyan.tools.view.BoxEditText
@@ -326,7 +303,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="日"
+                android:text="@string/select_day"
                 android:textSize="@dimen/sp_14" />
             <!--  勾选按钮 -->
             <CheckBox
@@ -334,7 +311,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp_20"
-                android:text="长期" />
+                android:text="@string/level_two_apply_long_time" />
         </LinearLayout>
         <!-- 婚姻状况 -->
         <include layout="@layout/view_item_cut_line" />
@@ -351,7 +328,7 @@
                 android:layout_marginRight="@dimen/dp_6"
                 android:layout_marginTop="@dimen/dp_8"
                 android:gravity="start"
-                android:text="婚姻状况"
+                android:text="@string/level_two_apply_marital_status"
                 android:textColor="@color/black" />
             <!-- 选项 -->
             <android.support.v7.widget.GridLayout
@@ -363,27 +340,27 @@
 
                 <RadioButton
                     style="@style/SelectButtonStyleHaveWidth"
-                    android:text="未婚"
+                    android:text="@string/level_two_apply_unmarried"
                     app:layout_columnWeight="1" />
 
                 <RadioButton
                     style="@style/SelectButtonStyleHaveWidth"
-                    android:text="已婚有子女"
+                    android:text="@string/level_two_apply_have_children"
                     app:layout_columnWeight="1" />
 
                 <RadioButton
                     style="@style/SelectButtonStyleHaveWidth"
-                    android:text="已婚无子女"
+                    android:text="@string/level_two_apply_have_no_children"
                     app:layout_columnWeight="1" />
 
                 <RadioButton
                     style="@style/SelectButtonStyleHaveWidth"
-                    android:text="离婚"
+                    android:text="@string/level_two_apply_break_marriage"
                     app:layout_columnWeight="1" />
 
                 <RadioButton
                     style="@style/SelectButtonStyleHaveWidth"
-                    android:text="其他"
+                    android:text="@string/select_other"
                     app:layout_columnWeight="1" />
             </android.support.v7.widget.GridLayout>
         </LinearLayout>
@@ -402,7 +379,7 @@
                 android:layout_marginRight="@dimen/dp_6"
                 android:layout_marginTop="@dimen/dp_8"
                 android:gravity="start"
-                android:text="教育程度"
+                android:text="@string/level_two_apply_educational_status"
                 android:textColor="@color/black" />
             <!-- 选项 -->
             <android.support.v7.widget.GridLayout
@@ -414,32 +391,32 @@
 
                 <RadioButton
                     style="@style/SelectButtonStyleHaveWidth"
-                    android:text="博士"
+                    android:text="@string/level_two_apply_doctor"
                     app:layout_columnWeight="1" />
 
                 <RadioButton
                     style="@style/SelectButtonStyleHaveWidth"
-                    android:text="硕士"
+                    android:text="@string/level_two_apply_master"
                     app:layout_columnWeight="1" />
 
                 <RadioButton
                     style="@style/SelectButtonStyleHaveWidth"
-                    android:text="本科"
+                    android:text="@string/level_two_apply_undergraduate"
                     app:layout_columnWeight="1" />
 
                 <RadioButton
                     style="@style/SelectButtonStyleHaveWidth"
-                    android:text="大专"
+                    android:text="@string/level_two_apply_bachelor"
                     app:layout_columnWeight="1" />
 
                 <RadioButton
                     style="@style/SelectButtonStyleHaveWidth"
-                    android:text="高中及中专"
+                    android:text="@string/level_two_apply_high_school"
                     app:layout_columnWeight="1" />
 
                 <RadioButton
                     style="@style/SelectButtonStyleHaveWidth"
-                    android:text="初中及以下"
+                    android:text="@string/level_two_apply_middle_school"
                     app:layout_columnWeight="1" />
             </android.support.v7.widget.GridLayout>
         </LinearLayout>
@@ -456,7 +433,7 @@
                 android:layout_marginBottom="@dimen/dp_8"
                 android:layout_marginRight="@dimen/dp_6"
                 android:layout_marginTop="@dimen/dp_8"
-                android:text="移动电话" />
+                android:text="@string/level_two_apply_mobile_phone" />
             <!-- 输入电话号码 -->
             <com.lyan.tools.view.InputBox
                 style="@style/InputBoxSize"
@@ -478,7 +455,7 @@
                 android:layout_marginBottom="@dimen/dp_8"
                 android:layout_marginRight="@dimen/dp_6"
                 android:layout_marginTop="@dimen/dp_8"
-                android:text="住宅电话区号及号码" />
+                android:text="@string/level_two_apply_telephone" />
             <!-- 输入电话号码 -->
             <com.lyan.tools.view.BoxEditText
                 style="@style/BoxEditStyle"
@@ -494,116 +471,118 @@
             style="@style/LevelApplyInfoBodyPadding"
             android:gravity="center_vertical"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginRight="@dimen/dp_6"
-                android:textSize="@dimen/sp_14"
-                android:textColor="@color/black"
-                android:text="住宅地址"
-                android:layout_marginTop="@dimen/dp_8"
                 android:layout_marginBottom="@dimen/dp_8"
-                android:gravity="start" />
+                android:layout_marginRight="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_8"
+                android:gravity="start"
+                android:text="@string/level_two_apply_home_address"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_14" />
             <!-- 省市区室邮编 -->
             <LinearLayout
-                android:layout_marginTop="@dimen/dp_4"
-                android:layout_marginBottom="@dimen/dp_4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_4"
+                android:layout_marginTop="@dimen/dp_4"
                 android:orientation="vertical">
                 <!-- 省市区 -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="@dimen/dp_4"
                     android:layout_marginBottom="@dimen/dp_4"
-                    android:gravity="center_vertical">
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
                     <!-- 省 -->
                     <com.lyan.tools.view.BoxEditText
+                        style="@style/BoxEditStyle"
                         android:layout_width="@dimen/dp_0"
                         android:layout_height="@dimen/dp_18"
                         android:layout_weight="1"
-                        android:gravity="center_horizontal"
-                        style="@style/BoxEditStyle"/>
+                        android:gravity="center_horizontal" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="省"
+                        android:text="@string/select_province"
                         android:textSize="@dimen/sp_14" />
                     <!-- 市 -->
                     <com.lyan.tools.view.BoxEditText
+                        style="@style/BoxEditStyle"
                         android:layout_width="@dimen/dp_0"
                         android:layout_height="@dimen/dp_18"
                         android:layout_weight="1"
-                        android:gravity="center_horizontal"
-                        style="@style/BoxEditStyle"/>
+                        android:gravity="center_horizontal" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="市"
+                        android:text="@string/select_city"
                         android:textSize="@dimen/sp_14" />
                     <!-- 区(县) -->
                     <com.lyan.tools.view.BoxEditText
+                        style="@style/BoxEditStyle"
                         android:layout_width="@dimen/dp_0"
                         android:layout_height="@dimen/dp_18"
                         android:layout_weight="1"
-                        android:gravity="center_horizontal"
-                        style="@style/BoxEditStyle"/>
+                        android:gravity="center_horizontal" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="区(县)"
+                        android:text="@string/select_district"
                         android:textSize="@dimen/sp_14" />
                 </LinearLayout>
                 <!-- 室邮编 -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/dp_4"
                     android:layout_marginTop="@dimen/dp_4"
-                    android:layout_marginBottom="@dimen/dp_4">
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
                     <!-- 室(号) -->
                     <com.lyan.tools.view.BoxEditText
+                        style="@style/BoxEditStyle"
                         android:layout_width="@dimen/dp_0"
                         android:layout_height="@dimen/dp_18"
                         android:layout_weight="1"
-                        android:gravity="center_horizontal"
-                        style="@style/BoxEditStyle"/>
+                        android:gravity="center_horizontal" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="室(号)"
+                        android:text="@string/select_room"
                         android:textSize="@dimen/sp_14" />
                     <!-- 邮编 -->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="邮编"
-                        android:textSize="@dimen/sp_14"
-                        android:textColor="@color/black"
                         android:layout_marginLeft="@dimen/dp_3"
-                        android:layout_marginRight="@dimen/dp_3"/>
+                        android:layout_marginRight="@dimen/dp_3"
+                        android:text="@string/select_postcode"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_14" />
 
                     <!-- 邮编号 -->
                     <com.lyan.tools.view.InputBox
                         style="@style/InputBoxSize"
                         app:ib_box_line_size="@dimen/dp_18"
-                        app:ib_input_text_color="@color/black"
                         app:ib_input_count="6"
-                        app:ib_input_text_type="number"/>
+                        app:ib_input_text_color="@color/black"
+                        app:ib_input_text_type="number" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
         <!--  ******************************************************************  -->
         <!-- 直系亲属联系人 -->
         <TextView
-            style="@style/ApplyInfoItemMargin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="直系亲属联系人"
-            android:textColor="@color/black" />
+            style="@style/ApplyInfoItemMarginWithTextSet"
+            android:text="@string/level_two_apply_kinsfolk" />
         <!-- 中文姓名 -->
         <LinearLayout
             style="@style/LevelApplyInfoBodyPadding"
@@ -615,7 +594,7 @@
                 android:layout_marginBottom="@dimen/dp_8"
                 android:layout_marginRight="@dimen/dp_6"
                 android:layout_marginTop="@dimen/dp_8"
-                android:text="中文姓名" />
+                android:text="@string/level_two_apply_chinese_name" />
             <!-- 中文姓名 -->
             <com.lyan.tools.view.BoxEditText
                 style="@style/BoxEditStyle"
@@ -625,6 +604,7 @@
         </LinearLayout>
         <!-- 与申请人关系 -->
         <include layout="@layout/view_item_cut_line" />
+
         <LinearLayout
             style="@style/LevelApplyInfoBodyPadding"
             android:gravity="center_vertical"
@@ -637,7 +617,7 @@
                 android:layout_marginRight="@dimen/dp_6"
                 android:layout_marginTop="@dimen/dp_8"
                 android:gravity="start"
-                android:text="与申请人关系"
+                android:text="@string/level_two_apply_relation"
                 android:textColor="@color/black" />
             <!-- 选项 -->
             <android.support.v7.widget.GridLayout
@@ -649,27 +629,28 @@
 
                 <RadioButton
                     style="@style/SelectButtonStyleHaveWidth"
-                    android:text="配偶"
+                    android:text="@string/level_two_apply_mate"
                     app:layout_columnWeight="1" />
 
                 <RadioButton
                     style="@style/SelectButtonStyleHaveWidth"
-                    android:text="子女"
+                    android:text="@string/level_two_apply_children"
                     app:layout_columnWeight="1" />
 
                 <RadioButton
                     style="@style/SelectButtonStyleHaveWidth"
-                    android:text="父母"
+                    android:text="@string/level_two_apply_parent"
                     app:layout_columnWeight="1" />
 
                 <RadioButton
                     style="@style/SelectButtonStyleHaveWidth"
-                    android:text="兄弟姐妹"
+                    android:text="@string/level_two_apply_brothers_sisters"
                     app:layout_columnWeight="1" />
             </android.support.v7.widget.GridLayout>
         </LinearLayout>
         <!-- 移动电话 -->
         <include layout="@layout/view_item_cut_line" />
+
         <LinearLayout
             style="@style/LevelApplyInfoBodyPadding"
             android:gravity="center_vertical"
@@ -680,7 +661,7 @@
                 android:layout_marginBottom="@dimen/dp_8"
                 android:layout_marginRight="@dimen/dp_6"
                 android:layout_marginTop="@dimen/dp_8"
-                android:text="移动电话" />
+                android:text="@string/level_two_apply_mobile_phone" />
             <!-- 输入电话号码 -->
             <com.lyan.tools.view.InputBox
                 style="@style/InputBoxSize"
@@ -691,6 +672,7 @@
         </LinearLayout>
         <!-- 单位电话区号及号码 -->
         <include layout="@layout/view_item_cut_line" />
+
         <LinearLayout
             style="@style/LevelApplyInfoBodyPadding"
             android:gravity="center_vertical"
@@ -701,17 +683,18 @@
                 android:layout_marginBottom="@dimen/dp_8"
                 android:layout_marginRight="@dimen/dp_6"
                 android:layout_marginTop="@dimen/dp_8"
-                android:text="单位电话区号及号码" />
+                android:text="@string/level_two_apply_telephone" />
             <!-- 中文姓名 -->
             <com.lyan.tools.view.BoxEditText
                 style="@style/BoxEditStyle"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_18"
-                android:maxLength="15"
-                android:inputType="phone"/>
+                android:inputType="phone"
+                android:maxLength="15" />
         </LinearLayout>
         <!-- 单位名称 -->
         <include layout="@layout/view_item_cut_line" />
+
         <LinearLayout
             style="@style/LevelApplyInfoBodyPadding"
             android:gravity="center_vertical"
@@ -722,7 +705,7 @@
                 android:layout_marginBottom="@dimen/dp_8"
                 android:layout_marginRight="@dimen/dp_6"
                 android:layout_marginTop="@dimen/dp_8"
-                android:text="单位名称" />
+                android:text="@string/level_two_apply_company" />
             <!-- 单位名称 -->
             <com.lyan.tools.view.BoxEditText
                 style="@style/BoxEditStyle"
@@ -732,11 +715,8 @@
         <!--  ******************************************************************  -->
         <!-- 紧急联系人 -->
         <TextView
-            style="@style/ApplyInfoItemMargin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="紧急联系人"
-            android:textColor="@color/black" />
+            style="@style/ApplyInfoItemMarginWithTextSet"
+            android:text="@string/level_two_apply_contacts" />
         <!-- 中文姓名 -->
         <LinearLayout
             style="@style/LevelApplyInfoBodyPadding"
@@ -748,7 +728,7 @@
                 android:layout_marginBottom="@dimen/dp_8"
                 android:layout_marginRight="@dimen/dp_6"
                 android:layout_marginTop="@dimen/dp_8"
-                android:text="中文姓名" />
+                android:text="@string/level_two_apply_chinese_name" />
             <!-- 中文姓名 -->
             <com.lyan.tools.view.BoxEditText
                 style="@style/BoxEditStyle"
@@ -758,6 +738,7 @@
         </LinearLayout>
         <!-- 与申请人关系 -->
         <include layout="@layout/view_item_cut_line" />
+
         <LinearLayout
             style="@style/LevelApplyInfoBodyPadding"
             android:gravity="center_vertical"
@@ -770,7 +751,7 @@
                 android:layout_marginRight="@dimen/dp_6"
                 android:layout_marginTop="@dimen/dp_8"
                 android:gravity="start"
-                android:text="与申请人关系"
+                android:text="@string/level_two_apply_relation"
                 android:textColor="@color/black" />
             <!-- 选项 -->
             <android.support.v7.widget.GridLayout
@@ -782,27 +763,28 @@
 
                 <RadioButton
                     style="@style/SelectButtonStyleHaveWidth"
-                    android:text="配偶"
+                    android:text="@string/level_two_apply_mate"
                     app:layout_columnWeight="1" />
 
                 <RadioButton
                     style="@style/SelectButtonStyleHaveWidth"
-                    android:text="亲属"
+                    android:text="@string/level_two_apply_relatives"
                     app:layout_columnWeight="1" />
 
                 <RadioButton
                     style="@style/SelectButtonStyleHaveWidth"
-                    android:text="朋友"
+                    android:text="@string/level_two_apply_friend"
                     app:layout_columnWeight="1" />
 
                 <RadioButton
                     style="@style/SelectButtonStyleHaveWidth"
-                    android:text="同事"
+                    android:text="@string/level_two_apply_colleague"
                     app:layout_columnWeight="1" />
             </android.support.v7.widget.GridLayout>
         </LinearLayout>
         <!-- 移动电话 -->
         <include layout="@layout/view_item_cut_line" />
+
         <LinearLayout
             style="@style/LevelApplyInfoBodyPadding"
             android:gravity="center_vertical"
@@ -813,7 +795,7 @@
                 android:layout_marginBottom="@dimen/dp_8"
                 android:layout_marginRight="@dimen/dp_6"
                 android:layout_marginTop="@dimen/dp_8"
-                android:text="移动电话" />
+                android:text="@string/level_two_apply_mobile_phone" />
             <!-- 输入电话号码 -->
             <com.lyan.tools.view.InputBox
                 style="@style/InputBoxSize"
@@ -824,6 +806,7 @@
         </LinearLayout>
         <!-- 单位电话区号及号码 -->
         <include layout="@layout/view_item_cut_line" />
+
         <LinearLayout
             style="@style/LevelApplyInfoBodyPadding"
             android:gravity="center_vertical"
@@ -834,17 +817,18 @@
                 android:layout_marginBottom="@dimen/dp_8"
                 android:layout_marginRight="@dimen/dp_6"
                 android:layout_marginTop="@dimen/dp_8"
-                android:text="单位电话区号及号码" />
+                android:text="@string/level_two_apply_telephone" />
             <!-- 中文姓名 -->
             <com.lyan.tools.view.BoxEditText
                 style="@style/BoxEditStyle"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_18"
-                android:maxLength="15"
-                android:inputType="phone"/>
+                android:inputType="phone"
+                android:maxLength="15" />
         </LinearLayout>
         <!-- 单位名称 -->
         <include layout="@layout/view_item_cut_line" />
+
         <LinearLayout
             style="@style/LevelApplyInfoBodyPadding"
             android:gravity="center_vertical"
@@ -855,7 +839,7 @@
                 android:layout_marginBottom="@dimen/dp_8"
                 android:layout_marginRight="@dimen/dp_6"
                 android:layout_marginTop="@dimen/dp_8"
-                android:text="单位名称" />
+                android:text="@string/level_two_apply_company" />
             <!-- 单位名称 -->
             <com.lyan.tools.view.BoxEditText
                 style="@style/BoxEditStyle"
@@ -863,6 +847,6 @@
                 android:layout_height="@dimen/dp_18" />
         </LinearLayout>
         <!-- 上一步 下一步按钮 -->
-        <include layout="@layout/view_apply_info_next_with_last_btn"/>
+        <include layout="@layout/view_apply_info_next_with_last_btn" />
     </LinearLayout>
 </ScrollView>
