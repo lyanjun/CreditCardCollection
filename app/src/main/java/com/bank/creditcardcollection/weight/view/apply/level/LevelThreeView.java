@@ -157,7 +157,7 @@ public class LevelThreeView extends LevelView implements RadioHelper.OnCheckedCh
      * @param comProvince
      */
     private void setComProvince(String comProvince) {
-        setInfo.setProvince(comProvince);
+        setInfo.setComprovince(comProvince);
         sendToView();
     }
 
@@ -167,7 +167,7 @@ public class LevelThreeView extends LevelView implements RadioHelper.OnCheckedCh
      * @param comCity
      */
     private void setComCity(String comCity) {
-        setInfo.setCity(comCity);
+        setInfo.setComcity(comCity);
         sendToView();
     }
 
