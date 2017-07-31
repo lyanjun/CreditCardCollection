@@ -4,7 +4,7 @@
     <string name="clms_calculator">计算器</string>
     <string name="clms_camera">相机</string>
     <string name="clms_add">新增</string>
-    <!-- applyInfo -->
+    <!-- applyInfo 新增 -->
     <!-- LevelOne 第一步 -->
     <string name="apply_for_card_input_hint"><![CDATA[<font color = \'#ff0000\'>*</font>若申请本行联名卡，请填写会员卡号，以便为您提供更优质服务]]></string>
     <string name="apply_for_custom_agreement_hint"><![CDATA[点击‘下一步’意味着您已阅、知晓并同意遵守<font color = \'#2F20FF\'>《长春农村商业银行信用卡章程》《长春农村商业银行性用卡领用合约》</font>]]></string>
@@ -71,6 +71,9 @@
     <string name="level_three_apply_job_stockholding">股份制企业</string>
     <string name="level_three_apply_job_private_enterprise">私人企业</string>
     <string name="level_three_apply_company_address">单位地址</string>
+    <string name="level_three_apply_company_tel">单位电话区号及号码</string>
+    <string name="level_three_apply_company_work_year">现单位工作年限</string>
+    <string name="level_three_apply_after_tax_income">税后年收入</string>
     <string name="level_three_apply_job_type">职务分类</string>
     <string name="level_three_apply_job_principal">负责人/法人</string>
     <string name="level_three_apply_job_top_management">高层管理人员</string>
@@ -127,7 +130,7 @@
     <string name="level_five_apply_relation_student">同学</string>
     <string name="level_five_apply_referrer_organization_name">推荐人机构名称</string>
     <string name="level_five_apply_referrer_organization_code">推荐人机构代码</string>
-    <string name="level_five_apply_referrer_job_number">推荐人员工号</string>
+    <string name="level_five_apply_referrer_job_number">推荐人员工号　</string>
     <string name="level_five_apply_referrer_mobile_number">推荐人手机号　</string>
     <!-- 其他常量 -->
     <string name="last_btn_text">上一步</string>
@@ -146,7 +149,7 @@
     <string name="select_room">室(号)</string>
     <string name="select_postcode">邮编</string>
     <string name="select_yuan">元</string>
+    <string name="select_wan_yuan">万元</string>
     <string name="select_date">日期</string>
     <string name="input_commit_btn">提交</string>
-
 </resources>

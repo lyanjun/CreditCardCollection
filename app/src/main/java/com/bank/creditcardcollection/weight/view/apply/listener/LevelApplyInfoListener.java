@@ -1,4 +1,4 @@
-package com.bank.creditcardcollection.weight.view.listener;
+package com.bank.creditcardcollection.weight.view.apply.listener;
 
 /**
  * 提交信用卡申请信息

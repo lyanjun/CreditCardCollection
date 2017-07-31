@@ -23,7 +23,9 @@
                 android:text="@string/level_three_apply_company" />
             <!-- 单位名称 -->
             <com.lyan.tools.view.BoxEditText
+                android:id="@+id/level3_apply_company_name"
                 style="@style/BoxEditStyle"
+                android:inputType="textPhonetic"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_18" />
         </LinearLayout>
@@ -51,9 +53,10 @@
                     android:textColor="@color/black" />
 
                 <com.lyan.tools.view.BoxEditText
-                    android:id="@+id/chinese_name"
+                    android:id="@+id/department"
                     style="@style/BoxEditStyle"
                     android:layout_width="match_parent"
+                    android:inputType="textPhonetic"
                     android:layout_height="@dimen/dp_18"
                     android:layout_marginLeft="@dimen/dp_6" />
             </LinearLayout>
@@ -224,10 +227,12 @@
                 <LinearLayout style="@style/AppleInfoItemChildLayoutStyle">
                     <!-- 省 -->
                     <com.lyan.tools.view.BoxEditText
+                        android:id="@+id/comprovince"
                         style="@style/BoxEditStyle"
                         android:layout_width="@dimen/dp_0"
                         android:layout_height="@dimen/dp_18"
                         android:layout_weight="1"
+                        android:inputType="textPhonetic"
                         android:gravity="center_horizontal" />
 
                     <TextView
@@ -235,6 +240,8 @@
                         android:text="@string/select_province" />
                     <!-- 市 -->
                     <com.lyan.tools.view.BoxEditText
+                        android:id="@+id/comcity"
+                        android:inputType="textPhonetic"
                         style="@style/BoxEditStyle"
                         android:layout_width="@dimen/dp_0"
                         android:layout_height="@dimen/dp_18"
@@ -246,6 +253,8 @@
                         android:text="@string/select_city" />
                     <!-- 区(县) -->
                     <com.lyan.tools.view.BoxEditText
+                        android:id="@+id/comarea"
+                        android:inputType="textPhonetic"
                         style="@style/BoxEditStyle"
                         android:layout_width="@dimen/dp_0"
                         android:layout_height="@dimen/dp_18"
@@ -260,19 +269,21 @@
                 <LinearLayout style="@style/AppleInfoItemChildLayoutStyle">
                     <!-- 室(号) -->
                     <com.lyan.tools.view.BoxEditText
+                        android:id="@+id/comaddress"
+                        android:inputType="textPhonetic"
                         style="@style/BoxEditStyle"
                         android:layout_width="@dimen/dp_0"
                         android:layout_height="@dimen/dp_18"
                         android:layout_weight="1"
                         android:gravity="center_horizontal"
-                        android:visibility="invisible" />
+                         />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/select_room"
                         android:textSize="@dimen/sp_14"
-                        android:visibility="invisible" />
+                        />
                     <!-- 邮编 -->
                     <TextView
                         android:layout_width="wrap_content"
@@ -292,6 +303,99 @@
                         app:ib_input_text_type="number" />
                 </LinearLayout>
             </LinearLayout>
+        </LinearLayout>
+        <!-- 单位电话区号及号码 -->
+        <include layout="@layout/view_item_cut_line"/>
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TitleWithOutMargin"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="@string/level_three_apply_company_tel" />
+            <!-- 单位名称 -->
+            <com.lyan.tools.view.BoxEditText
+                android:id="@+id/company_phone_number"
+                style="@style/BoxEditStyle"
+                android:inputType="phone"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_18" />
+        </LinearLayout>
+        <!-- 任职部门、职务 -->
+        <include layout="@layout/view_item_cut_line" />
+
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <!-- 任职部门 -->
+            <LinearLayout
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/level_three_apply_company_work_year"
+                    android:textColor="@color/black" />
+
+                <com.lyan.tools.view.BoxEditText
+                    style="@style/BoxEditStyle"
+                    android:inputType="number"
+                    android:gravity="center"
+                    android:layout_width="@dimen/dp_0"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/dp_18"
+                    android:layout_marginLeft="@dimen/dp_6" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/select_year"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+            <!-- 职务 -->
+            <LinearLayout
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/level_three_apply_after_tax_income"
+                    android:textColor="@color/black" />
+
+                <com.lyan.tools.view.BoxEditText
+                    android:id="@+id/incoming"
+                    style="@style/BoxEditStyle"
+                    android:inputType="number"
+                    android:layout_width="@dimen/dp_0"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="@dimen/dp_18"
+                    android:layout_marginLeft="@dimen/dp_6" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/select_wan_yuan"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
         </LinearLayout>
         <!-- 前单位全称 -->
         <include layout="@layout/view_item_cut_line" />
@@ -607,6 +711,7 @@
                 android:textColor="@color/black" />
             <!-- 选项 -->
             <android.support.v7.widget.GridLayout
+                android:id="@+id/post_type"
                 android:layout_width="@dimen/dp_180"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_4"
@@ -637,9 +742,12 @@
                 android:layout_marginRight="@dimen/dp_6"
                 android:layout_marginTop="@dimen/dp_8"
                 android:text="@string/level_three_apply_email_address" />
-            <!-- 单位名称 -->
+            <!-- 电子邮箱 -->
             <com.lyan.tools.view.BoxEditText
+                android:id="@+id/level3_email"
                 style="@style/BoxEditStyle"
+                android:layout_marginTop="@dimen/dp_4"
+                android:inputType="textEmailAddress"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_18" />
         </LinearLayout>

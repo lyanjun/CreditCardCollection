@@ -29,9 +29,4 @@ public class HomePresenter extends BaseRxPresenter<HomeContract.View> implements
     public void initData() {
         mView.initViewData("初始化");
     }
-
-    @Override
-    public void onDestroy() {
-        detachView();//解除绑定
-    }
 }

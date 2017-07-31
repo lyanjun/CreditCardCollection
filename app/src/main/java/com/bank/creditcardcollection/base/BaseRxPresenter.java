@@ -1,5 +1,7 @@
 package com.bank.creditcardcollection.base;
 
+import com.bank.creditcardcollection.base.activity.LifePresenter;
+
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
@@ -8,11 +10,12 @@ import io.reactivex.disposables.Disposable;
  * Created by liyanjun on 2017/7/19.
  */
 
-public abstract class BaseRxPresenter<V extends BaseView> implements BasePresenter<V>{
+public abstract class BaseRxPresenter<V extends BaseView> implements LifePresenter<V> {
 
     protected V mView;
     protected CompositeDisposable mCompositeDisposable;
 
+    @SuppressWarnings("unchecked")
     public BaseRxPresenter (V view){
         attachView(view);//绑定视图
         mView.setPresenter(this);
@@ -51,5 +54,10 @@ public abstract class BaseRxPresenter<V extends BaseView> implements BasePresent
     public final void detachView() {
         this.mView = null;
         unSubscribe();
+    }
+
+    @Override
+    public void onDestroy() {
+        detachView();
     }
 }

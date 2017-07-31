@@ -1,4 +1,4 @@
-package com.bank.creditcardcollection.weight.view.level;
+package com.bank.creditcardcollection.weight.view.apply.level;
 
 /**
  * 级别

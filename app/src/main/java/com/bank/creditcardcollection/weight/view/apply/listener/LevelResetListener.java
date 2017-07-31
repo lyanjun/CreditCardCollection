@@ -1,4 +1,4 @@
-package com.bank.creditcardcollection.weight.view.listener;
+package com.bank.creditcardcollection.weight.view.apply.listener;
 
 /**
  * 重置接口

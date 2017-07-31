@@ -4,7 +4,7 @@ import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.bank.creditcardcollection.weight.view.level.LevelView;
+import com.bank.creditcardcollection.weight.view.apply.level.LevelView;
 
 import java.util.ArrayList;
 

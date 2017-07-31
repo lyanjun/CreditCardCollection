@@ -1,24 +1,129 @@
 package com.bank.creditcardcollection.view.fragment.add.level1;
 
+import android.content.Context;
+import android.util.SparseIntArray;
+
+import com.bank.creditcardcollection.R;
 import com.bank.creditcardcollection.base.BaseRxPresenter;
+import com.bank.creditcardcollection.model.entity.ApplyInfo;
+import com.bank.creditcardcollection.weight.view.apply.level.Level;
+import com.bank.creditcardcollection.weight.view.apply.level.LevelFiveView;
+import com.bank.creditcardcollection.weight.view.apply.level.LevelFourView;
+import com.bank.creditcardcollection.weight.view.apply.level.LevelOneView;
+import com.bank.creditcardcollection.weight.view.apply.level.LevelThreeView;
+import com.bank.creditcardcollection.weight.view.apply.level.LevelTwoView;
+import com.bank.creditcardcollection.weight.view.apply.level.LevelView;
+import com.bank.creditcardcollection.weight.view.apply.listener.LevelApplyInfoListener;
+import com.bank.creditcardcollection.weight.view.apply.listener.LevelSetMessageListener;
+
+import java.util.ArrayList;
 
 /**
  * Created by liyanjun on 2017/7/27.
  */
 
-public class AddPresenter extends BaseRxPresenter<AddContract.View> implements AddContract.Presenter{
+public class AddPresenter extends BaseRxPresenter<AddContract.View> implements AddContract.Presenter,
+        LevelApplyInfoListener, LevelSetMessageListener {
+
+    private final ApplyInfo commitInfo = new ApplyInfo();
+    private LevelView levelOneView, levelTwoView, levelThreeView, levelFourView, levelFiveView;
+    private final SparseIntArray drawResID = new SparseIntArray(5);//设置容器为5;
+    private ArrayList<LevelView> levelViews = new ArrayList<>(5);//数据源
 
     public AddPresenter(AddContract.View view) {
         super(view);
     }
 
+    /**
+     * 初始化
+     */
     @Override
     public void initData() {
+        initTabImage();//初始化指示器图片
+        initItemView(mView.provideContext());//初始化选项
+        setItemViewListener();//设置选项界面的监听事件
+        mView.getLevelPageTabs(drawResID);
+        mView.getLevelPageViews(levelViews);
+    }
+
+    /**
+     * 设置监听事件
+     */
+    private void setItemViewListener() {
+        //用来控制翻页
+        levelOneView.setApplyInfoListener(this);
+        levelTwoView.setApplyInfoListener(this);
+        levelThreeView.setApplyInfoListener(this);
+        levelFourView.setApplyInfoListener(this);
+        levelFiveView.setApplyInfoListener(this);
+        //用来监听页面展示信息的变化
+        levelOneView.setSetMessageListener(this);
+        levelTwoView.setSetMessageListener(this);
+        levelThreeView.setSetMessageListener(this);
+        levelFourView.setSetMessageListener(this);
+        levelFiveView.setSetMessageListener(this);
 
     }
 
+    /**
+     * 初始化指示器图片
+     */
+    private void initTabImage() {
+        drawResID.append(0, R.drawable.apply_info_level_one);
+        drawResID.append(1, R.drawable.apply_info_level_two);
+        drawResID.append(2, R.drawable.apply_info_level_three);
+        drawResID.append(3, R.drawable.apply_info_level_four);
+        drawResID.append(4, R.drawable.apply_info_level_five);
+    }
+
+    /**
+     * 初始化填写步骤的控件
+     */
+    private void initItemView(Context mContext) {
+        levelViews.add(levelOneView = new LevelOneView(mContext));
+        levelViews.add(levelTwoView = new LevelTwoView(mContext));
+        levelViews.add(levelThreeView = new LevelThreeView(mContext));
+        levelViews.add(levelFourView = new LevelFourView(mContext));
+        levelViews.add(levelFiveView = new LevelFiveView(mContext));
+    }
+
     @Override
-    public void onDestroy() {
-        detachView();
+    public void nextStep(int position) {
+        mView.nextStep(position);
+    }
+
+    @Override
+    public void lastStep(int position) {
+        mView.lastStep(position);
+    }
+
+    @Override
+    public void commit() {
+        mView.commit();
+    }
+
+    /**
+     * 组合选中的数据
+     *
+     * @param pageNo
+     * @param changeInfo
+     */
+    @Override
+    public void levelInfoChanged(int pageNo, ApplyInfo changeInfo) {
+        switch (pageNo) {
+            case Level.LEVEL1://第一页
+                break;
+            case Level.LEVEL2://第二页
+                commitInfo.setLevel2Info(changeInfo);
+                break;
+            case Level.LEVEL3://第三页
+                commitInfo.setLevel3Info(changeInfo);
+                break;
+            case Level.LEVEL4://第四页
+                break;
+            case Level.LEVEL5://第五页
+                break;
+        }
+        mView.setCommitApplyInfo(commitInfo);//返回数据
     }
 }

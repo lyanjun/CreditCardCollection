@@ -1,25 +1,19 @@
-package com.bank.creditcardcollection.weight.view.level;
+package com.bank.creditcardcollection.weight.view.apply.level;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.Button;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.bank.creditcardcollection.R;
 import com.lyan.tools.utils.FormatUtils;
-import com.lyan.tools.utils.ToastUtils;
 import com.lyan.tools.view.BoxEditText;
 import com.lyan.tools.view.InputBox;
-import com.orhanobut.logger.Logger;
 
 import butterknife.BindView;
-import butterknife.BindViews;
-import butterknife.ButterKnife;
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
 
 /**

@@ -33,6 +33,7 @@
                     style="@style/BoxEditStyle"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp_18"
+                    android:inputType="textPhonetic"
                     android:layout_marginLeft="@dimen/dp_6" />
             </LinearLayout>
             <!-- 国籍 -->
@@ -57,6 +58,7 @@
                     style="@style/BoxEditStyle"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp_18"
+                    android:inputType="textPhonetic"
                     android:layout_marginLeft="@dimen/dp_6" />
             </LinearLayout>
         </LinearLayout>
@@ -73,11 +75,14 @@
                 android:text="@string/level_two_apply_spell_name" />
             <!-- 方框输入框 -->
             <com.lyan.tools.view.InputBox
+                android:id="@+id/spelling"
                 style="@style/InputBoxSize"
                 android:layout_marginBottom="@dimen/dp_8"
                 android:layout_marginTop="@dimen/dp_8"
                 app:ib_box_line_size="@dimen/dp_18"
                 app:ib_input_count="15"
+                app:ib_input_text_word="true"
+                app:ib_input_text_type="word"
                 app:ib_input_text_color="@color/black" />
         </LinearLayout>
         <!-- 出生日期和性别 -->
@@ -244,6 +249,7 @@
                 android:textColor="@color/black" />
             <!-- 身份证输入框 -->
             <com.lyan.tools.view.InputBox
+                android:id="@+id/certificate_code"
                 style="@style/InputBoxSize"
                 android:layout_marginBottom="@dimen/dp_8"
                 app:ib_box_line_size="@dimen/dp_18"
@@ -436,6 +442,7 @@
                 android:text="@string/level_two_apply_mobile_phone" />
             <!-- 输入电话号码 -->
             <com.lyan.tools.view.InputBox
+                android:id="@+id/apply_user_phone"
                 style="@style/InputBoxSize"
                 app:ib_box_line_size="@dimen/dp_18"
                 app:ib_input_count="11"
@@ -499,10 +506,12 @@
                     android:orientation="horizontal">
                     <!-- 省 -->
                     <com.lyan.tools.view.BoxEditText
+                        android:id="@+id/level2_province"
                         style="@style/BoxEditStyle"
                         android:layout_width="@dimen/dp_0"
                         android:layout_height="@dimen/dp_18"
                         android:layout_weight="1"
+                        android:inputType="textPhonetic"
                         android:gravity="center_horizontal" />
 
                     <TextView
@@ -512,7 +521,9 @@
                         android:textSize="@dimen/sp_14" />
                     <!-- 市 -->
                     <com.lyan.tools.view.BoxEditText
+                        android:id="@+id/level2_city"
                         style="@style/BoxEditStyle"
+                        android:inputType="textPhonetic"
                         android:layout_width="@dimen/dp_0"
                         android:layout_height="@dimen/dp_18"
                         android:layout_weight="1"
@@ -525,7 +536,9 @@
                         android:textSize="@dimen/sp_14" />
                     <!-- 区(县) -->
                     <com.lyan.tools.view.BoxEditText
+                        android:id="@+id/level2_area"
                         style="@style/BoxEditStyle"
+                        android:inputType="textPhonetic"
                         android:layout_width="@dimen/dp_0"
                         android:layout_height="@dimen/dp_18"
                         android:layout_weight="1"
@@ -547,8 +560,10 @@
                     android:orientation="horizontal">
                     <!-- 室(号) -->
                     <com.lyan.tools.view.BoxEditText
+                        android:id="@+id/level2_address"
                         style="@style/BoxEditStyle"
                         android:layout_width="@dimen/dp_0"
+                        android:inputType="textPhonetic"
                         android:layout_height="@dimen/dp_18"
                         android:layout_weight="1"
                         android:gravity="center_horizontal" />
@@ -597,7 +612,9 @@
                 android:text="@string/level_two_apply_chinese_name" />
             <!-- 中文姓名 -->
             <com.lyan.tools.view.BoxEditText
+                android:id="@+id/kinsfolk_name"
                 style="@style/BoxEditStyle"
+                android:inputType="textPhonetic"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_18"
                 android:maxLength="15" />
@@ -621,6 +638,7 @@
                 android:textColor="@color/black" />
             <!-- 选项 -->
             <android.support.v7.widget.GridLayout
+                android:id="@+id/kinsfolk_relation"
                 android:layout_width="@dimen/dp_180"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/dp_4"
@@ -664,6 +682,7 @@
                 android:text="@string/level_two_apply_mobile_phone" />
             <!-- 输入电话号码 -->
             <com.lyan.tools.view.InputBox
+                android:id="@+id/kinsfolk_phone_number"
                 style="@style/InputBoxSize"
                 app:ib_box_line_size="@dimen/dp_18"
                 app:ib_input_count="11"
@@ -731,8 +750,10 @@
                 android:text="@string/level_two_apply_chinese_name" />
             <!-- 中文姓名 -->
             <com.lyan.tools.view.BoxEditText
+                android:id="@+id/emergency_contact_name"
                 style="@style/BoxEditStyle"
                 android:layout_width="match_parent"
+                android:inputType="textPhonetic"
                 android:layout_height="@dimen/dp_18"
                 android:maxLength="15" />
         </LinearLayout>
@@ -755,6 +776,7 @@
                 android:textColor="@color/black" />
             <!-- 选项 -->
             <android.support.v7.widget.GridLayout
+                android:id="@+id/emergency_contact_relation"
                 android:layout_width="@dimen/dp_180"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/dp_4"
@@ -798,6 +820,7 @@
                 android:text="@string/level_two_apply_mobile_phone" />
             <!-- 输入电话号码 -->
             <com.lyan.tools.view.InputBox
+                android:id="@+id/emergency_contact_phone"
                 style="@style/InputBoxSize"
                 app:ib_box_line_size="@dimen/dp_18"
                 app:ib_input_count="11"
