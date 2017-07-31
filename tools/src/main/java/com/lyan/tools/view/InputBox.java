@@ -11,6 +11,7 @@ import android.text.Editable;
 import android.text.InputFilter;
 import android.text.InputType;
 import android.text.TextWatcher;
+import android.text.method.DigitsKeyListener;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
@@ -27,8 +28,18 @@ import com.orhanobut.logger.Logger;
  * Created by liyanjun on 2017/7/21.
  */
 
-public final class InputBox extends FrameLayout implements TextWatcher{
+public final class InputBox extends FrameLayout implements TextWatcher {
+    /**
+     * 接口回调监听
+     */
+    public interface OnInputTextChangeListener {
+        void onBoxTextChanged(String message);
+    }
+
+    //属性
     private Context mContext;
+    private OnInputTextChangeListener textChangeListener;
+
     //默认属性值
     private static final int DEFAULT_TEXT_COLOR = 0xFFAAAAAA;//默认字体颜色
     private static final int DEFAULT_BOX_COLOR = 0xFFAAAAAA;//默认方框颜色
@@ -39,6 +50,7 @@ public final class InputBox extends FrameLayout implements TextWatcher{
 
     private static final int INPUT_TEXT = 0;
     private static final int INPUT_NUMBER = 1;
+    private static final int INPUT_WORD = 2;
     //输入框
     private BoxEditText mInputView;//输入控件
     private String mInputText;//输入的内容
@@ -50,6 +62,7 @@ public final class InputBox extends FrameLayout implements TextWatcher{
     private int mInputTextSize;//输入文字的大小
     private int mInputTextColor;//输入文字的颜色
     private int mInputTextType;//输入文本类型
+    private boolean mInoutTextWord;//是否只能输入字母
     //其他常量
     private Paint mPaint;//画笔
     private RectF mBoxRect;//边框
@@ -97,9 +110,13 @@ public final class InputBox extends FrameLayout implements TextWatcher{
         mInputView.setBackgroundResource(0);//无背景
         mInputView.setCursorVisible(false);//无光标
         mInputView.setTextColor(Color.TRANSPARENT);//文字透明
+        if (mInoutTextWord) {
+            String digits = getResources().getString(R.string.input_word);
+            mInputView.setKeyListener(DigitsKeyListener.getInstance(digits));
+        }
         mInputView.setFilters(new InputFilter[]{new InputFilter.LengthFilter(mInputCount)});//限制可输入字符的长度
-        mInputView.addTextChangedListener(this);//输入框的监听
         mInputView.setInputType(mInputTextType);
+        mInputView.addTextChangedListener(this);//输入框的监听
         addView(mInputView);//添加子View
     }
 
@@ -114,8 +131,18 @@ public final class InputBox extends FrameLayout implements TextWatcher{
         mInputTextSize = (int) typedArray.getDimension(R.styleable.InputBox_ib_input_text_size, DensityUtils.sp2px(mContext, DEFAULT_TEXT_SIZE));//线的宽度
         mInputBoxColor = typedArray.getColor(R.styleable.InputBox_ib_box_line_color, DEFAULT_BOX_COLOR);
         mInputTextColor = typedArray.getColor(R.styleable.InputBox_ib_input_text_color, DEFAULT_TEXT_COLOR);
-        mInputTextType = typedArray.getInt(R.styleable.InputBox_ib_input_text_type,INPUT_TEXT);
-        mInputTextType = mInputTextType == INPUT_NUMBER ? InputType.TYPE_CLASS_NUMBER : InputType.TYPE_CLASS_TEXT;
+        mInputTextType = typedArray.getInt(R.styleable.InputBox_ib_input_text_type, InputType.TYPE_TEXT_VARIATION_NORMAL);
+//        mInputTextType = mInputTextType == INPUT_NUMBER ? InputType.TYPE_CLASS_NUMBER : InputType.TYPE_CLASS_TEXT;
+        if (mInputTextType == INPUT_TEXT) {
+            mInputTextType = InputType.TYPE_CLASS_TEXT;
+        } else if (mInputTextType == INPUT_NUMBER) {
+            mInputTextType = InputType.TYPE_CLASS_NUMBER;
+        } else if (mInputTextType == INPUT_WORD) {
+            mInputTextType = InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS;
+        } else {
+            mInputTextType = InputType.TYPE_TEXT_VARIATION_NORMAL;
+        }
+        mInoutTextWord = typedArray.getBoolean(R.styleable.InputBox_ib_input_text_word, false);
         typedArray.recycle();//释放资源
     }
 
@@ -146,10 +173,10 @@ public final class InputBox extends FrameLayout implements TextWatcher{
         mPaint.setStyle(Paint.Style.FILL);
         mPaint.setColor(mInputTextColor);
         mPaint.setTextSize(mInputTextSize);
-        for (int i = 0; i < mInputText.length();i++){
+        for (int i = 0; i < mInputText.length(); i++) {
             canvas.drawText(String.valueOf(mInputText.charAt(i)),
-                    mInputLineSize/2 + mInputLineSize * i,
-                    baseLine(mInputLineSize,0),mPaint);
+                    mInputLineSize / 2 + mInputLineSize * i,
+                    baseLine(mInputLineSize, 0), mPaint);
         }
     }
 
@@ -184,12 +211,13 @@ public final class InputBox extends FrameLayout implements TextWatcher{
     @Override
     public void afterTextChanged(Editable s) {
         mInputText = s.toString();//获取输入的内容
-        Logger.t("输入框").i("输入的内容" + mInputText);
-        if (null != mInputText ){
-            for (int i = 0; i < mInputText.length();i++){
-                Logger.t("输入内容 -> " + i).i(String.valueOf(mInputText.charAt(i)));
-            }
-        }
+//        Logger.t("输入框").i("输入的内容" + mInputText);
+//        if (null != mInputText) {
+//            for (int i = 0; i < mInputText.length(); i++) {
+//                Logger.t("输入内容 -> " + i).i(String.valueOf(mInputText.charAt(i)));
+//            }
+//        }
+        if (null != textChangeListener) textChangeListener.onBoxTextChanged(mInputText);
         invalidate();
     }
 
@@ -207,22 +235,32 @@ public final class InputBox extends FrameLayout implements TextWatcher{
 
     /**
      * 获取输入的内容
+     *
      * @return
      */
-    public String getInputText(){
+    public String getInputText() {
         return GetViewTextUtils.getTextTrim(mInputView);
     }
 
-    /**
-     * 事件分发时先让子控件获取焦点
-     * @param ev
-     * @return
-     */
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
+//    /**
+//     * 事件分发时先让子控件获取焦点
+//     *
+//     * @param ev
+//     * @return
+//     */
+//    @Override
+//    public boolean dispatchTouchEvent(MotionEvent ev) {
 //        mInputView.setFocusable(true);
 //        mInputView.setFocusableInTouchMode(true);
 //        mInputView.requestFocus();
-        return super.dispatchTouchEvent(ev);
+//        return super.dispatchTouchEvent(ev);
+//    }
+
+    /**
+     * 设置文字监听
+     * @param textChangeListener
+     */
+    public void setOnTextChangeListener(OnInputTextChangeListener textChangeListener) {
+        this.textChangeListener = textChangeListener;
     }
 }

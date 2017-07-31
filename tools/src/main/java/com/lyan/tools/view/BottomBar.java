@@ -78,9 +78,7 @@ public class BottomBar extends LinearLayout implements RadioButton.OnCheckedChan
                 Field field = child.getClass().getSuperclass().getDeclaredField("mButtonDrawable");
                 field.setAccessible(true);
                 field.set(child, null);
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (NoSuchFieldException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }

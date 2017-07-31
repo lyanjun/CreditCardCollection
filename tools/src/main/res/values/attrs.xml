@@ -18,7 +18,10 @@
         <attr name="ib_input_text_type" format="enum">
             <enum name="text" value="0"/>
             <enum name="number" value="1"/>
+            <enum name="word" value="2"/>
         </attr>
+        <!-- 只能输入字母 -->
+        <attr name="ib_input_text_word" format="boolean"/>
     </declare-styleable>
     <!-- 信纸类型的显示文本域 -->
     <declare-styleable name="PaperView">

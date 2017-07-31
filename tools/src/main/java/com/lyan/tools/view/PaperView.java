@@ -122,8 +122,8 @@ public class PaperView extends CustomView {
         int widthMode = MeasureSpec.getMode(widthMeasureSpec);//控件宽度的测量模式
         int widthSize = MeasureSpec.getSize(widthMeasureSpec);//控件宽度的测量值
         widthSize = size(widthMode, widthSize, DensityUtils.dp2px(context, defaultWidth));
-        Logger.t("测量").i(widthSize + "*********************" + (widthSize / showTextRows * showTextLines) + "");
-        Logger.t("测量").w(showTextLines + "");
+//        Logger.t("测量").i(widthSize + "*********************" + (widthSize / showTextRows * showTextLines) + "");
+//        Logger.t("测量").w(showTextLines + "");
         setMeasuredDimension(widthSize, widthSize / showTextRows * showTextLines);
     }
 
