@@ -71,8 +71,8 @@ public class LevelOneView extends LevelView{
     protected void setFunction() {
         OverScrollDecoratorHelper.setUpOverScroll(rootView);//弹性滑动效果
         //设置部分字体特殊的文本框
-        hintTextApplyFor.setText(FormatUtils.getHtml(mContext.getString(R.string.apply_for_card_input_hint)));
-        hintTextAgreement.setText(FormatUtils.getHtml(mContext.getString(R.string.apply_for_custom_agreement_hint)));
+        hintTextApplyFor.setText(FormatUtils.getHtml(getResources().getString(R.string.apply_for_card_input_hint)));
+        hintTextAgreement.setText(FormatUtils.getHtml(getResources().getString(R.string.apply_for_custom_agreement_hint)));
         //设置下一步操作
         nextStepBtn.setOnClickListener(v -> applyInfoListener.nextStep(Level.LEVEL2));
     }

@@ -18,9 +18,9 @@
     <string name="level_one_apply_red_hint_one">(该选项默认选中状态为是。)</string>
     <!-- LevelTwo 第二步 -->
     <string name="level_two_apply_client_info_title">您的基本信息</string>
-    <string name="level_two_apply_chinese_name">中文姓名</string>
-    <string name="level_two_apply_nationality">国籍</string>
-    <string name="level_two_apply_spell_name">拼音姓名</string>
+    <string name="level_two_apply_chinese_name"><![CDATA[<font color = \'#ff0000\'>*</font>中文姓名]]></string>
+    <string name="level_two_apply_nationality"><![CDATA[<font color = \'#ff0000\'>*</font>国籍]]></string>
+    <string name="level_two_apply_spell_name"><![CDATA[<font color = \'#ff0000\'>*</font>拼音姓名]]></string>
     <string name="level_two_apply_birth_date">出生日期</string>
     <string name="level_two_apply_gender">性别</string>
     <string name="level_two_apply_pass_type">证件类型</string>
@@ -29,8 +29,8 @@
     <string name="level_two_apply_gate_pass">港澳通行证</string>
     <string name="level_two_apply_other_card">其他证件</string>
     <string name="level_two_apply_please_explain">(请说明)</string>
-    <string name="level_two_apply_credentials_number">证件号码</string>
-    <string name="level_two_apply_uesful_life">证件有效期至</string>
+    <string name="level_two_apply_credentials_number"><![CDATA[<font color = \'#ff0000\'>*</font>证件号码]]></string>
+    <string name="level_two_apply_uesful_life"><![CDATA[<font color = \'#ff0000\'>*</font>证件有效期至]]></string>
     <string name="level_two_apply_long_time">长期</string>
     <string name="level_two_apply_marital_status">婚姻状况</string>
     <string name="level_two_apply_unmarried">未婚</string>
@@ -44,11 +44,11 @@
     <string name="level_two_apply_bachelor">大专</string>
     <string name="level_two_apply_high_school">高中及中专</string>
     <string name="level_two_apply_middle_school">初中及以下</string>
-    <string name="level_two_apply_mobile_phone">移动电话</string>
+    <string name="level_two_apply_mobile_phone"><![CDATA[<font color = \'#ff0000\'>*</font>移动电话]]></string>
     <string name="level_two_apply_telephone">住宅电话区号及号码</string>
-    <string name="level_two_apply_home_address">住宅地址</string>
+    <string name="level_two_apply_home_address"><![CDATA[<font color = \'#ff0000\'>*</font>住宅地址]]></string>
     <string name="level_two_apply_kinsfolk">直系亲属联系人</string>
-    <string name="level_two_apply_relation">与申请人关系</string>
+    <string name="level_two_apply_relation"><![CDATA[<font color = \'#ff0000\'>*</font>与申请人关系]]></string>
     <string name="level_two_apply_mate">配偶</string>
     <string name="level_two_apply_children">子女</string>
     <string name="level_two_apply_parent">父母</string>
@@ -60,8 +60,8 @@
     <string name="level_two_apply_colleague">同事</string>
     <!-- LevelThree 第三步 -->
     <string name="level_three_apply_work_info">工作信息</string>
-    <string name="level_three_apply_company">单位名称</string>
-    <string name="level_three_apply_job_title">任职部门</string>
+    <string name="level_three_apply_company"><![CDATA[<font color = \'#ff0000\'>*</font>单位名称]]></string>
+    <string name="level_three_apply_job_title"><![CDATA[<font color = \'#ff0000\'>*</font>任职部门]]></string>
     <string name="level_three_apply_job_duty">职务</string>
     <string name="level_three_apply_job_nature">行业性质</string>
     <string name="level_three_apply_job_public_institution">机关·事业单位</string>
@@ -70,10 +70,10 @@
     <string name="level_three_apply_job_joint_venture">合资·合作单位</string>
     <string name="level_three_apply_job_stockholding">股份制企业</string>
     <string name="level_three_apply_job_private_enterprise">私人企业</string>
-    <string name="level_three_apply_company_address">单位地址</string>
-    <string name="level_three_apply_company_tel">单位电话区号及号码</string>
+    <string name="level_three_apply_company_address"><![CDATA[<font color = \'#ff0000\'>*</font>单位地址]]></string>
+    <string name="level_three_apply_company_tel"><![CDATA[<font color = \'#ff0000\'>*</font>单位电话区号及号码]]></string>
     <string name="level_three_apply_company_work_year">现单位工作年限</string>
-    <string name="level_three_apply_after_tax_income">税后年收入</string>
+    <string name="level_three_apply_after_tax_income"><![CDATA[<font color = \'#ff0000\'>*</font>税后年收入]]></string>
     <string name="level_three_apply_job_type">职务分类</string>
     <string name="level_three_apply_job_principal">负责人/法人</string>
     <string name="level_three_apply_job_top_management">高层管理人员</string>
@@ -100,11 +100,11 @@
     <string name="level_three_apply_car_code">车辆识别代码</string>
     <string name="level_three_apply_car_register_date">车牌登记日期</string>
     <string name="level_three_apply_post_address">邮寄地址</string>
-    <string name="level_three_apply_please_select_post_address">请选择邮寄地址</string>
+    <string name="level_three_apply_please_select_post_address"><![CDATA[<font color = \'#ff0000\'>*</font>请选择邮寄地址]]></string>
     <string name="level_three_apply_house_address">住宅地址</string>
     <string name="level_three_apply_post_company_address">单位地址</string>
     <string name="level_three_apply_red_hint_one">(卡函、对账单等邮件相关邮件寄送地址，不选择则默认为“住宅地址)</string>
-    <string name="level_three_apply_email_address">对账单发送电子邮箱</string>
+    <string name="level_three_apply_email_address"><![CDATA[<font color = \'#ff0000\'>*</font>对账单发送电子邮箱]]></string>
     <string name="level_three_apply_red_hint_two">(如您需要纸质账单，可以收到信用卡卡片后通过客服进行申请)</string>
     <string name="level_three_apply_appoint_repayment">约定账户还款授权</string>
     <string name="level_three_apply_appoint_repayment_type">约定还款方式</string>

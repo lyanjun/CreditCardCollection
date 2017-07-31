@@ -7,15 +7,20 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.Button;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 import com.bank.creditcardcollection.R;
 import com.bank.creditcardcollection.constant.information.InformationUtils;
 import com.bank.creditcardcollection.model.entity.ApplyInfo;
 import com.bank.creditcardcollection.utils.RadioHelper;
 import com.bank.creditcardcollection.weight.view.apply.help.EditTextHelper;
+import com.lyan.tools.utils.FormatUtils;
 import com.lyan.tools.view.BoxEditText;
 
+import java.util.List;
+
 import butterknife.BindView;
+import butterknife.BindViews;
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
 
 /**
@@ -39,6 +44,10 @@ public class LevelThreeView extends LevelView implements RadioHelper.OnCheckedCh
     //提交信息
     private final ApplyInfo setInfo = new ApplyInfo();
     //绑定控件
+    @BindViews({R.id.title_company_name, R.id.title_department, R.id.title_company_address,
+            R.id.title_phone_number,R.id.title_after_tax_income ,
+            R.id.title_select_post_address,R.id.title_email_address})
+    List<TextView> titleTvs;
     @BindView(R.id.scroll_root)
     ScrollView rootView;//最外层滑动布局
     @BindView(R.id.input_next_btn)
@@ -78,8 +87,22 @@ public class LevelThreeView extends LevelView implements RadioHelper.OnCheckedCh
         OverScrollDecoratorHelper.setUpOverScroll(rootView);//弹性滑动效果
         nextStepBtn.setOnClickListener(v -> applyInfoListener.nextStep(Level.LEVEL4));//设置下一步操作
         lastStepBtn.setOnClickListener(v -> applyInfoListener.lastStep(Level.LEVEL2));//设置上一步操作
+        setTitleText();//设置标题的文字
         textInputHandle();//文本输入操作
         checkInputHandle();//选择文本操作
+    }
+
+    /**
+     * 设置标题的文字
+     */
+    private void setTitleText() {
+        titleTvs.get(0).setText(FormatUtils.getHtml(getResources().getString(R.string.level_three_apply_company)));
+        titleTvs.get(1).setText(FormatUtils.getHtml(getResources().getString(R.string.level_three_apply_job_title)));
+        titleTvs.get(2).setText(FormatUtils.getHtml(getResources().getString(R.string.level_three_apply_company_address)));
+        titleTvs.get(3).setText(FormatUtils.getHtml(getResources().getString(R.string.level_three_apply_company_tel)));
+        titleTvs.get(4).setText(FormatUtils.getHtml(getResources().getString(R.string.level_three_apply_after_tax_income)));
+        titleTvs.get(5).setText(FormatUtils.getHtml(getResources().getString(R.string.level_three_apply_please_select_post_address)));
+        titleTvs.get(6).setText(FormatUtils.getHtml(getResources().getString(R.string.level_three_apply_email_address)));
     }
 
     /**

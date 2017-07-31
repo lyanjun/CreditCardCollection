@@ -3,24 +3,24 @@ package com.bank.creditcardcollection.weight.view.apply.level;
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayout;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 import com.bank.creditcardcollection.R;
 import com.bank.creditcardcollection.constant.information.InformationUtils;
 import com.bank.creditcardcollection.model.entity.ApplyInfo;
 import com.bank.creditcardcollection.utils.RadioHelper;
 import com.bank.creditcardcollection.weight.view.apply.help.EditTextHelper;
-import com.lyan.tools.utils.ToastUtils;
+import com.lyan.tools.utils.FormatUtils;
 import com.lyan.tools.view.BoxEditText;
 import com.lyan.tools.view.InputBox;
-import com.orhanobut.logger.Logger;
+
+import java.util.List;
 
 import butterknife.BindView;
+import butterknife.BindViews;
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
 
 /**
@@ -41,6 +41,11 @@ public class LevelTwoView extends LevelView implements RadioHelper.OnCheckedChan
         super(context, attrs, defStyleAttr);
     }
 
+    @BindViews({R.id.title_chinese_name, R.id.title_kinsfolk_name, R.id.title_contact_name, R.id.title_nationality,
+            R.id.title_spell_name, R.id.title_credentials_number, R.id.title_uesful_life, R.id.title_mobile_phone,
+            R.id.title_kinsfolk_phone_number, R.id.title_contact_phone_number, R.id.title_home_address,
+            R.id.title_kinsfolk_relation, R.id.title_contact_relation})
+    List<TextView> titleTvs;
     //提交信息
     private final ApplyInfo setInfo = new ApplyInfo();
     //绑定控件
@@ -94,8 +99,28 @@ public class LevelTwoView extends LevelView implements RadioHelper.OnCheckedChan
         OverScrollDecoratorHelper.setUpOverScroll(rootView);//弹性滑动效果
         nextStepBtn.setOnClickListener(v -> applyInfoListener.nextStep(Level.LEVEL3));//设置下一步操作
         lastStepBtn.setOnClickListener(v -> applyInfoListener.lastStep(Level.LEVEL1));//设置上一步操作
+        setTitleText();//设置标题的文字
         textInputHandle();//文本输入操作
         checkInputHandle();//选择文本操作
+    }
+
+    /**
+     * 设置标题的文字
+     */
+    private void setTitleText() {
+        titleTvs.get(0).setText(FormatUtils.getHtml(getResources().getString(R.string.level_two_apply_chinese_name)));
+        titleTvs.get(1).setText(FormatUtils.getHtml(getResources().getString(R.string.level_two_apply_chinese_name)));
+        titleTvs.get(2).setText(FormatUtils.getHtml(getResources().getString(R.string.level_two_apply_chinese_name)));
+        titleTvs.get(3).setText(FormatUtils.getHtml(getResources().getString(R.string.level_two_apply_nationality)));
+        titleTvs.get(4).setText(FormatUtils.getHtml(getResources().getString(R.string.level_two_apply_spell_name)));
+        titleTvs.get(5).setText(FormatUtils.getHtml(getResources().getString(R.string.level_two_apply_credentials_number)));
+        titleTvs.get(6).setText(FormatUtils.getHtml(getResources().getString(R.string.level_two_apply_uesful_life)));
+        titleTvs.get(7).setText(FormatUtils.getHtml(getResources().getString(R.string.level_two_apply_mobile_phone)));
+        titleTvs.get(8).setText(FormatUtils.getHtml(getResources().getString(R.string.level_two_apply_mobile_phone)));
+        titleTvs.get(9).setText(FormatUtils.getHtml(getResources().getString(R.string.level_two_apply_mobile_phone)));
+        titleTvs.get(10).setText(FormatUtils.getHtml(getResources().getString(R.string.level_two_apply_home_address)));
+        titleTvs.get(11).setText(FormatUtils.getHtml(getResources().getString(R.string.level_two_apply_relation)));
+        titleTvs.get(12).setText(FormatUtils.getHtml(getResources().getString(R.string.level_two_apply_relation)));
     }
 
     /**
@@ -136,6 +161,7 @@ public class LevelTwoView extends LevelView implements RadioHelper.OnCheckedChan
 
     /**
      * 设置紧急联系人的联系方式
+     *
      * @param contactPhone
      */
     private void setApplyContactPhone(String contactPhone) {
@@ -145,6 +171,7 @@ public class LevelTwoView extends LevelView implements RadioHelper.OnCheckedChan
 
     /**
      * 设置紧急联系人的姓名
+     *
      * @param contactName
      */
     private void setApplyContactName(String contactName) {
