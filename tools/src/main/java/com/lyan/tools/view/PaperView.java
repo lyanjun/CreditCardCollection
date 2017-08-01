@@ -51,7 +51,7 @@ public class PaperView extends CustomView {
         } else {
             showTextLines = 1;//一行
         }
-        Logger.t("显示几行文字").i(showTextLines + "行");
+//        Logger.t("显示几行文字").i(showTextLines + "行");
 
     }
 

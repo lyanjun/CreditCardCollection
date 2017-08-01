@@ -4,11 +4,13 @@ import android.graphics.Paint;
 import android.support.annotation.NonNull;
 import android.widget.TextView;
 
+import java.util.List;
+
 /**
  * Created by Lyan on 17/2/11.
  */
 
-public class GetViewTextUtils {
+public class ViewTextUtils {
 
     /**
      * 获取文本
@@ -82,5 +84,17 @@ public class GetViewTextUtils {
         }
         textView.setText(sbNewText);
         return sbNewText.toString();
+    }
+
+    /**
+     * 将指定日期放入文本中
+     * @param dateStr
+     * @param textViews
+     */
+    public static void setDateToView(String dateStr,List<TextView> textViews){
+        String date[] = dateStr.split("-");
+        for (int i = 0; i < date.length; i++){
+            textViews.get(i).setText(String.valueOf(date[i]));
+        }
     }
 }

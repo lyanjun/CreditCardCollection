@@ -13,14 +13,12 @@ import android.text.InputType;
 import android.text.TextWatcher;
 import android.text.method.DigitsKeyListener;
 import android.util.AttributeSet;
-import android.view.MotionEvent;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.lyan.tools.R;
 import com.lyan.tools.utils.DensityUtils;
-import com.lyan.tools.utils.GetViewTextUtils;
-import com.orhanobut.logger.Logger;
+import com.lyan.tools.utils.ViewTextUtils;
 
 
 /**
@@ -239,7 +237,7 @@ public final class InputBox extends FrameLayout implements TextWatcher {
      * @return
      */
     public String getInputText() {
-        return GetViewTextUtils.getTextTrim(mInputView);
+        return ViewTextUtils.getTextTrim(mInputView);
     }
 
 //    /**

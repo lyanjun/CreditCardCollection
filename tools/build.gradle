@@ -47,4 +47,5 @@ dependencies {
     compile "org.greenrobot:eventbus:$library.eventbus"
     compile "me.everything:overscroll-decor-android:$library.overscroll"
     compile "com.github.PhilJay:MPAndroidChart:$library.MPAndroidChart"
+    compile "com.contrarywind:Android-PickerView:$library.PickerView"
 }
