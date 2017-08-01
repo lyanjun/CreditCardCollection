@@ -9,7 +9,9 @@ import android.widget.ImageView;
 
 import com.bank.creditcardcollection.R;
 import com.bank.creditcardcollection.adapter.ApplyInfoAdapter;
+import com.bank.creditcardcollection.constant.Constant;
 import com.bank.creditcardcollection.model.entity.ApplyInfo;
+import com.bank.creditcardcollection.net.retrofit.HttpUtils;
 import com.bank.creditcardcollection.view.fragment.base.BaseWithOutBackFragment;
 import com.bank.creditcardcollection.weight.view.apply.level.Level;
 import com.bank.creditcardcollection.weight.view.apply.level.LevelFiveView;
@@ -21,6 +23,8 @@ import com.bank.creditcardcollection.weight.view.apply.level.LevelView;
 import com.bank.creditcardcollection.weight.view.apply.listener.LevelApplyInfoListener;
 import com.bank.creditcardcollection.weight.view.apply.listener.LevelSetMessageListener;
 import com.bank.creditcardcollection.weight.view.listener.PageSelectedHelper;
+import com.google.gson.Gson;
+import com.lyan.tools.utils.DateUtils;
 import com.lyan.tools.utils.ToastUtils;
 import com.orhanobut.logger.Logger;
 
@@ -128,7 +132,11 @@ public class AddFragment extends BaseWithOutBackFragment implements AddContract.
     @Override
     public void commit() {
         if (null != commitInfo) {
+            commitInfo.setCreatetime(DateUtils.getTodayStr(DateUtils.FORMAT_DATE_TIME));
+            commitInfo.setStatus(Constant.STATE_1);
             Logger.t("提交的内容").i(commitInfo.toString());
+            HttpUtils.postAddApplyResult(new Gson().toJson(commitInfo))
+                    .subscribe(s -> Logger.t("成功").w(s),throwable ->  Logger.t("失败").w(throwable.getMessage()));
         } else {
             Logger.t("提交的内容").i("当前无提交内容");
         }

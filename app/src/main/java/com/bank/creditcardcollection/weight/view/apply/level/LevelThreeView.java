@@ -240,7 +240,7 @@ public class LevelThreeView extends LevelView implements RadioHelper.OnCheckedCh
      * @param emailAddress
      */
     private void setApplyEmailAddress(String emailAddress) {
-        setInfo.setEmail(emailAddress);
+        setInfo.setEbilladdr(emailAddress);
         sendToView();
     }
 

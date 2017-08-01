@@ -274,49 +274,55 @@
                 android:id="@+id/title_uesful_life"
                 style="@style/TitleWithMargin"
                 tools:text="证件有效期至" />
-            <!-- 输入年月日 -->
-            <com.lyan.tools.view.BoxEditText
-                style="@style/BoxEditStyle"
-                android:layout_width="@dimen/dp_40"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dp_6"
-                android:gravity="center_horizontal"
-                android:inputType="number"
-                android:maxLength="4" />
-
-            <TextView
+            <LinearLayout
+                android:id="@+id/level2_apply_card_validity"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/select_year"
-                android:textSize="@dimen/sp_14" />
+                android:layout_height="wrap_content">
+                <!-- 输入年月日 -->
+                <TextView
+                    android:id="@+id/date_uesful_life_year"
+                    style="@style/BoxEditStyle"
+                    android:layout_width="@dimen/dp_40"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_6"
+                    android:gravity="center_horizontal"
+                    android:maxLength="4" />
 
-            <com.lyan.tools.view.BoxEditText
-                style="@style/BoxEditStyle"
-                android:layout_width="23dp"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:inputType="number"
-                android:maxLength="2" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/select_year"
+                    android:textSize="@dimen/sp_14" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/select_month"
-                android:textSize="@dimen/sp_14" />
+                <TextView
+                    android:id="@+id/date_uesful_life_month"
+                    style="@style/BoxEditStyle"
+                    android:layout_width="23dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:maxLength="2" />
 
-            <com.lyan.tools.view.BoxEditText
-                style="@style/BoxEditStyle"
-                android:layout_width="@dimen/dp_24"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:inputType="number"
-                android:maxLength="2" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/select_month"
+                    android:textSize="@dimen/sp_14" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/select_day"
-                android:textSize="@dimen/sp_14" />
+                <TextView
+                    android:id="@+id/date_uesful_life_day"
+                    style="@style/BoxEditStyle"
+                    android:layout_width="@dimen/dp_24"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:maxLength="2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/select_day"
+                    android:textSize="@dimen/sp_14" />
+            </LinearLayout>
+
             <!--  勾选按钮 -->
             <CheckBox
                 style="@style/SelectButtonStyleHaveWidth"

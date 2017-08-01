@@ -16,7 +16,7 @@ public class ApplyInfo {
     private String idno;//VARCHAR2(32)	N	证件号码    2
     private String idvalidate;//CHAR(10)	N	证件有效期 2
     private String tel;//VARCHAR2(20)	N	移动电话    2
-    private String email;//VARCHAR2(32)	N	电子邮箱    3
+//    private String email;//VARCHAR2(32)	N	电子邮箱    3
     private String province;//VARCHAR2(60)	N	居住省份    2
     private String city;//VARCHAR2(60)	N	居住城市    2
     private String area;//VARCHAR2(60)	N	居住区县    2
@@ -88,13 +88,13 @@ public class ApplyInfo {
         this.tel = tel;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
+//    public String getEmail() {
+//        return email;
+//    }
+//
+//    public void setEmail(String email) {
+//        this.email = email;
+//    }
 
     public String getProvince() {
         return province;
@@ -282,6 +282,7 @@ public class ApplyInfo {
         setNation(changeInfo.getNation());
         setPinyin(changeInfo.getPinyin());
         setIdno(changeInfo.getIdno());
+        setIdvalidate(changeInfo.getIdvalidate());
         setTel(changeInfo.getTel());
         setProvince(changeInfo.getProvince());
         setCity(changeInfo.getCity());
@@ -330,11 +331,12 @@ public class ApplyInfo {
         setComphone(changeInfo.getComphone());
         setIncoming(changeInfo.getIncoming());
         setPosttype(changeInfo.getPosttype());
-        setEmail(changeInfo.getEmail());
+        setEbilladdr(changeInfo.getEbilladdr());
     }
     public String toStringApplyInfoLevel3() {
         StringBuilder builder = new StringBuilder();
-        builder.append("电子邮箱 : ").append(email).append("\n")
+        builder
+//                .append("电子邮箱 : ").append(email).append("\n")
                 .append("申请人单位名称 : ").append(companyname).append("\n")
                 .append("任职部门 : ").append(department).append("\n")
                 .append("工作单位省份 : ").append(comprovince).append("\n")
@@ -350,7 +352,11 @@ public class ApplyInfo {
 
     @Override
     public String toString() {
-        return toStringApplyInfoLevel2() + toStringApplyInfoLevel3();
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(toStringApplyInfoLevel2()).append(toStringApplyInfoLevel3())
+                .append("创建时间 : ").append(createtime).append("\n")
+                .append("申请状态 : ").append(status).append("\n");
+        return stringBuilder.toString();
     }
 
 

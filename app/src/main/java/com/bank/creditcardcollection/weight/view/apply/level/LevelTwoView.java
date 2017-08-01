@@ -1,10 +1,13 @@
 package com.bank.creditcardcollection.weight.view.apply.level;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayout;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -12,11 +15,21 @@ import com.bank.creditcardcollection.R;
 import com.bank.creditcardcollection.constant.information.InformationUtils;
 import com.bank.creditcardcollection.model.entity.ApplyInfo;
 import com.bank.creditcardcollection.utils.RadioHelper;
+import com.bank.creditcardcollection.weight.dialog.DateDialog;
 import com.bank.creditcardcollection.weight.view.apply.help.EditTextHelper;
+import com.bigkoo.pickerview.TimePickerView;
+import com.bigkoo.pickerview.lib.WheelView;
+import com.bigkoo.pickerview.listener.CustomListener;
+import com.lyan.tools.utils.DateUtils;
 import com.lyan.tools.utils.FormatUtils;
+import com.lyan.tools.utils.ToastUtils;
+import com.lyan.tools.utils.ViewTextUtils;
 import com.lyan.tools.view.BoxEditText;
 import com.lyan.tools.view.InputBox;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
@@ -28,7 +41,8 @@ import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
  * Created by liyanjun on 2017/7/21.
  */
 
-public class LevelTwoView extends LevelView implements RadioHelper.OnCheckedChangeListener {
+public class LevelTwoView extends LevelView implements RadioHelper.OnCheckedChangeListener, View.OnClickListener,
+        DateDialog.OnSelectDateListener {
     public LevelTwoView(Context context) {
         super(context);
     }
@@ -85,9 +99,16 @@ public class LevelTwoView extends LevelView implements RadioHelper.OnCheckedChan
     GridLayout inputApplyContactRelation;//紧急联系人关系
     @BindView(R.id.emergency_contact_phone)
     InputBox inputApplyContactPhone;//紧急联系人联系方式
+    //选择时间
+    @BindView(R.id.level2_apply_card_validity)
+    LinearLayout inputApplyCardValidity;//证件有效期
+    @BindViews({R.id.date_uesful_life_year, R.id.date_uesful_life_month, R.id.date_uesful_life_day})
+    List<TextView> dateUsefulLife;//使用有效期
     //属性
     RadioHelper<GridLayout> inputApplyKinsfolkRelationHelper;//直系亲属选择
     RadioHelper<GridLayout> inputApplyContactRelationHelper;//紧急联系人选择
+    private DateDialog inputSelectDateDialog;
+
 
     @Override
     protected int setContentView() {
@@ -97,11 +118,27 @@ public class LevelTwoView extends LevelView implements RadioHelper.OnCheckedChan
     @Override
     protected void setFunction() {
         OverScrollDecoratorHelper.setUpOverScroll(rootView);//弹性滑动效果
-        nextStepBtn.setOnClickListener(v -> applyInfoListener.nextStep(Level.LEVEL3));//设置下一步操作
-        lastStepBtn.setOnClickListener(v -> applyInfoListener.lastStep(Level.LEVEL1));//设置上一步操作
         setTitleText();//设置标题的文字
+        setOnClickHandle();//设置选择日期的操作
         textInputHandle();//文本输入操作
         checkInputHandle();//选择文本操作
+        setDialogHandle();//设置弹窗
+    }
+
+    /**
+     * 设置弹窗
+     */
+    private void setDialogHandle() {
+        inputSelectDateDialog = new DateDialog(mContext, 0).addDateListener(this);
+    }
+
+    /**
+     * 设置选择日期的操作
+     */
+    private void setOnClickHandle() {
+        inputApplyCardValidity.setOnClickListener(this);//开启选择日期的弹窗
+        nextStepBtn.setOnClickListener(this);//设置下一步操作
+        lastStepBtn.setOnClickListener(this);//设置上一步操作
     }
 
     /**
@@ -323,5 +360,43 @@ public class LevelTwoView extends LevelView implements RadioHelper.OnCheckedChan
                 break;
         }
         sendToView();
+    }
+
+    /**
+     * 点击事件
+     *
+     * @param v
+     */
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.level2_apply_card_validity://选择证件的有效期
+                inputSelectDateDialog.show();//开启弹窗
+                break;
+            case R.id.input_next_btn://下一步
+                applyInfoListener.nextStep(Level.LEVEL3);
+                break;
+            case R.id.input_last_btn://上一步
+                applyInfoListener.lastStep(Level.LEVEL1);
+                break;
+        }
+    }
+
+    /**
+     * 选择日期的监听
+     *
+     * @param id
+     * @param selectDate
+     */
+    @Override
+    public void afterDateSelected(int id, Date selectDate) {
+        String dateStr = DateUtils.getDateTimeStr(selectDate, DateUtils.FORMAT_DATE);
+        switch (id) {
+            case 0://证件有效期
+                ViewTextUtils.setDateToView(dateStr,dateUsefulLife);
+                setInfo.setIdvalidate(dateStr);
+                sendToView();
+                break;
+        }
     }
 }

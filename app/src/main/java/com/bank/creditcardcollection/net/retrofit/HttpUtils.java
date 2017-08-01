@@ -29,6 +29,15 @@ public final class HttpUtils {
     }
 
     /**
+     * 新增信用卡申请
+     * @param requestJson
+     * @return
+     */
+    public static Observable<String> postAddApplyResult(String requestJson) {
+        return getHttpService().getAddApplyResult(getRequestBody(requestJson))
+                .compose(rxSchedulerHelper());
+    }
+    /**
      * 获取下载服务
      * @return
      */

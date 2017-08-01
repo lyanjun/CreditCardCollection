@@ -21,4 +21,12 @@ public interface HttpService {
      */
     @POST(HttpUrl.FL)
     Observable<String> getResultJson(@Body RequestBody requestBody);
+
+    /**
+     * 新增申请返回结果
+     * @param requestBody
+     * @return
+     */
+    @POST(HttpUrl.APPLY_ADD)
+    Observable<String> getAddApplyResult(@Body RequestBody requestBody);
 }
