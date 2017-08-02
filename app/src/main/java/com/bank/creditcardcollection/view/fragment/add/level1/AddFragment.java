@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import com.bank.creditcardcollection.R;
 import com.bank.creditcardcollection.adapter.ApplyInfoAdapter;
 import com.bank.creditcardcollection.constant.Constant;
-import com.bank.creditcardcollection.view.fragment.base.BaseWithOutBackFragment;
+import com.bank.creditcardcollection.view.fragment.base.BaseMvpViewFragment;
 import com.bank.creditcardcollection.weight.view.apply.level.LevelView;
 import com.bank.creditcardcollection.weight.view.listener.PageSelectedHelper;
 import com.orhanobut.logger.Logger;
@@ -26,7 +26,7 @@ import butterknife.BindView;
  * Created by liyanjun on 2017/7/19.
  */
 
-public class AddFragment extends BaseWithOutBackFragment implements AddContract.View<AddPresenter> {
+public class AddFragment extends BaseMvpViewFragment<AddContract.Presenter> implements AddContract.View {
 
     @BindView(R.id.apply_indicate)
     ImageView applyIndicate;//指示器
@@ -34,7 +34,6 @@ public class AddFragment extends BaseWithOutBackFragment implements AddContract.
     ViewPager applyInterPhase;//滑动视图
     private ArrayList<LevelView> levelViews;//数据源
     private SparseIntArray drawResID;//图片资源
-    private AddPresenter mAddPresenter;
 
     /**
      * 设置功能
@@ -43,7 +42,7 @@ public class AddFragment extends BaseWithOutBackFragment implements AddContract.
     protected void setFunction() {
         super.setFunction();
         new AddPresenter(this);//创建控制器
-        mAddPresenter.initData();//初始化
+        mPresenter.initData();//初始化
         ApplyInfoAdapter applyInfoAdapter = new ApplyInfoAdapter(levelViews);
         applyInterPhase.setAdapter(applyInfoAdapter);//绑定适配器
         applyInterPhase.addOnPageChangeListener(new PageSelectedHelper(
@@ -87,8 +86,8 @@ public class AddFragment extends BaseWithOutBackFragment implements AddContract.
      * @param presenter
      */
     @Override
-    public void setPresenter(AddPresenter presenter) {
-        this.mAddPresenter = presenter;
+    public void setPresenter(AddContract.Presenter presenter) {
+        this.mPresenter = presenter;
     }
 
     /**
@@ -143,21 +142,23 @@ public class AddFragment extends BaseWithOutBackFragment implements AddContract.
 
     /**
      * 跳转界面
+     *
      * @param clazz
      * @param requestCode
      * @param <T>
      */
     @Override
     public <T extends Activity> void startActivityForResultInLevel(Class<T> clazz, int requestCode) {
-        if (Constant.REQUEST_NONE == requestCode){//无返回跳转
-            startActivity(new Intent(mActivity,clazz));
-        }else {
-            startActivityForResult(new Intent(mActivity,clazz),requestCode);
+        if (Constant.REQUEST_NONE == requestCode) {//无返回跳转
+            startActivity(new Intent(mActivity, clazz));
+        } else {
+            startActivityForResult(new Intent(mActivity, clazz), requestCode);
         }
     }
 
     /**
      * 返回结果
+     *
      * @param requestCode
      * @param resultCode
      * @param data
@@ -167,12 +168,4 @@ public class AddFragment extends BaseWithOutBackFragment implements AddContract.
         Logger.i("返回当前界面");
     }
 
-    /**
-     * 销毁
-     */
-    @Override
-    public void onDestroy() {
-        mAddPresenter.onDestroy();
-        super.onDestroy();
-    }
 }

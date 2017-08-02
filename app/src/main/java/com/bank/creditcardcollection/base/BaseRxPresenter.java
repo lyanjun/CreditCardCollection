@@ -33,7 +33,7 @@ public abstract class BaseRxPresenter<V extends BaseView> implements LifePresent
     /**
      * 初始化数据
      */
-    public abstract void initData();
+//    public abstract void initData();
     /**
      * 增加订阅
      * @param disposable

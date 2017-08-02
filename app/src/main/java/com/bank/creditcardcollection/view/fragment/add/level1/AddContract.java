@@ -6,7 +6,6 @@ import android.util.SparseIntArray;
 
 import com.bank.creditcardcollection.base.BaseView;
 import com.bank.creditcardcollection.base.activity.LifePresenter;
-import com.bank.creditcardcollection.model.entity.ApplyInfo;
 import com.bank.creditcardcollection.weight.view.apply.level.LevelView;
 
 import java.util.ArrayList;
@@ -19,7 +18,7 @@ public interface AddContract {
     /**
      * 视图
      */
-    interface View<P extends AddContract.Presenter> extends BaseView<P> {
+    interface View extends BaseView<AddContract.Presenter> {
         void nextStep(int position);//下一页
 
         void lastStep(int position);//上一页

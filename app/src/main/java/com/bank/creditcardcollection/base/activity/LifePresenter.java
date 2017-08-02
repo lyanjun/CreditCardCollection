@@ -9,5 +9,6 @@ import com.bank.creditcardcollection.base.BaseView;
  */
 
 public interface LifePresenter<V extends BaseView> extends BasePresenter<V>{
+    void initData();//初始化
     void onDestroy();//释放资源
 }
