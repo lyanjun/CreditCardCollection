@@ -2,10 +2,13 @@ package com.bank.creditcardcollection.weight.view.apply.level;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
+import android.support.annotation.TransitionRes;
 import android.support.v7.widget.GridLayout;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -13,11 +16,14 @@ import com.bank.creditcardcollection.R;
 import com.bank.creditcardcollection.constant.information.InformationUtils;
 import com.bank.creditcardcollection.model.entity.ApplyInfo;
 import com.bank.creditcardcollection.utils.RadioHelper;
+import com.bank.creditcardcollection.weight.dialog.DateDialog;
 import com.bank.creditcardcollection.weight.view.apply.help.EditTextHelper;
+import com.lyan.tools.utils.DateUtils;
 import com.lyan.tools.utils.FormatUtils;
 import com.lyan.tools.utils.ViewTextUtils;
 import com.lyan.tools.view.BoxEditText;
 
+import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
@@ -29,7 +35,8 @@ import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
  * Created by liyanjun on 2017/7/21.
  */
 
-public class LevelThreeView extends LevelView implements RadioHelper.OnCheckedChangeListener {
+public class LevelThreeView extends LevelView implements RadioHelper.OnCheckedChangeListener, View.OnClickListener ,
+DateDialog.OnSelectDateListener{
     public LevelThreeView(Context context) {
         super(context);
     }
@@ -77,7 +84,12 @@ public class LevelThreeView extends LevelView implements RadioHelper.OnCheckedCh
     GridLayout inputApplyPostType;//邮寄方式
     //属性
     RadioHelper<GridLayout> inputApplyApplyPostTypeHelper;//邮寄方式单选
-
+    //**************************************** 选填项 *****************************************
+    @BindView(R.id.level3_apply_vehicle_registration)
+    LinearLayout inputApplyVehicleRegistration;//车辆登记日期
+    DateDialog inputSelectVehicleRegistrationDateDialog;//日期选择弹窗
+    @BindViews({R.id.vehicle_registration_year,R.id.vehicle_registration_month,R.id.vehicle_registration_day})
+    List<TextView> vehicleRegistrationTv;//显示选择的车辆登记日期
     @Override
     protected int setContentView() {
         return R.layout.view_apply_info_level_three;
@@ -86,11 +98,26 @@ public class LevelThreeView extends LevelView implements RadioHelper.OnCheckedCh
     @Override
     protected void setFunction() {
         OverScrollDecoratorHelper.setUpOverScroll(rootView);//弹性滑动效果
-        nextStepBtn.setOnClickListener(v -> applyInfoListener.nextStep(Level.LEVEL4));//设置下一步操作
-        lastStepBtn.setOnClickListener(v -> applyInfoListener.lastStep(Level.LEVEL2));//设置上一步操作
         setTitleText();//设置标题的文字
+        setOnClickHandle();//设置点击事件操作
         textInputHandle();//文本输入操作
         checkInputHandle();//选择文本操作
+        setDialogHandle();//设置弹窗
+    }
+    /**
+     * 设置弹窗
+     */
+    private void setDialogHandle() {
+        inputSelectVehicleRegistrationDateDialog = new DateDialog(mContext, 0).addDateListener(this);
+    }
+
+    /**
+     * 设置点击事件操作
+     */
+    private void setOnClickHandle() {
+        inputApplyVehicleRegistration.setOnClickListener(this);
+        nextStepBtn.setOnClickListener(this);//设置下一步操作
+        lastStepBtn.setOnClickListener(this);//设置上一步操作
     }
 
     /**
@@ -273,5 +300,54 @@ public class LevelThreeView extends LevelView implements RadioHelper.OnCheckedCh
         ViewTextUtils.setTextViewEmpty(inputApplyCompanyPhoneNumber);
         ViewTextUtils.setTextViewEmpty(inputApplyIncoming);
         ViewTextUtils.setTextViewEmpty(inputApplyCompanyName);
+        //清空日期
+        resetDate();
+        //刷新
+        sendToView();
+    }
+
+    /**
+     * 清空日期
+     */
+    private void resetDate() {
+        //车辆登记日期(字段未知)
+        inputSelectVehicleRegistrationDateDialog.setNowData();//设置日期选择弹窗显示的日期
+        ViewTextUtils.setTextViewEmpty(vehicleRegistrationTv);//制空
+    }
+
+    /**
+     * 点击事件
+     *
+     * @param v
+     */
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.input_next_btn://下一步
+                applyInfoListener.nextStep(Level.LEVEL4);
+                break;
+            case R.id.input_last_btn://上一步
+                applyInfoListener.lastStep(Level.LEVEL2);
+                break;
+            case R.id.level3_apply_vehicle_registration://车辆登记日期选择
+                inputSelectVehicleRegistrationDateDialog.show();//开启弹窗
+                break;
+        }
+    }
+
+    /**
+     * 选择日期回调
+     * @param id
+     * @param selectDate
+     */
+    @Override
+    public void afterDateSelected(int id, Date selectDate) {
+        String dateStr = DateUtils.getDateTimeStr(selectDate, DateUtils.FORMAT_DATE);
+        switch (id) {
+            case 0://车辆登记日期(字段未知)
+                ViewTextUtils.setDateToView(dateStr, vehicleRegistrationTv);
+                break;
+        }
+        sendToView();
     }
 }

@@ -10,13 +10,16 @@ public class ApplyInfo {
     /**
      * 必填字段
      */
+    private String usercode;//用户编码
+
+
     private String name;//VARCHAR2(60)	N	中文姓名    2
     private String nation;//VARCHAR2(60)	N	国籍  2
     private String pinyin;//VARCHAR2(90)	N	拼音姓名    2
     private String idno;//VARCHAR2(32)	N	证件号码    2
     private String idvalidate;//CHAR(10)	N	证件有效期 2
     private String tel;//VARCHAR2(20)	N	移动电话    2
-//    private String email;//VARCHAR2(32)	N	电子邮箱    3
+    //    private String email;//VARCHAR2(32)	N	电子邮箱    3
     private String province;//VARCHAR2(60)	N	居住省份    2
     private String city;//VARCHAR2(60)	N	居住城市    2
     private String area;//VARCHAR2(60)	N	居住区县    2
@@ -88,13 +91,20 @@ public class ApplyInfo {
         this.tel = tel;
     }
 
-//    public String getEmail() {
+    //    public String getEmail() {
 //        return email;
 //    }
 //
 //    public void setEmail(String email) {
 //        this.email = email;
 //    }
+    public String getUsercode() {
+        return usercode;
+    }
+
+    public void setUsercode(String usercode) {
+        this.usercode = usercode;
+    }
 
     public String getProvince() {
         return province;
@@ -374,6 +384,7 @@ public class ApplyInfo {
         setPosttype(changeInfo.getPosttype());
         setEbilladdr(changeInfo.getEbilladdr());
     }
+
     public String toStringApplyInfoLevel3() {
         StringBuilder builder = new StringBuilder();
         builder
@@ -394,7 +405,8 @@ public class ApplyInfo {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(toStringApplyInfoLevel2()).append(toStringApplyInfoLevel3())
+        stringBuilder.append("用户编码 : ").append(usercode).append("\n")
+                .append(toStringApplyInfoLevel2()).append(toStringApplyInfoLevel3())
                 .append("创建时间 : ").append(createtime).append("\n")
                 .append("申请状态 : ").append(status).append("\n");
         return stringBuilder.toString();

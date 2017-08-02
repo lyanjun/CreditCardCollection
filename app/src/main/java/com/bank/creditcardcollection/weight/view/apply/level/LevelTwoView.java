@@ -37,7 +37,7 @@ import butterknife.BindViews;
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
 
 /**
- * 第一步
+ * 第二步（使用注解绑定控件也是迫不得已，控件太多）
  * Created by liyanjun on 2017/7/21.
  */
 
@@ -104,10 +104,17 @@ public class LevelTwoView extends LevelView implements RadioHelper.OnCheckedChan
     LinearLayout inputApplyCardValidity;//证件有效期
     @BindViews({R.id.date_uesful_life_year, R.id.date_uesful_life_month, R.id.date_uesful_life_day})
     List<TextView> dateUsefulLife;//使用有效期
+
+    @BindView(R.id.level2_apply_birthday)
+    LinearLayout inputApplyBirthday;//出生日期
+    @BindViews({R.id.birthday_year, R.id.birthday_month, R.id.birthday_day})
+    List<TextView> birthdayTv;//出生日期
     //属性
     RadioHelper<GridLayout> inputApplyKinsfolkRelationHelper;//直系亲属选择
     RadioHelper<GridLayout> inputApplyContactRelationHelper;//紧急联系人选择
+    //日期选择弹窗
     private DateDialog inputSelectDateDialog;
+    private DateDialog inputSelectBirthDialog;
 
 
     @Override
@@ -119,7 +126,7 @@ public class LevelTwoView extends LevelView implements RadioHelper.OnCheckedChan
     protected void setFunction() {
         OverScrollDecoratorHelper.setUpOverScroll(rootView);//弹性滑动效果
         setTitleText();//设置标题的文字
-        setOnClickHandle();//设置选择日期的操作
+        setOnClickHandle();//设置点击事件操作
         textInputHandle();//文本输入操作
         checkInputHandle();//选择文本操作
         setDialogHandle();//设置弹窗
@@ -130,6 +137,7 @@ public class LevelTwoView extends LevelView implements RadioHelper.OnCheckedChan
      */
     private void setDialogHandle() {
         inputSelectDateDialog = new DateDialog(mContext, 0).addDateListener(this);
+        inputSelectBirthDialog = new DateDialog(mContext, 1).addDateListener(this);
     }
 
     /**
@@ -137,6 +145,7 @@ public class LevelTwoView extends LevelView implements RadioHelper.OnCheckedChan
      */
     private void setOnClickHandle() {
         inputApplyCardValidity.setOnClickListener(this);//开启选择日期的弹窗
+        inputApplyBirthday.setOnClickListener(this);//开启选择日期的弹窗
         nextStepBtn.setOnClickListener(this);//设置下一步操作
         lastStepBtn.setOnClickListener(this);//设置上一步操作
     }
@@ -359,16 +368,21 @@ public class LevelTwoView extends LevelView implements RadioHelper.OnCheckedChan
         ViewTextUtils.setTextViewEmpty(inputApplyContactPhone);
         //清空日期
         resetDate();
+        //刷新
+        sendToView();
     }
 
     /**
      * 重置日期
      */
     private void resetDate() {
-        inputSelectDateDialog.setNowData();
-        ViewTextUtils.setTextViewEmpty(dateUsefulLife);
-        setInfo.setIdvalidate("");
-        sendToView();
+        //有效期
+        inputSelectDateDialog.setNowData();//设置日期选择弹窗显示的日期
+        ViewTextUtils.setTextViewEmpty(dateUsefulLife);//制空
+        setInfo.setIdvalidate("");//制空
+        //出生日期(字段未知)
+        inputSelectBirthDialog.setNowData();//设置日期选择弹窗显示的日期
+        ViewTextUtils.setTextViewEmpty(birthdayTv);//制空
     }
 
     /**
@@ -401,6 +415,9 @@ public class LevelTwoView extends LevelView implements RadioHelper.OnCheckedChan
             case R.id.level2_apply_card_validity://选择证件的有效期
                 inputSelectDateDialog.show();//开启弹窗
                 break;
+            case R.id.level2_apply_birthday://选择申请人出生日期
+                inputSelectBirthDialog.show();//开启弹窗
+                break;
             case R.id.input_next_btn://下一步
                 applyInfoListener.nextStep(Level.LEVEL3);
                 break;
@@ -423,8 +440,11 @@ public class LevelTwoView extends LevelView implements RadioHelper.OnCheckedChan
             case 0://证件有效期
                 ViewTextUtils.setDateToView(dateStr, dateUsefulLife);
                 setInfo.setIdvalidate(dateStr);
-                sendToView();
+                break;
+            case 1://出生年月日(字段未知)
+                ViewTextUtils.setDateToView(dateStr, birthdayTv);
                 break;
         }
+        sendToView();
     }
 }

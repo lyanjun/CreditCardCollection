@@ -109,11 +109,13 @@ public class AddPresenter extends BaseRxPresenter<AddContract.View> implements A
     public void commit() {
         commitInfo.setCreatetime(DateUtils.getTodayStr(DateUtils.FORMAT_DATE_TIME));
         commitInfo.setStatus(Constant.STATE_1);
+        commitInfo.setUsercode("fanjian");
         Logger.t("提交的内容").i(commitInfo.toString());
         HttpUtils.postAddApplyResult(new Gson().toJson(commitInfo))
-                .doFinally(this::resetApplyData)
+                .doFinally(this::resetApplyData)//订阅事件结束后重置
                 .subscribe(s -> Logger.t("成功").w(s),
                         throwable -> Logger.t("失败").w(throwable.getMessage()));
+//        resetApplyData();
     }
 
     /**

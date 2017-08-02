@@ -649,49 +649,54 @@
                     <TextView
                         style="@style/ApplyInfoFlagTagTextStyle"
                         android:text="@string/level_three_apply_car_register_date" />
-                    <!-- 输入 -->
-                    <com.lyan.tools.view.BoxEditText
-                        style="@style/BoxEditStyle"
-                        android:layout_width="@dimen/dp_40"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/dp_6"
-                        android:gravity="center_horizontal"
-                        android:inputType="number"
-                        android:maxLength="4" />
-
-                    <TextView
+                    <LinearLayout
+                        android:id="@+id/level3_apply_vehicle_registration"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/select_year"
-                        android:textSize="@dimen/sp_14" />
+                        android:layout_height="wrap_content">
+                        <!-- 输入 -->
+                        <TextView
+                            android:id="@+id/vehicle_registration_year"
+                            style="@style/BoxEditStyle"
+                            android:layout_width="@dimen/dp_40"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp_6"
+                            android:gravity="center_horizontal"
+                            android:maxLength="4" />
 
-                    <com.lyan.tools.view.BoxEditText
-                        style="@style/BoxEditStyle"
-                        android:layout_width="23dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
-                        android:inputType="number"
-                        android:maxLength="2" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/select_year"
+                            android:textSize="@dimen/sp_14" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/select_month"
-                        android:textSize="@dimen/sp_14" />
+                        <TextView
+                            android:id="@+id/vehicle_registration_month"
+                            style="@style/BoxEditStyle"
+                            android:layout_width="23dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:maxLength="2" />
 
-                    <com.lyan.tools.view.BoxEditText
-                        style="@style/BoxEditStyle"
-                        android:layout_width="@dimen/dp_24"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
-                        android:inputType="number"
-                        android:maxLength="2" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/select_month"
+                            android:textSize="@dimen/sp_14" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/select_day"
-                        android:textSize="@dimen/sp_14" />
+                        <TextView
+                            android:id="@+id/vehicle_registration_day"
+                            style="@style/BoxEditStyle"
+                            android:layout_width="@dimen/dp_24"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:maxLength="2" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/select_day"
+                            android:textSize="@dimen/sp_14" />
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
