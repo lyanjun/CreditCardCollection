@@ -1,5 +1,6 @@
 package com.bank.creditcardcollection.view.fragment.add.level1;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.SparseIntArray;
 
@@ -17,6 +18,7 @@ import com.bank.creditcardcollection.weight.view.apply.level.LevelTwoView;
 import com.bank.creditcardcollection.weight.view.apply.level.LevelView;
 import com.bank.creditcardcollection.weight.view.apply.listener.LevelApplyInfoListener;
 import com.bank.creditcardcollection.weight.view.apply.listener.LevelSetMessageListener;
+import com.bank.creditcardcollection.weight.view.apply.listener.LevelStartActivityListener;
 import com.google.gson.Gson;
 import com.lyan.tools.utils.DateUtils;
 import com.orhanobut.logger.Logger;
@@ -29,7 +31,7 @@ import java.util.ArrayList;
  */
 
 public class AddPresenter extends BaseRxPresenter<AddContract.View> implements AddContract.Presenter,
-        LevelApplyInfoListener, LevelSetMessageListener {
+        LevelApplyInfoListener, LevelSetMessageListener, LevelStartActivityListener {
 
     private final ApplyInfo commitInfo = new ApplyInfo();
     private LevelView levelOneView, levelTwoView, levelThreeView, levelFourView, levelFiveView;
@@ -68,6 +70,8 @@ public class AddPresenter extends BaseRxPresenter<AddContract.View> implements A
         levelThreeView.setSetMessageListener(this);
         levelFourView.setSetMessageListener(this);
         levelFiveView.setSetMessageListener(this);
+        //跳转界面
+        levelFourView.setStartActivityListener(this);
     }
 
     /**
@@ -161,5 +165,17 @@ public class AddPresenter extends BaseRxPresenter<AddContract.View> implements A
             levelViews.get(i).onDestroy();//销毁资源
         }
         super.onDestroy();
+    }
+
+    /**
+     * 启动界面
+     *
+     * @param clazz
+     * @param requestCode
+     * @param <T>
+     */
+    @Override
+    public <T extends Activity> void startActivity(Class<T> clazz, int requestCode) {
+        mView.startActivityForResultInLevel(clazz, requestCode);
     }
 }

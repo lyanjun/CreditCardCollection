@@ -1,5 +1,6 @@
 package com.bank.creditcardcollection.view.fragment.add.level1;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.SparseIntArray;
 
@@ -20,10 +21,16 @@ public interface AddContract {
      */
     interface View<P extends AddContract.Presenter> extends BaseView<P> {
         void nextStep(int position);//下一页
+
         void lastStep(int position);//上一页
+
         Context provideContext();//提供一个上下文
+
         void getLevelPageViews(ArrayList<LevelView> views);//页面的控件
+
         void getLevelPageTabs(SparseIntArray resIDs);//指示器图片
+
+        <T extends Activity> void startActivityForResultInLevel(Class<T> clazz , int requestCode);//带有返回参数的界面跳转
     }
 
     /**

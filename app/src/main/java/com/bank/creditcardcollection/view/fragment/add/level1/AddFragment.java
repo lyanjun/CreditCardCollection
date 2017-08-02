@@ -1,7 +1,8 @@
 package com.bank.creditcardcollection.view.fragment.add.level1;
 
+import android.app.Activity;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.util.SparseIntArray;
@@ -10,27 +11,13 @@ import android.widget.ImageView;
 import com.bank.creditcardcollection.R;
 import com.bank.creditcardcollection.adapter.ApplyInfoAdapter;
 import com.bank.creditcardcollection.constant.Constant;
-import com.bank.creditcardcollection.model.entity.ApplyInfo;
-import com.bank.creditcardcollection.net.retrofit.HttpUtils;
 import com.bank.creditcardcollection.view.fragment.base.BaseWithOutBackFragment;
-import com.bank.creditcardcollection.weight.view.apply.level.Level;
-import com.bank.creditcardcollection.weight.view.apply.level.LevelFiveView;
-import com.bank.creditcardcollection.weight.view.apply.level.LevelFourView;
-import com.bank.creditcardcollection.weight.view.apply.level.LevelOneView;
-import com.bank.creditcardcollection.weight.view.apply.level.LevelThreeView;
-import com.bank.creditcardcollection.weight.view.apply.level.LevelTwoView;
 import com.bank.creditcardcollection.weight.view.apply.level.LevelView;
-import com.bank.creditcardcollection.weight.view.apply.listener.LevelApplyInfoListener;
-import com.bank.creditcardcollection.weight.view.apply.listener.LevelSetMessageListener;
 import com.bank.creditcardcollection.weight.view.listener.PageSelectedHelper;
-import com.google.gson.Gson;
-import com.lyan.tools.utils.DateUtils;
-import com.lyan.tools.utils.ToastUtils;
 import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
 
-import butterknife.BindDrawable;
 import butterknife.BindView;
 
 
@@ -152,6 +139,32 @@ public class AddFragment extends BaseWithOutBackFragment implements AddContract.
     @Override
     public void getLevelPageTabs(SparseIntArray resIDs) {
         this.drawResID = resIDs;
+    }
+
+    /**
+     * 跳转界面
+     * @param clazz
+     * @param requestCode
+     * @param <T>
+     */
+    @Override
+    public <T extends Activity> void startActivityForResultInLevel(Class<T> clazz, int requestCode) {
+        if (Constant.REQUEST_NONE == requestCode){//无返回跳转
+            startActivity(new Intent(mActivity,clazz));
+        }else {
+            startActivityForResult(new Intent(mActivity,clazz),requestCode);
+        }
+    }
+
+    /**
+     * 返回结果
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Logger.i("返回当前界面");
     }
 
     /**

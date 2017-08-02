@@ -19,4 +19,6 @@ public class Constant {
     public static final String STATE_2 = "2";//2:预审不通过
     public static final String STATE_3 = "3";//3:复审不通过
     public static final String STATE_4 = "4";//4:申请成功
+    //跳转界面请求码
+    public static final int REQUEST_NONE = 0;//无返回结果
 }

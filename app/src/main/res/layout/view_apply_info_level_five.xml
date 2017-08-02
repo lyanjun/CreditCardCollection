@@ -10,10 +10,36 @@
         <TextView
             style="@style/ApplyInfoItemMarginWithTextSet"
             android:text="@string/level_five_apply_bank_info" />
-        <!-- 推荐人姓名 -->
+        <!-- 推荐人工号 -->
         <LinearLayout
             style="@style/LevelApplyInfoBodyPadding"
             android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="@string/level_five_apply_referrer_job_number"
+                android:textColor="@color/black" />
+            <!-- 方框输入框 -->
+            <com.lyan.tools.view.InputBox
+                style="@style/InputBoxSize"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
+                app:ib_box_line_size="@dimen/dp_18"
+                app:ib_input_count="12"
+                android:descendantFocusability="blocksDescendants"
+                app:ib_input_text_color="@color/black" />
+        </LinearLayout>
+        <!-- 推荐人姓名 -->
+        <include layout="@layout/view_item_cut_line" />
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:gravity="center_vertical"
+            android:descendantFocusability="blocksDescendants"
             android:orientation="horizontal">
 
             <TextView
@@ -27,6 +53,78 @@
                 style="@style/BoxEditStyle"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_18" />
+        </LinearLayout>
+        <!-- 推荐人手机号 -->
+        <include layout="@layout/view_item_cut_line" />
+
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="@string/level_five_apply_referrer_mobile_number"
+                android:textColor="@color/black" />
+            <!-- 方框输入框 -->
+            <com.lyan.tools.view.InputBox
+                style="@style/InputBoxSize"
+                android:descendantFocusability="blocksDescendants"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
+                app:ib_box_line_size="@dimen/dp_18"
+                app:ib_input_count="11"
+                app:ib_input_text_type="number"
+                app:ib_input_text_color="@color/black" />
+        </LinearLayout>
+        <include layout="@layout/view_item_cut_line" />
+        <!-- 推荐人机构名称 -->
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:gravity="center_vertical"
+            android:descendantFocusability="blocksDescendants"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TitleWithOutMargin"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="@string/level_five_apply_referrer_organization_name" />
+            <!-- 推荐人机构名称 -->
+            <com.lyan.tools.view.BoxEditText
+                style="@style/BoxEditStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_18" />
+        </LinearLayout>
+        <!-- 推荐人机构代码 -->
+        <include layout="@layout/view_item_cut_line" />
+        <LinearLayout
+            style="@style/LevelApplyInfoBodyPadding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="@string/level_five_apply_referrer_organization_code"
+                android:textColor="@color/black" />
+            <!-- 方框输入框 -->
+            <com.lyan.tools.view.InputBox
+                style="@style/InputBoxSize"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
+                app:ib_box_line_size="@dimen/dp_18"
+                app:ib_input_count="12"
+                android:descendantFocusability="blocksDescendants"
+                app:ib_input_text_color="@color/black" />
         </LinearLayout>
         <!-- 与申请人关系 -->
         <include layout="@layout/view_item_cut_line" />
@@ -80,101 +178,9 @@
 
             </android.support.v7.widget.GridLayout>
         </LinearLayout>
-        <include layout="@layout/view_item_cut_line" />
-        <!-- 推荐人机构名称 -->
-        <LinearLayout
-            style="@style/LevelApplyInfoBodyPadding"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
 
-            <TextView
-                style="@style/TitleWithOutMargin"
-                android:layout_marginBottom="@dimen/dp_8"
-                android:layout_marginRight="@dimen/dp_6"
-                android:layout_marginTop="@dimen/dp_8"
-                android:text="@string/level_five_apply_referrer_organization_name" />
-            <!-- 推荐人机构名称 -->
-            <com.lyan.tools.view.BoxEditText
-                style="@style/BoxEditStyle"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_18" />
-        </LinearLayout>
-        <!-- 推荐人机构代码 -->
-        <include layout="@layout/view_item_cut_line" />
 
-        <LinearLayout
-            style="@style/LevelApplyInfoBodyPadding"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dp_8"
-                android:layout_marginRight="@dimen/dp_6"
-                android:layout_marginTop="@dimen/dp_8"
-                android:text="@string/level_five_apply_referrer_organization_code"
-                android:textColor="@color/black" />
-            <!-- 方框输入框 -->
-            <com.lyan.tools.view.InputBox
-                style="@style/InputBoxSize"
-                android:layout_marginBottom="@dimen/dp_8"
-                android:layout_marginTop="@dimen/dp_8"
-                app:ib_box_line_size="@dimen/dp_18"
-                app:ib_input_count="12"
-                app:ib_input_text_color="@color/black" />
-        </LinearLayout>
-        <!-- 推荐人工号 -->
-        <include layout="@layout/view_item_cut_line" />
-
-        <LinearLayout
-            style="@style/LevelApplyInfoBodyPadding"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dp_8"
-                android:layout_marginRight="@dimen/dp_6"
-                android:layout_marginTop="@dimen/dp_8"
-                android:text="@string/level_five_apply_referrer_job_number"
-                android:textColor="@color/black" />
-            <!-- 方框输入框 -->
-            <com.lyan.tools.view.InputBox
-                style="@style/InputBoxSize"
-                android:layout_marginBottom="@dimen/dp_8"
-                android:layout_marginTop="@dimen/dp_8"
-                app:ib_box_line_size="@dimen/dp_18"
-                app:ib_input_count="12"
-                app:ib_input_text_color="@color/black" />
-        </LinearLayout>
-        <!-- 推荐人手机号 -->
-        <include layout="@layout/view_item_cut_line" />
-
-        <LinearLayout
-            style="@style/LevelApplyInfoBodyPadding"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dp_8"
-                android:layout_marginRight="@dimen/dp_6"
-                android:layout_marginTop="@dimen/dp_8"
-                android:text="@string/level_five_apply_referrer_mobile_number"
-                android:textColor="@color/black" />
-            <!-- 方框输入框 -->
-            <com.lyan.tools.view.InputBox
-                style="@style/InputBoxSize"
-                android:layout_marginBottom="@dimen/dp_8"
-                android:layout_marginTop="@dimen/dp_8"
-                app:ib_box_line_size="@dimen/dp_18"
-                app:ib_input_count="11"
-                app:ib_input_text_type="number"
-                app:ib_input_text_color="@color/black" />
-        </LinearLayout>
         <!-- 上一步 提交 按钮 -->
         <LinearLayout style="@style/ApplyBtnGroupLayoutStyle">
             <!-- 上一步按钮 -->

@@ -115,6 +115,7 @@
     <!-- LevelFour 第四步 -->
     <string name="level_four_apply_signt_info">您的声明及签署信息</string>
     <string name="level_four_apply_main_card_people">主卡申请人签名</string>
+    <string name="level_four_apply_sign_agreement_hint_title">请确认后按照有关规定逐字抄录以下内容并签名:</string>
     <string name="level_four_apply_sign_agreement">本人已阅读全部申请资料，充分了解并清除知晓该信用卡产品的相关信息，愿意遵守利用合约（协议）的各项规则。</string>
     <string name="level_four_apply_supplement_card">附属卡申请人签名</string>
     <string name="level_four_apply_red_hint_one">(附属卡申请人或其代理人:主卡人)</string>

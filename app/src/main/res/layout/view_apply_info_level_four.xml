@@ -17,7 +17,7 @@
             android:paddingBottom="@dimen/dp_8"
             android:paddingLeft="@dimen/dp_8"
             android:paddingTop="@dimen/dp_8"
-            android:text="请确认后按照有关规定逐字抄录以下内容并签名:"
+            android:text="@string/level_four_apply_sign_agreement_hint_title"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_14" />
 
@@ -57,13 +57,13 @@
                 style="@style/ApplyInfoFlagTagTextStyle"
                 android:text="@string/select_date" />
             <!-- 输入 -->
-            <com.lyan.tools.view.BoxEditText
+            <TextView
+                android:id="@+id/sign1_date_year"
                 style="@style/BoxEditStyle"
                 android:layout_width="@dimen/dp_40"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp_6"
                 android:gravity="center_horizontal"
-                android:inputType="number"
                 android:maxLength="4" />
 
             <TextView
@@ -72,12 +72,12 @@
                 android:text="@string/select_year"
                 android:textSize="@dimen/sp_14" />
 
-            <com.lyan.tools.view.BoxEditText
+            <TextView
+                android:id="@+id/sign1_date_month"
                 style="@style/BoxEditStyle"
                 android:layout_width="23dp"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:inputType="number"
                 android:maxLength="2" />
 
             <TextView
@@ -86,12 +86,12 @@
                 android:text="@string/select_month"
                 android:textSize="@dimen/sp_14" />
 
-            <com.lyan.tools.view.BoxEditText
+            <TextView
+                android:id="@+id/sign1_date_day"
                 style="@style/BoxEditStyle"
                 android:layout_width="@dimen/dp_24"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:inputType="number"
                 android:maxLength="2" />
 
             <TextView
@@ -130,7 +130,8 @@
                 android:layout_marginTop="@dimen/dp_8"
                 android:text="@string/select_date" />
             <!-- 输入 -->
-            <com.lyan.tools.view.BoxEditText
+            <TextView
+                android:id="@+id/sign2_date_year"
                 style="@style/BoxEditStyle"
                 android:layout_width="@dimen/dp_40"
                 android:layout_height="wrap_content"
@@ -138,7 +139,6 @@
                 android:layout_marginLeft="@dimen/dp_6"
                 android:layout_marginTop="@dimen/dp_8"
                 android:gravity="center_horizontal"
-                android:inputType="number"
                 android:maxLength="4" />
 
             <TextView
@@ -149,14 +149,14 @@
                 android:text="@string/select_year"
                 android:textSize="@dimen/sp_14" />
 
-            <com.lyan.tools.view.BoxEditText
+            <TextView
+                android:id="@+id/sign2_date_month"
                 style="@style/BoxEditStyle"
                 android:layout_width="23dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/dp_4"
                 android:layout_marginTop="@dimen/dp_8"
                 android:gravity="center_horizontal"
-                android:inputType="number"
                 android:maxLength="2" />
 
             <TextView
@@ -167,14 +167,14 @@
                 android:text="@string/select_month"
                 android:textSize="@dimen/sp_14" />
 
-            <com.lyan.tools.view.BoxEditText
+            <TextView
+                android:id="@+id/sign2_date_day"
                 style="@style/BoxEditStyle"
                 android:layout_width="@dimen/dp_24"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/dp_4"
                 android:layout_marginTop="@dimen/dp_8"
                 android:gravity="center_horizontal"
-                android:inputType="number"
                 android:maxLength="2" />
 
             <TextView
@@ -202,6 +202,7 @@
             android:orientation="vertical">
 
             <Button
+                android:id="@+id/apply_image"
                 android:layout_width="@dimen/dp_200"
                 android:layout_height="@dimen/dp_40"
                 android:layout_marginBottom="@dimen/dp_30"

@@ -1,5 +1,6 @@
 package com.bank.creditcardcollection.weight.view.apply.level;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
@@ -9,6 +10,7 @@ import android.widget.LinearLayout;
 import com.bank.creditcardcollection.weight.view.apply.listener.LevelApplyInfoListener;
 import com.bank.creditcardcollection.weight.view.apply.listener.LevelResetListener;
 import com.bank.creditcardcollection.weight.view.apply.listener.LevelSetMessageListener;
+import com.bank.creditcardcollection.weight.view.apply.listener.LevelStartActivityListener;
 import com.orhanobut.logger.Logger;
 
 import butterknife.ButterKnife;
@@ -25,6 +27,7 @@ public abstract class LevelView extends LinearLayout implements LevelResetListen
     private boolean isFirstInit;//初始化
     protected LevelApplyInfoListener applyInfoListener;
     protected LevelSetMessageListener setMessageListener;
+    protected LevelStartActivityListener startActivityListener;
 
     public LevelView(Context context) {
         super(context);
@@ -102,5 +105,24 @@ public abstract class LevelView extends LinearLayout implements LevelResetListen
      */
     public void onDestroy() {
         mUnbinder.unbind();//解除绑定
+    }
+
+    /**
+     * 设置启动界面的监听
+     * @param startActivityListener
+     */
+    public void setStartActivityListener(LevelStartActivityListener startActivityListener) {
+        this.startActivityListener = startActivityListener;
+    }
+
+    /**
+     * 启动一个新的界面
+     *
+     * @param clazz
+     * @param requestCode
+     * @param <T>
+     */
+    protected <T extends Activity> void startActivity(Class<T> clazz, int requestCode) {
+        if (null != startActivityListener) startActivityListener.startActivity(clazz, requestCode);
     }
 }

@@ -1,12 +1,11 @@
 package com.bank.creditcardcollection.view.fragment.add;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.bank.creditcardcollection.R;
-import com.bank.creditcardcollection.view.fragment.base.BaseGroupFragment;
 import com.bank.creditcardcollection.view.fragment.add.level1.AddFragment;
+import com.bank.creditcardcollection.view.fragment.base.BaseGroupFragment;
 
 
 /**
