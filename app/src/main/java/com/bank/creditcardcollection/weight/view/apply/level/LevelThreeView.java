@@ -15,6 +15,7 @@ import com.bank.creditcardcollection.model.entity.ApplyInfo;
 import com.bank.creditcardcollection.utils.RadioHelper;
 import com.bank.creditcardcollection.weight.view.apply.help.EditTextHelper;
 import com.lyan.tools.utils.FormatUtils;
+import com.lyan.tools.utils.ViewTextUtils;
 import com.lyan.tools.view.BoxEditText;
 
 import java.util.List;
@@ -45,8 +46,8 @@ public class LevelThreeView extends LevelView implements RadioHelper.OnCheckedCh
     private final ApplyInfo setInfo = new ApplyInfo();
     //绑定控件
     @BindViews({R.id.title_company_name, R.id.title_department, R.id.title_company_address,
-            R.id.title_phone_number,R.id.title_after_tax_income ,
-            R.id.title_select_post_address,R.id.title_email_address})
+            R.id.title_phone_number, R.id.title_after_tax_income,
+            R.id.title_select_post_address, R.id.title_email_address})
     List<TextView> titleTvs;
     @BindView(R.id.scroll_root)
     ScrollView rootView;//最外层滑动布局
@@ -118,6 +119,7 @@ public class LevelThreeView extends LevelView implements RadioHelper.OnCheckedCh
      */
     private void setRadioCheckListener() {
         inputApplyApplyPostTypeHelper.addCheckedChangeListener(this);
+        inputApplyApplyPostTypeHelper.checkedFirst();
     }
 
     /**
@@ -160,8 +162,10 @@ public class LevelThreeView extends LevelView implements RadioHelper.OnCheckedCh
         if (null != incoming && !TextUtils.isEmpty(incoming)) {
             int money = Integer.parseInt(incoming);
             setInfo.setIncoming(money);
-            sendToView();
+        } else {
+            setInfo.setIncoming(-1);
         }
+        sendToView();
     }
 
     /**
@@ -257,8 +261,17 @@ public class LevelThreeView extends LevelView implements RadioHelper.OnCheckedCh
      */
     @Override
     public void resetView() {
-
+        inputApplyApplyPostTypeHelper.checkedFirst();
+        //输入域的清空
+        ViewTextUtils.setTextViewEmpty(inputApplyEmailAddress);
+        ViewTextUtils.setTextViewEmpty(inputApplyComAddress);
+        ViewTextUtils.setTextViewEmpty(inputApplyDepartment);
+        ViewTextUtils.setTextViewEmpty(inputApplyComProvince);
+        ViewTextUtils.setTextViewEmpty(inputApplyComCity);
+        ViewTextUtils.setTextViewEmpty(inputApplyComArea);
+        ViewTextUtils.setTextViewEmpty(inputApplyComAddress);
+        ViewTextUtils.setTextViewEmpty(inputApplyCompanyPhoneNumber);
+        ViewTextUtils.setTextViewEmpty(inputApplyIncoming);
+        ViewTextUtils.setTextViewEmpty(inputApplyCompanyName);
     }
-
-
 }

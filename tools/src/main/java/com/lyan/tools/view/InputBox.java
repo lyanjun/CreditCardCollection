@@ -256,9 +256,17 @@ public final class InputBox extends FrameLayout implements TextWatcher {
 
     /**
      * 设置文字监听
+     *
      * @param textChangeListener
      */
     public void setOnTextChangeListener(OnInputTextChangeListener textChangeListener) {
         this.textChangeListener = textChangeListener;
+    }
+
+    /**
+     * 清空文本
+     */
+    public void setTextEmpty(){
+        ViewTextUtils.setTextViewEmpty(mInputView);
     }
 }

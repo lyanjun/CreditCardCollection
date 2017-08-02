@@ -273,6 +273,47 @@ public class ApplyInfo {
     }
 
     /**
+     * 图片(第四步)
+     */
+//    private String signimg;//签名
+//    private String frontimg;//身份证正面
+//    private String backimg;//省份证背面
+//    private String groupimg;//合影
+//
+//
+//    public String getSignimg() {
+//        return signimg;
+//    }
+//
+//    public void setSignimg(String signimg) {
+//        this.signimg = signimg;
+//    }
+//
+//    public String getFrontimg() {
+//        return frontimg;
+//    }
+//
+//    public void setFrontimg(String frontimg) {
+//        this.frontimg = frontimg;
+//    }
+//
+//    public String getBackimg() {
+//        return backimg;
+//    }
+//
+//    public void setBackimg(String backimg) {
+//        this.backimg = backimg;
+//    }
+//
+//    public String getGroupimg() {
+//        return groupimg;
+//    }
+//
+//    public void setGroupimg(String groupimg) {
+//        this.groupimg = groupimg;
+//    }
+
+    /**
      * 第二页
      *
      * @return

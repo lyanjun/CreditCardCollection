@@ -108,4 +108,27 @@ public class RadioHelper<R extends ViewGroup> implements RadioButton.OnCheckedCh
     public void addCheckedChangeListener(OnCheckedChangeListener checkedChangeListener) {
         this.checkedChangeListener = checkedChangeListener;
     }
+
+    /**
+     * 选择中第一项
+     */
+    public void checkedFirst(){
+        checkedItem(0);
+    }
+    /**
+     * 选中其中一项
+     */
+    public void checkedItem(int index){
+        radioButtons.get(index).setChecked(true);
+    }
+
+    /**
+     * 清空选中状态
+     */
+    public void clearChecked(){
+        for (int i = 0;i < radioButtons.size();i++){
+            radioButtons.get(i).setChecked(false);
+        }
+        checkedChangeListener.onCheckedChanged(mParent.getId(),"");
+    }
 }

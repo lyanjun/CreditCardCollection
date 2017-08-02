@@ -4,6 +4,8 @@ import android.graphics.Paint;
 import android.support.annotation.NonNull;
 import android.widget.TextView;
 
+import com.lyan.tools.view.InputBox;
+
 import java.util.List;
 
 /**
@@ -96,5 +98,33 @@ public class ViewTextUtils {
         for (int i = 0; i < date.length; i++){
             textViews.get(i).setText(String.valueOf(date[i]));
         }
+    }
+
+    /**
+     * 设置文本域的内容为空
+     * @param textView
+     * @param <T>
+     */
+    public static <T extends TextView> void setTextViewEmpty(T textView){
+        textView.setText("");
+    }
+
+    /**
+     * 设置文本域的内容为空
+     * @param textViews
+     * @param <T>
+     */
+    public static <T extends TextView> void setTextViewEmpty(List<T> textViews){
+        for (int i = 0; i < textViews.size(); i++) {
+            setTextViewEmpty(textViews.get(i));
+        }
+    }
+
+    /**
+     * 设置文本域的内容为空
+     * @param inputBox
+     */
+    public static void setTextViewEmpty(InputBox inputBox){
+        inputBox.setTextEmpty();
     }
 }

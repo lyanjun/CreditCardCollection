@@ -5,7 +5,9 @@ import android.util.SparseIntArray;
 
 import com.bank.creditcardcollection.R;
 import com.bank.creditcardcollection.base.BaseRxPresenter;
+import com.bank.creditcardcollection.constant.Constant;
 import com.bank.creditcardcollection.model.entity.ApplyInfo;
+import com.bank.creditcardcollection.net.retrofit.HttpUtils;
 import com.bank.creditcardcollection.weight.view.apply.level.Level;
 import com.bank.creditcardcollection.weight.view.apply.level.LevelFiveView;
 import com.bank.creditcardcollection.weight.view.apply.level.LevelFourView;
@@ -15,10 +17,14 @@ import com.bank.creditcardcollection.weight.view.apply.level.LevelTwoView;
 import com.bank.creditcardcollection.weight.view.apply.level.LevelView;
 import com.bank.creditcardcollection.weight.view.apply.listener.LevelApplyInfoListener;
 import com.bank.creditcardcollection.weight.view.apply.listener.LevelSetMessageListener;
+import com.google.gson.Gson;
+import com.lyan.tools.utils.DateUtils;
+import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
 
 /**
+ * MVP
  * Created by liyanjun on 2017/7/27.
  */
 
@@ -62,7 +68,6 @@ public class AddPresenter extends BaseRxPresenter<AddContract.View> implements A
         levelThreeView.setSetMessageListener(this);
         levelFourView.setSetMessageListener(this);
         levelFiveView.setSetMessageListener(this);
-
     }
 
     /**
@@ -97,9 +102,18 @@ public class AddPresenter extends BaseRxPresenter<AddContract.View> implements A
         mView.lastStep(position);
     }
 
+    /**
+     * 提交
+     */
     @Override
     public void commit() {
-        mView.commit();
+        commitInfo.setCreatetime(DateUtils.getTodayStr(DateUtils.FORMAT_DATE_TIME));
+        commitInfo.setStatus(Constant.STATE_1);
+        Logger.t("提交的内容").i(commitInfo.toString());
+        HttpUtils.postAddApplyResult(new Gson().toJson(commitInfo))
+                .doFinally(this::resetApplyData)
+                .subscribe(s -> Logger.t("成功").w(s),
+                        throwable -> Logger.t("失败").w(throwable.getMessage()));
     }
 
     /**
@@ -124,6 +138,26 @@ public class AddPresenter extends BaseRxPresenter<AddContract.View> implements A
             case Level.LEVEL5://第五页
                 break;
         }
-        mView.setCommitApplyInfo(commitInfo);//返回数据
+    }
+
+    /**
+     * 清空数据（重置前:null,重置后:""）
+     */
+    @Override
+    public void resetApplyData() {
+        for (int i = 0; i < levelViews.size(); i++) {
+            levelViews.get(i).resetView();//清空填写的数据
+        }
+    }
+
+    /**
+     * 释放资源
+     */
+    @Override
+    public void onDestroy() {
+        for (int i = 0; i < levelViews.size(); i++) {
+            levelViews.get(i).onDestroy();//销毁资源
+        }
+        super.onDestroy();
     }
 }

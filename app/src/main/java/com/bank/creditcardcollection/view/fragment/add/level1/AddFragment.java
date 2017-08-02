@@ -48,8 +48,6 @@ public class AddFragment extends BaseWithOutBackFragment implements AddContract.
     private ArrayList<LevelView> levelViews;//数据源
     private SparseIntArray drawResID;//图片资源
     private AddPresenter mAddPresenter;
-    //提交的数据
-    private ApplyInfo commitInfo;
 
     /**
      * 设置功能
@@ -127,22 +125,6 @@ public class AddFragment extends BaseWithOutBackFragment implements AddContract.
     }
 
     /**
-     * 提交
-     */
-    @Override
-    public void commit() {
-        if (null != commitInfo) {
-            commitInfo.setCreatetime(DateUtils.getTodayStr(DateUtils.FORMAT_DATE_TIME));
-            commitInfo.setStatus(Constant.STATE_1);
-            Logger.t("提交的内容").i(commitInfo.toString());
-            HttpUtils.postAddApplyResult(new Gson().toJson(commitInfo))
-                    .subscribe(s -> Logger.t("成功").w(s),throwable ->  Logger.t("失败").w(throwable.getMessage()));
-        } else {
-            Logger.t("提交的内容").i("当前无提交内容");
-        }
-    }
-
-    /**
      * 提供上下文
      *
      * @return
@@ -170,16 +152,6 @@ public class AddFragment extends BaseWithOutBackFragment implements AddContract.
     @Override
     public void getLevelPageTabs(SparseIntArray resIDs) {
         this.drawResID = resIDs;
-    }
-
-    /**
-     * 设置提交信息
-     *
-     * @param applyInfo
-     */
-    @Override
-    public void setCommitApplyInfo(ApplyInfo applyInfo) {
-        this.commitInfo = applyInfo;
     }
 
     /**

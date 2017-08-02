@@ -340,7 +340,35 @@ public class LevelTwoView extends LevelView implements RadioHelper.OnCheckedChan
      */
     @Override
     public void resetView() {
+        inputApplyKinsfolkRelationHelper.clearChecked();
+        inputApplyContactRelationHelper.clearChecked();
+        //输入域的清空
+        ViewTextUtils.setTextViewEmpty(inputChineseName);
+        ViewTextUtils.setTextViewEmpty(inputNationality);
+        ViewTextUtils.setTextViewEmpty(inputApplyUserProvince);
+        ViewTextUtils.setTextViewEmpty(inputApplyUserCity);
+        ViewTextUtils.setTextViewEmpty(inputApplyUserArea);
+        ViewTextUtils.setTextViewEmpty(inputApplyUserAddress);
+        ViewTextUtils.setTextViewEmpty(inputApplyKinsfolkName);
+        ViewTextUtils.setTextViewEmpty(inputApplyContactName);
+        //清空格子输入框
+        ViewTextUtils.setTextViewEmpty(inputSpelling);
+        ViewTextUtils.setTextViewEmpty(inputIdCardCode);
+        ViewTextUtils.setTextViewEmpty(inputApplyUserPhone);
+        ViewTextUtils.setTextViewEmpty(inputKinsfolkPhoneNumber);
+        ViewTextUtils.setTextViewEmpty(inputApplyContactPhone);
+        //清空日期
+        resetDate();
+    }
 
+    /**
+     * 重置日期
+     */
+    private void resetDate() {
+        inputSelectDateDialog.setNowData();
+        ViewTextUtils.setTextViewEmpty(dateUsefulLife);
+        setInfo.setIdvalidate("");
+        sendToView();
     }
 
     /**
@@ -393,7 +421,7 @@ public class LevelTwoView extends LevelView implements RadioHelper.OnCheckedChan
         String dateStr = DateUtils.getDateTimeStr(selectDate, DateUtils.FORMAT_DATE);
         switch (id) {
             case 0://证件有效期
-                ViewTextUtils.setDateToView(dateStr,dateUsefulLife);
+                ViewTextUtils.setDateToView(dateStr, dateUsefulLife);
                 setInfo.setIdvalidate(dateStr);
                 sendToView();
                 break;

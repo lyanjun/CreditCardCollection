@@ -19,12 +19,13 @@ import butterknife.Unbinder;
  * Created by liyanjun on 2017/7/21.
  */
 
-public abstract class LevelView extends LinearLayout implements LevelResetListener{
+public abstract class LevelView extends LinearLayout implements LevelResetListener {
     protected Context mContext;
     protected Unbinder mUnbinder;
     private boolean isFirstInit;//初始化
     protected LevelApplyInfoListener applyInfoListener;
     protected LevelSetMessageListener setMessageListener;
+
     public LevelView(Context context) {
         super(context);
         mContext = context;
@@ -49,6 +50,7 @@ public abstract class LevelView extends LinearLayout implements LevelResetListen
     private void initView() {
         inflate(mContext, setContentView(), this);//设置布局
         isFirstInit = true;//当控件挂载的时候设置功能
+        mUnbinder = ButterKnife.bind(this);//绑定控件
 //        Logger.t("初始化").i("创建新的空间对象的时候调用");
     }
 
@@ -71,26 +73,15 @@ public abstract class LevelView extends LinearLayout implements LevelResetListen
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        mUnbinder = ButterKnife.bind(this);//绑定控件
-        if (isFirstInit){//保证当空间挂载到窗口的时候只设置一次初始化功能
+        if (isFirstInit) {//保证当空间挂载到窗口的时候只设置一次初始化功能
             setFunction();//设置功能
             isFirstInit = false;//关闭初始化功能
         }
-//        Logger.t("挂载").i("挂在到窗口上");
-    }
-
-    /**
-     * 从窗口上分离
-     */
-    @Override
-    protected void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        mUnbinder.unbind();//解除绑定
-//        Logger.t("分离").i("从窗口上分离");
     }
 
     /**
      * 设置步骤相关的操作
+     *
      * @param applyInfoListener
      */
     public void setApplyInfoListener(LevelApplyInfoListener applyInfoListener) {
@@ -99,9 +90,17 @@ public abstract class LevelView extends LinearLayout implements LevelResetListen
 
     /**
      * 获取相关步骤的信息
+     *
      * @param setMessageListener
      */
     public void setSetMessageListener(LevelSetMessageListener setMessageListener) {
         this.setMessageListener = setMessageListener;
+    }
+
+    /**
+     * 手动销毁
+     */
+    public void onDestroy() {
+        mUnbinder.unbind();//解除绑定
     }
 }

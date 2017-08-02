@@ -7,6 +7,9 @@ import android.widget.Button;
 
 import com.bigkoo.pickerview.TimePickerView;
 import com.lyan.tools.R;
+import com.lyan.tools.entity.SmallDate;
+import com.lyan.tools.utils.DateUtils;
+import com.lyan.tools.utils.DrawUtils;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -94,5 +97,15 @@ public class DateDialog implements View.OnClickListener {
     public DateDialog addDateListener(OnSelectDateListener dateListener) {
         this.dateListener = dateListener;
         return this;
+    }
+
+    /**
+     * 设置时间为当前时间
+     */
+    public void setNowData(){
+        SmallDate smallDate = DateUtils.getTodayDate();
+        Calendar setDate = Calendar.getInstance();
+        setDate.set(smallDate.getYear(),smallDate.getMonth() - 1,smallDate.getDay());
+        dateView.setDate(setDate);
     }
 }

@@ -19,10 +19,8 @@ public interface AddContract {
      * 视图
      */
     interface View<P extends AddContract.Presenter> extends BaseView<P> {
-        void setCommitApplyInfo(ApplyInfo applyInfo);//设置提交的选项
         void nextStep(int position);//下一页
         void lastStep(int position);//上一页
-        void commit();//提交
         Context provideContext();//提供一个上下文
         void getLevelPageViews(ArrayList<LevelView> views);//页面的控件
         void getLevelPageTabs(SparseIntArray resIDs);//指示器图片
@@ -32,6 +30,6 @@ public interface AddContract {
      * 控制器
      */
     interface Presenter extends LifePresenter<AddContract.View> {
-
+        void resetApplyData();//清空数据
     }
 }
