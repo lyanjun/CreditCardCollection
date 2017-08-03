@@ -31,6 +31,7 @@ ext {
                     butterknife          : '8.7.0',//控件绑定
                     overscroll           : '1.0.4',//弹性滑动
                     MPAndroidChart       : 'v3.0.2',//统计图表
-                    PickerView           : '3.2.5'//选择器
+                    PickerView           : '3.2.5',//选择器
+                    signaturePad         : '1.2.1'//手写板
             ]
 }
