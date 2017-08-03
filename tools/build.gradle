@@ -48,4 +48,5 @@ dependencies {
     compile "me.everything:overscroll-decor-android:$library.overscroll"
     compile "com.github.PhilJay:MPAndroidChart:$library.MPAndroidChart"
     compile "com.contrarywind:Android-PickerView:$library.PickerView"
+    compile "com.github.gcacace:signature-pad:$library.signaturePad"
 }
