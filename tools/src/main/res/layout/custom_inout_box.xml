@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.lyan.tools.view.InputBox
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/InputBoxSize"
+    app:ib_box_line_size="@dimen/dp_18"
+    app:ib_input_count="12"
+    app:ib_input_text_color="@color/black"/>

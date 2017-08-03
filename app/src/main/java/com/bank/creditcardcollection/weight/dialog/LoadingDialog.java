@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.WindowManager;
 
 import com.bank.creditcardcollection.R;
-import com.lyan.tools.weight.CustomDialog;
+import com.lyan.tools.weight.base.CustomDialog;
 
 
 /**

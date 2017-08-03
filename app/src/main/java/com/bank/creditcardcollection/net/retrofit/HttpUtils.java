@@ -37,6 +37,17 @@ public final class HttpUtils {
         return getHttpService().getAddApplyResult(getRequestBody(requestJson))
                 .compose(rxSchedulerHelper());
     }
+
+    /**
+     * 查询推荐人信息
+     * @param requestJson
+     * @return
+     */
+    public static Observable<String> postAddReferrerInfoRequest(String requestJson) {
+        return getHttpService().getAddReferrerInfoResult(getRequestBody(requestJson))
+                .compose(rxSchedulerHelper());
+    }
+
     /**
      * 获取下载服务
      * @return

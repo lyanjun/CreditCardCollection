@@ -165,7 +165,6 @@ public class AddFragment extends BaseMvpViewFragment<AddContract.Presenter> impl
      */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Logger.i("返回当前界面");
-    }
 
+    }
 }

@@ -1,4 +1,4 @@
-package com.bank.creditcardcollection.model.request;
+package com.bank.creditcardcollection.model.old.request;
 
 /**
  * 请求头

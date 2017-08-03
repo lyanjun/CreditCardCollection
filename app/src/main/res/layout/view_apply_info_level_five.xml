@@ -26,12 +26,12 @@
                 android:textColor="@color/black" />
             <!-- 方框输入框 -->
             <com.lyan.tools.view.InputBox
+                android:id="@+id/level5_employee_number"
                 style="@style/InputBoxSize"
                 android:layout_marginBottom="@dimen/dp_8"
                 android:layout_marginTop="@dimen/dp_8"
                 app:ib_box_line_size="@dimen/dp_18"
                 app:ib_input_count="12"
-                android:descendantFocusability="blocksDescendants"
                 app:ib_input_text_color="@color/black" />
         </LinearLayout>
         <!-- 推荐人姓名 -->
@@ -39,7 +39,6 @@
         <LinearLayout
             style="@style/LevelApplyInfoBodyPadding"
             android:gravity="center_vertical"
-            android:descendantFocusability="blocksDescendants"
             android:orientation="horizontal">
 
             <TextView
@@ -50,6 +49,7 @@
                 android:text="@string/level_five_apply_referrer_name" />
             <!-- 推荐人姓名 -->
             <com.lyan.tools.view.BoxEditText
+                android:id="@+id/level5_employee_name"
                 style="@style/BoxEditStyle"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_18" />
@@ -72,8 +72,8 @@
                 android:textColor="@color/black" />
             <!-- 方框输入框 -->
             <com.lyan.tools.view.InputBox
+                android:id="@+id/level5_employee_phone"
                 style="@style/InputBoxSize"
-                android:descendantFocusability="blocksDescendants"
                 android:layout_marginBottom="@dimen/dp_8"
                 android:layout_marginTop="@dimen/dp_8"
                 app:ib_box_line_size="@dimen/dp_18"
@@ -86,7 +86,6 @@
         <LinearLayout
             style="@style/LevelApplyInfoBodyPadding"
             android:gravity="center_vertical"
-            android:descendantFocusability="blocksDescendants"
             android:orientation="horizontal">
 
             <TextView
@@ -97,6 +96,7 @@
                 android:text="@string/level_five_apply_referrer_organization_name" />
             <!-- 推荐人机构名称 -->
             <com.lyan.tools.view.BoxEditText
+                android:id="@+id/level5_employee_organization"
                 style="@style/BoxEditStyle"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_18" />
@@ -118,12 +118,12 @@
                 android:textColor="@color/black" />
             <!-- 方框输入框 -->
             <com.lyan.tools.view.InputBox
+                android:id="@+id/level5_employee_organization_code"
                 style="@style/InputBoxSize"
                 android:layout_marginBottom="@dimen/dp_8"
                 android:layout_marginTop="@dimen/dp_8"
                 app:ib_box_line_size="@dimen/dp_18"
                 app:ib_input_count="12"
-                android:descendantFocusability="blocksDescendants"
                 app:ib_input_text_color="@color/black" />
         </LinearLayout>
         <!-- 与申请人关系 -->
@@ -145,6 +145,7 @@
                 android:textColor="@color/black" />
             <!-- 选项 -->
             <android.support.v7.widget.GridLayout
+                android:id="@+id/level5_relation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/dp_4"
@@ -178,9 +179,6 @@
 
             </android.support.v7.widget.GridLayout>
         </LinearLayout>
-
-
-
         <!-- 上一步 提交 按钮 -->
         <LinearLayout style="@style/ApplyBtnGroupLayoutStyle">
             <!-- 上一步按钮 -->

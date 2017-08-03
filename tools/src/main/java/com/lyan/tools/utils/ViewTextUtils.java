@@ -16,37 +16,42 @@ public class ViewTextUtils {
 
     /**
      * 获取文本
+     *
      * @param view
      * @param <T>
      * @return
      */
-    public static <T extends TextView> String getTextFromView(T view){
+    public static <T extends TextView> String getTextFromView(T view) {
         return view.getText().toString();
     }
 
     /**
      * 获取文本去掉开头和结尾的空格
+     *
      * @param view
      * @param <T>
      * @return
      */
-    public static <T extends TextView> String getTextTrim(T view){
+    public static <T extends TextView> String getTextTrim(T view) {
         return view.getText().toString().trim();
     }
 
     /**
      * 添加内容
+     *
      * @param view
      * @param text
      * @param <T>
      */
     @NonNull
-    public static  <T extends TextView> String setText(T view,String text){
+    public static <T extends TextView> String setText(T view, String text) {
         view.setText(text);//设置内容
         return autoSplitText(view);//对内容重新排列
     }
+
     /**
      * 内容填满再折行
+     *
      * @param textView
      * @return
      */
@@ -56,7 +61,7 @@ public class ViewTextUtils {
         final float tvWidth = textView.getWidth() - textView.getPaddingLeft() - textView.getPaddingRight(); //控件可用宽度
 
         //将原始文本按行拆分
-        String [] rawTextLines = rawText.replaceAll("\r", "").split("\n");
+        String[] rawTextLines = rawText.replaceAll("\r", "").split("\n");
         StringBuilder sbNewText = new StringBuilder();
         for (String rawTextLine : rawTextLines) {
             if (tvPaint.measureText(rawTextLine) <= tvWidth) {
@@ -90,31 +95,34 @@ public class ViewTextUtils {
 
     /**
      * 将指定日期放入文本中
+     *
      * @param dateStr
      * @param textViews
      */
-    public static void setDateToView(String dateStr,List<TextView> textViews){
+    public static void setDateToView(String dateStr, List<TextView> textViews) {
         String date[] = dateStr.split("-");
-        for (int i = 0; i < date.length; i++){
+        for (int i = 0; i < date.length; i++) {
             textViews.get(i).setText(String.valueOf(date[i]));
         }
     }
 
     /**
      * 设置文本域的内容为空
+     *
      * @param textView
      * @param <T>
      */
-    public static <T extends TextView> void setTextViewEmpty(T textView){
+    public static <T extends TextView> void setTextViewEmpty(T textView) {
         textView.setText("");
     }
 
     /**
      * 设置文本域的内容为空
+     *
      * @param textViews
      * @param <T>
      */
-    public static <T extends TextView> void setTextViewEmpty(List<T> textViews){
+    public static <T extends TextView> void setTextViewEmpty(List<T> textViews) {
         for (int i = 0; i < textViews.size(); i++) {
             setTextViewEmpty(textViews.get(i));
         }
@@ -122,9 +130,29 @@ public class ViewTextUtils {
 
     /**
      * 设置文本域的内容为空
+     *
      * @param inputBox
      */
-    public static void setTextViewEmpty(InputBox inputBox){
+    public static void setTextViewEmpty(InputBox inputBox) {
         inputBox.setTextEmpty();
+    }
+
+    /**
+     * 清控焦点
+     *
+     * @param inputView
+     * @param <T>
+     */
+    public static <T extends TextView> void setFocusNone(T inputView) {
+        inputView.setKeyListener(null);
+        inputView.setFocusable(false);
+        inputView.setFocusableInTouchMode(false);
+    }
+
+    /**
+     * 清控焦点
+     */
+    public static void setFocusNone(InputBox inputBox) {
+        inputBox.setFocusNone();
     }
 }

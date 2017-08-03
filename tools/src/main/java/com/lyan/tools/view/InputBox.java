@@ -13,6 +13,7 @@ import android.text.InputType;
 import android.text.TextWatcher;
 import android.text.method.DigitsKeyListener;
 import android.util.AttributeSet;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
@@ -26,18 +27,22 @@ import com.lyan.tools.utils.ViewTextUtils;
  * Created by liyanjun on 2017/7/21.
  */
 
-public final class InputBox extends FrameLayout implements TextWatcher {
+public final class InputBox extends FrameLayout implements TextWatcher ,View.OnClickListener{
+
     /**
      * 接口回调监听
      */
     public interface OnInputTextChangeListener {
         void onBoxTextChanged(String message);
     }
+    public interface OnInputBoxClickListener{
+        void onInputBoxClick(InputBox box);
+    }
 
     //属性
     private Context mContext;
     private OnInputTextChangeListener textChangeListener;
-
+    private OnInputBoxClickListener onInputBoxClickListener;
     //默认属性值
     private static final int DEFAULT_TEXT_COLOR = 0xFFAAAAAA;//默认字体颜色
     private static final int DEFAULT_BOX_COLOR = 0xFFAAAAAA;//默认方框颜色
@@ -266,7 +271,32 @@ public final class InputBox extends FrameLayout implements TextWatcher {
     /**
      * 清空文本
      */
-    public void setTextEmpty(){
+    public void setTextEmpty() {
         ViewTextUtils.setTextViewEmpty(mInputView);
+    }
+
+
+    /**
+     * 设置文本
+     */
+    public void setTextToBox(String text) {
+        mInputView.setText(text);
+    }
+
+    /**
+     * 设置无焦点
+     */
+    public void setFocusNone() {
+        ViewTextUtils.setFocusNone(mInputView);
+    }
+
+
+    public void addOnInputBoxClickListener(OnInputBoxClickListener onInputBoxClickListener) {
+        this.onInputBoxClickListener = onInputBoxClickListener;
+        mInputView.setOnClickListener(this);
+    }
+    @Override
+    public void onClick(View v) {
+        onInputBoxClickListener.onInputBoxClick(this);
     }
 }

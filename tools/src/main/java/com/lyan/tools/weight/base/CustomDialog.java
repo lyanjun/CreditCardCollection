@@ -1,4 +1,4 @@
-package com.lyan.tools.weight;
+package com.lyan.tools.weight.base;
 
 import android.app.Dialog;
 import android.content.Context;

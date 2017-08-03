@@ -1,7 +1,7 @@
-package com.bank.creditcardcollection.model.request.body;
+package com.bank.creditcardcollection.model.old.request.body;
 
 
-import com.bank.creditcardcollection.model.request.BodyReq;
+import com.bank.creditcardcollection.model.old.request.BodyReq;
 
 /**
  * 产品列表

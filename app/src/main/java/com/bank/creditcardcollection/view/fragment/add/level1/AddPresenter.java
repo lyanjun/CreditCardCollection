@@ -8,6 +8,7 @@ import com.bank.creditcardcollection.R;
 import com.bank.creditcardcollection.base.BaseRxPresenter;
 import com.bank.creditcardcollection.constant.Constant;
 import com.bank.creditcardcollection.model.entity.ApplyInfo;
+import com.bank.creditcardcollection.model.now.request.ReferreRequest;
 import com.bank.creditcardcollection.net.retrofit.HttpUtils;
 import com.bank.creditcardcollection.weight.view.apply.level.Level;
 import com.bank.creditcardcollection.weight.view.apply.level.LevelFiveView;
@@ -31,7 +32,7 @@ import java.util.ArrayList;
  */
 
 public class AddPresenter extends BaseRxPresenter<AddContract.View> implements AddContract.Presenter,
-        LevelApplyInfoListener, LevelSetMessageListener, LevelStartActivityListener {
+        LevelApplyInfoListener, LevelSetMessageListener, LevelStartActivityListener ,LevelFiveView.SelectReferrerMessageFromServiceListener{
 
     private final ApplyInfo commitInfo = new ApplyInfo();
     private LevelView levelOneView, levelTwoView, levelThreeView, levelFourView, levelFiveView;
@@ -72,6 +73,7 @@ public class AddPresenter extends BaseRxPresenter<AddContract.View> implements A
         levelFiveView.setSetMessageListener(this);
         //跳转界面
         levelFourView.setStartActivityListener(this);
+        ((LevelFiveView)levelFiveView).addSelectReferrerMessageFromServiceListener(this);
     }
 
     /**
@@ -115,10 +117,10 @@ public class AddPresenter extends BaseRxPresenter<AddContract.View> implements A
         commitInfo.setStatus(Constant.STATE_1);
         commitInfo.setUsercode("fanjian");
         Logger.t("提交的内容").i(commitInfo.toString());
-        HttpUtils.postAddApplyResult(new Gson().toJson(commitInfo))
-                .doFinally(this::resetApplyData)//订阅事件结束后重置
+        addSubscribe(HttpUtils.postAddApplyResult(new Gson().toJson(commitInfo))
+//                .doFinally(this::resetApplyData)//订阅事件结束后重置
                 .subscribe(s -> Logger.t("成功").w(s),
-                        throwable -> Logger.t("失败").w(throwable.getMessage()));
+                        throwable -> Logger.t("失败").w(throwable.getMessage())));
 //        resetApplyData();
     }
 
@@ -178,4 +180,18 @@ public class AddPresenter extends BaseRxPresenter<AddContract.View> implements A
     public <T extends Activity> void startActivity(Class<T> clazz, int requestCode) {
         mView.startActivityForResultInLevel(clazz, requestCode);
     }
+
+    /**
+     * 进行网络请求（根据员工号查询员工信息）
+     * @param selectCode
+     */
+    @Override
+    public void selectReferrerEmployeeNumberInfo(String selectCode) {
+        Logger.t("查询的员工编码").i(selectCode);
+        String requestJson = new Gson().toJson(new ReferreRequest(selectCode));
+        Logger.t("请求参数").w(requestJson);
+        addSubscribe(HttpUtils.postAddReferrerInfoRequest(requestJson)
+        .subscribe(s -> Logger.t("返回结果").json(s) ,throwable ->  Logger.t("错误结果").i(throwable.getMessage()) ));
+    }
+    //{"success":1,"msg":"登录成功","data":"{"dataRange":"","id":"2017072400000573","imeicode":"","ismessage":"","jigouleibie":"1","loginName":"fanjian","loginpwd":"111111","mac":"","menuList":[],"menuMap":null,"moduleDataRange":{"1003":{"address":"/xxgl/xmgl/xmgl.jsp","childModule":[],"dataRange":"2017072400000571","funcPermission":"1","id":"1003","module_isleaf":"0","module_type":"2","name":"模块管理","orderNum":"2","pid":"1001","systemid":"mkgl","urls":"","viewDateRrange":"0"},"1004":{"address":"/system/person/lygbperson.jsp","childModule":[],"dataRange":"2017072400000571","funcPermission":"1","id":"1004","module_isleaf":"0","module_type":"2","name":"人员变更管理","orderNum":"3","pid":"1001","systemid":"rybggl","urls":"","viewDateRrange":"0"},"1001":{"address":"/system/organize/zuzhijigou.jsp","childModule":[{"address":"/xxgl/xmgl/xmgl.jsp","childModule":[],"dataRange":"2017072400000571","funcPermission":"1","id":"1003","module_isleaf":"0","module_type":"2","name":"模块管理","orderNum":"2","pid":"1001","systemid":"mkgl","urls":"","viewDateRrange":"0"},{"address":"/system/person/lygbperson.jsp","childModule":[],"dataRange":"2017072400000571","funcPermission":"1","id":"1004","module_isleaf":"0","module_type":"2","name":"人员变更管理","orderNum":"3","pid":"1001","systemid":"rybggl","urls":"","viewDateRrange":"0"},{"address":"/xxgl/xmgl/xmgl.jsp","childModule":[],"dataRange":"2017072400000571","funcPermission":"1","id":"1002","module_isleaf":"0","module_type":"2","name":"项目管理","orderNum":"1","pid":"1001","systemid":"xmgl","urls":"","viewDateRrange":"0"},{"address":"/system/person/lygbperson.jsp","childModule":[],"dataRange":"2017072400000571","funcPermission":"1","id":"1005","module_isleaf":"0","module_type":"2","name":"审批管理","orderNum":"4","pid":"1001","systemid":"spgl","urls":"","viewDateRrange":"0"},{"address":"/xxgl/ceshiguanli/csxm_list.jsp","childModule":[],"dataRange":"2017072400000571","funcPermission":"1","id":"1006","module_isleaf":"0","module_type":"2","name":"测试管理","orderNum":"5","pid":"1001","systemid":"csgl","urls":"","viewDateRrange":"0"}],"dataRange":"2017072400000571","funcPermission":"1","id":"1001","module_isleaf":"1","module_type":"1","name":"项目设置","orderNum":"1","pid":"0","systemid":"xmsz","urls":"","viewDateRrange":"0"},"1002":{"address":"/xxgl/xmgl/xmgl.jsp","childModule":[],"dataRange":"2017072400000571","funcPermission":"1","id":"1002","module_isleaf":"0","module_type":"2","name":"项目管理","orderNum":"1","pid":"1001","systemid":"xmgl","urls":"","viewDateRrange":"0"},"1005":{"address":"/system/person/lygbperson.jsp","childModule":[],"dataRange":"2017072400000571","funcPermission":"1","id":"1005","module_isleaf":"0","module_type":"2","name":"审批管理","orderNum":"4","pid":"1001","systemid":"spgl","urls":"","viewDateRrange":"0"},"1006":{"address":"/xxgl/ceshiguanli/csxm_list.jsp","childModule":[],"dataRange":"2017072400000571","funcPermission":"1","id":"1006","module_isleaf":"0","module_type":"2","name":"测试管理","orderNum":"5","pid":"1001","systemid":"csgl","urls":"","viewDateRrange":"0"}},"moduleid":"","order_num":"","org_cq":"","org_dt":"","org_range":"","org_scale":"","org_tc":"","roleBean":null,"sheguanZhongxinId":"","sheguanZhongxinName":"","status":"0","systemList":[],"systemid":"","userGangweiId":"2017072400000570","userGangweiName":"信用卡部","userGangweiNum":null,"userJigouId":"2017072400000571","userJigouName":"客户经理","userJigouType":"1","userParentJigouId":"","userParentJigouName":"","userRealName":"范坚","userWangeId":"","userWangeName":"","userWangeProcId":"","userid":"2017072400000572","validateCode":"","wangge_id":"","wangge_name":""}"}
 }

@@ -133,6 +133,7 @@
     <string name="level_five_apply_referrer_organization_code">推荐人机构代码</string>
     <string name="level_five_apply_referrer_job_number">推荐人员工号　</string>
     <string name="level_five_apply_referrer_mobile_number">推荐人手机号　</string>
+    <string name="level_five_apply_input_referrer_number">请输入员工号:</string>
     <!-- 其他常量 -->
     <string name="last_btn_text">上一步</string>
     <string name="next_btn_text">下一步</string>

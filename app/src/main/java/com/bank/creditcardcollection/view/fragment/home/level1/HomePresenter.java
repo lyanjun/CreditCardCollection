@@ -1,13 +1,6 @@
 package com.bank.creditcardcollection.view.fragment.home.level1;
 
 import com.bank.creditcardcollection.base.BaseRxPresenter;
-import com.bank.creditcardcollection.constant.HttpUrl;
-import com.bank.creditcardcollection.model.request.HeaderReq;
-import com.bank.creditcardcollection.model.request.ReqReport;
-import com.bank.creditcardcollection.model.request.body.ProductListBody;
-import com.bank.creditcardcollection.net.retrofit.HttpUtils;
-import com.google.gson.Gson;
-import com.orhanobut.logger.Logger;
 
 
 /**

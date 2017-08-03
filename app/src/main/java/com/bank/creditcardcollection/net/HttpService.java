@@ -29,4 +29,12 @@ public interface HttpService {
      */
     @POST(HttpUrl.APPLY_ADD)
     Observable<String> getAddApplyResult(@Body RequestBody requestBody);
+
+    /**
+     * 查询推荐人信息
+     * @param requestBody
+     * @return
+     */
+    @POST(HttpUrl.QUERY_CODE)
+    Observable<String> getAddReferrerInfoResult(@Body RequestBody requestBody);
 }
