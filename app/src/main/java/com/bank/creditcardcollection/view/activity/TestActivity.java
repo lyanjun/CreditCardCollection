@@ -8,13 +8,14 @@ import android.view.inputmethod.InputMethodManager;
 
 import com.bank.creditcardcollection.R;
 import com.bank.creditcardcollection.base.activity.MineBaseActivity;
+import com.bank.creditcardcollection.base.activity.TitleActivity;
 
 import butterknife.BindView;
 
 /**
  * 测试界面
  */
-public class ApplyInfoActivity extends AppCompatActivity {
+public class TestActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

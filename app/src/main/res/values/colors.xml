@@ -6,4 +6,5 @@
     <color name="apply_info_box_color">#AAAAAA</color>
     <color name="apply_info_button_next_color_up">#036AB2</color>
     <color name="apply_info_button_next_color_down">#025c9b</color>
+    <color name="input_commit_image_background_bound_color">#97BEC3</color>
 </resources>

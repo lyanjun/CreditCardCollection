@@ -11,10 +11,9 @@ import android.widget.ImageView;
 import com.bank.creditcardcollection.R;
 import com.bank.creditcardcollection.adapter.ApplyInfoAdapter;
 import com.bank.creditcardcollection.constant.Constant;
-import com.bank.creditcardcollection.view.fragment.base.BaseMvpViewFragment;
+import com.bank.creditcardcollection.base.fragment.BaseMvpViewFragment;
 import com.bank.creditcardcollection.weight.view.apply.level.LevelView;
 import com.bank.creditcardcollection.weight.view.listener.PageSelectedHelper;
-import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
 

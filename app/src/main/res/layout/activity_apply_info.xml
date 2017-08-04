@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#6e6868"
-    tools:context="com.bank.creditcardcollection.view.activity.ApplyInfoActivity">
+    tools:context="com.bank.creditcardcollection.view.activity.TestActivity">
 
     <!--<com.lyan.tools.view.InputBox-->
     <!--android:layout_width="wrap_content"-->

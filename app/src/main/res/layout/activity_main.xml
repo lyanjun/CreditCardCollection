@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".view.activity.MainActivity">
+    tools:context=".view.activity.main.MainActivity">
     <!-- 界面切换部分 -->
     <FrameLayout
         android:id="@+id/frag_home"

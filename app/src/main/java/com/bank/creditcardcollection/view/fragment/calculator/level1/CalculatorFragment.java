@@ -3,7 +3,7 @@ package com.bank.creditcardcollection.view.fragment.calculator.level1;
 import android.os.Bundle;
 
 import com.bank.creditcardcollection.R;
-import com.bank.creditcardcollection.view.fragment.base.BaseWithOutBackFragment;
+import com.bank.creditcardcollection.base.fragment.BaseWithOutBackFragment;
 import com.lyan.tools.utils.ToastUtils;
 
 

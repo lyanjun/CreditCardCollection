@@ -1,4 +1,4 @@
-package com.bank.creditcardcollection.view.fragment.base;
+package com.bank.creditcardcollection.base.fragment;
 
 import com.bank.creditcardcollection.base.activity.LifePresenter;
 

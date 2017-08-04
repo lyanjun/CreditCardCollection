@@ -9,9 +9,10 @@ public class HttpUrl {
     //域名
     public static final String HTTP_URL = "http://192.168.0.118:8080/xmgl/";//域名
 //    public static final String HTTP_URL = "http://192.168.0.116:8080/xmgl/";//域名
-    public static final String FL = "userLoginAction!loginNoRandom.action";//测试接口
+    public static final String FL = "employeeAction!queryOne.action";//测试接口
     public static final String APPLY_ADD = "cardinfoAction!add.action";//新增信用卡申请
-    public static final String QUERY_CODE = "userLoginAction!loginNoRandom.action";//查询员工号
+    public static final String QUERY_CODE = "employeeAction!findByLoginName.action";//查询员工号
+
     //域名
 //    public static final String HTTP_URL = "http://192.168.0.145:8080/Test/";
 //    public static final String FL = "getJson";

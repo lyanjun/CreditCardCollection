@@ -1,4 +1,4 @@
-package com.bank.creditcardcollection.view.fragment.base;
+package com.bank.creditcardcollection.base.fragment;
 
 import android.app.Activity;
 import android.content.Context;

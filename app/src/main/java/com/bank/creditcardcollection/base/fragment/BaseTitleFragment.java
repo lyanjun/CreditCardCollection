@@ -1,4 +1,4 @@
-package com.bank.creditcardcollection.view.fragment.base;
+package com.bank.creditcardcollection.base.fragment;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -97,7 +97,7 @@ public abstract class BaseTitleFragment extends BaseFragment{
      * 设置标题栏
      */
     protected void setTitleBar(){
-        mTitleBar.setTitleBarBackground(R.drawable.title_bar_background);//设置标题栏北京颜色
+        mTitleBar.setTitleBarBackground(R.drawable.title_bar_background);//设置标题栏背景颜色
         mTitleBar.removeLeftViewDefaultChild();//清空默认的返回键
         if (addBackBtn()){
             ImageButton backButton = new ImageButton(mContext);

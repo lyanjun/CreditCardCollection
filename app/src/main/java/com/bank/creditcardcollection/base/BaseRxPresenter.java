@@ -13,7 +13,7 @@ import io.reactivex.disposables.Disposable;
 public abstract class BaseRxPresenter<V extends BaseView> implements LifePresenter<V> {
 
     protected V mView;
-    protected CompositeDisposable mCompositeDisposable;
+    private CompositeDisposable mCompositeDisposable;
 
     @SuppressWarnings("unchecked")
     public BaseRxPresenter (V view){
@@ -24,16 +24,12 @@ public abstract class BaseRxPresenter<V extends BaseView> implements LifePresent
     /**
      * 解除订阅
      */
-    protected void unSubscribe() {
+    private void unSubscribe() {
         if (mCompositeDisposable != null) {
             mCompositeDisposable.clear();
         }
     }
 
-    /**
-     * 初始化数据
-     */
-//    public abstract void initData();
     /**
      * 增加订阅
      * @param disposable

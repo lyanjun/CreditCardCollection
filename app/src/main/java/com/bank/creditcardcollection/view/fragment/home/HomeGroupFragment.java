@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.bank.creditcardcollection.R;
-import com.bank.creditcardcollection.view.fragment.base.BaseGroupFragment;
+import com.bank.creditcardcollection.base.fragment.BaseGroupFragment;
 import com.bank.creditcardcollection.view.fragment.home.level1.HomeFragment;
 
 

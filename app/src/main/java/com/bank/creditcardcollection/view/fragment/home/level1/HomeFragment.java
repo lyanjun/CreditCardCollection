@@ -5,7 +5,7 @@ import android.widget.Button;
 
 import com.bank.creditcardcollection.R;
 import com.bank.creditcardcollection.net.retrofit.HttpUtils;
-import com.bank.creditcardcollection.view.fragment.base.BaseWithOutBackFragment;
+import com.bank.creditcardcollection.base.fragment.BaseWithOutBackFragment;
 import com.google.gson.Gson;
 import com.lyan.tools.utils.ToastUtils;
 import com.orhanobut.logger.Logger;
@@ -83,7 +83,7 @@ public class HomeFragment extends BaseWithOutBackFragment implements HomeContrac
         new HomePresenter(this);
         mHomePresenter.initData();//初始化数据
         testBtn.setOnClickListener(v -> {
-            HttpUtils.postJson(new Gson().toJson(new A("fanjian","111111")))
+            HttpUtils.postJson(new Gson().toJson(new B("2017072400000572")))
                     .subscribe(s -> {
                                 Logger.t("返回数据").i(s);
                                 ToastUtils.shortToast(mContext, s);
@@ -95,6 +95,21 @@ public class HomeFragment extends BaseWithOutBackFragment implements HomeContrac
         });
     }
 
+    class B{
+        private String id;
+
+        public B(String id) {
+            this.id = id;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+    }
     class A {
         private String  loginName;
         private String  loginpwd;

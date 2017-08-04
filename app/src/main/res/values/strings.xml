@@ -1,9 +1,12 @@
 <resources>
+    <!-- fragment -->
     <string name="app_name">信用卡</string>
     <string name="clms_home">首页</string>
     <string name="clms_calculator">计算器</string>
     <string name="clms_camera">相机</string>
     <string name="clms_add">新增</string>
+    <!-- activity -->
+    <string name="title_activity_add_image">照片信息</string>
     <!-- applyInfo 新增 -->
     <!-- LevelOne 第一步 -->
     <string name="apply_for_card_input_hint"><![CDATA[<font color = \'#ff0000\'>*</font>若申请本行联名卡，请填写会员卡号，以便为您提供更优质服务]]></string>

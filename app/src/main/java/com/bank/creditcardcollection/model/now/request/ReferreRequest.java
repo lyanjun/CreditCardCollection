@@ -6,26 +6,17 @@ package com.bank.creditcardcollection.model.now.request;
  */
 
 public class ReferreRequest {
-    private String loginName;
-    private String status = "1";//后台用于判断
+    private String name;
 
-    public ReferreRequest(String loginName) {
-        this.loginName = loginName;
+    public ReferreRequest(String name) {
+        this.name = name;
     }
 
-    public String getLoginName() {
-        return loginName;
+    public String getName() {
+        return name;
     }
 
-    public void setLoginName(String loginName) {
-        this.loginName = loginName;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
+    public void setName(String name) {
+        this.name = name;
     }
 }
