@@ -219,5 +219,19 @@
         <item name="android:layout_marginBottom">@dimen/dp_8</item>
         <item name="android:gravity">center_vertical</item>
     </style>
+    <!-- 添加图片容器的样式 -->
+    <style name="ApplyAddImageBackground">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp_0</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_margin">@dimen/dp_10</item>
+        <item name="android:background">@drawable/input_image_background</item>
+    </style>
+
+    <!-- 测试样式 -->
+    <style name="A" >
+        <item name="it_hint_text_size">@dimen/sp_16</item>
+        <item name="it_hint_text_message">测试内容</item>
+    </style>
 
 </resources>

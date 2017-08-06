@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.bank.creditcardcollection.view.activity.apply.ApplyAddImageActivity">
 
     <ScrollView
@@ -20,21 +21,14 @@
             android:paddingBottom="@dimen/dp_10">
             <!-- 身份证正面 -->
             <!--drawable-xxhdpi/input_id_card_front.png-->
-           <RelativeLayout
-               android:layout_width="match_parent"
-               android:layout_height="@dimen/dp_0"
-               android:layout_weight="1"
-               android:layout_margin="@dimen/dp_10"
-               android:elevation="@dimen/dp_2"
-               android:translationZ="@dimen/dp_2"
-               android:background="@drawable/input_image_background">
+           <RelativeLayout style="@style/ApplyAddImageBackground">
                <LinearLayout
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:orientation="vertical"
                    android:layout_centerInParent="true">
                    <ImageView
-                       android:layout_width="match_parent"
+                       android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
                        android:scaleType="centerInside"
                        android:src="@drawable/input_id_card_front" />
@@ -53,24 +47,35 @@
            </RelativeLayout>
             <!-- 身份证反面 -->
             <!--drawable-xxhdpi/input_id_card_back.png-->
-            <com.bank.creditcardcollection.weight.view.ScaleImageView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_0"
-                android:layout_margin="@dimen/dp_10"
-                android:layout_weight="1"
-                android:background="@drawable/input_image_background"
-                android:scaleType="centerInside"
-                android:src="@drawable/input_id_card_back" />
+            <RelativeLayout style="@style/ApplyAddImageBackground">
+                <com.bank.creditcardcollection.weight.view.ScaleImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/input_image_background"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/input_id_card_back" />
+                <com.lyan.tools.view.ImageTextHintView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    app:it_hint_text_message="上传身份证反面"
+                    app:it_hint_text_color="@color/input_commit_image_background_bound_color"
+                    app:it_hint_image_src="@drawable/input_id_card_back"
+                    app:it_hint_text_size="@dimen/sp_16"
+
+                    />
+            </RelativeLayout>
+
             <!-- 合影 -->
             <!--drawable-xxhdpi/input_group_photo.png-->
-            <com.bank.creditcardcollection.weight.view.ScaleImageView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_0"
-                android:layout_margin="@dimen/dp_10"
-                android:layout_weight="1"
-                android:background="@drawable/input_image_background"
-                android:scaleType="centerInside"
-                android:src="@drawable/input_group_photo" />
+            <RelativeLayout style="@style/ApplyAddImageBackground">
+                <com.bank.creditcardcollection.weight.view.ScaleImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/input_image_background"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/input_group_photo" />
+            </RelativeLayout>
         </LinearLayout>
     </ScrollView>
 

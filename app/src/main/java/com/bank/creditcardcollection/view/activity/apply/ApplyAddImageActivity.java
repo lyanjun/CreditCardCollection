@@ -51,7 +51,7 @@ public class ApplyAddImageActivity extends TitleActivity<ApplyAddImageContract.P
     }
 
     /**
-     * 又返回按钮
+     * 有返回按钮
      * @return
      */
     @Override
