@@ -34,4 +34,17 @@
         <!-- 文字的列数 -->
         <attr name="pt_show_text_rows" format="integer"/>
     </declare-styleable>
+    <!-- 图文提示控件 -->
+    <declare-styleable name="ImageTextHintView">
+        <!-- 提示文本 -->
+        <attr name="it_hint_text_message" format="string"/>
+        <!-- 文字的大小 -->
+        <attr name="it_hint_text_color" format="color"/>
+        <!-- 文字的颜色 -->
+        <attr name="it_hint_text_size" format="dimension"/>
+        <!-- 图文之间的间隔 -->
+        <attr name="it_hint_interval" format="dimension"/>
+        <!-- 图片 -->
+        <attr name="it_hint_image_src" format="reference"/>
+    </declare-styleable>
 </resources>
