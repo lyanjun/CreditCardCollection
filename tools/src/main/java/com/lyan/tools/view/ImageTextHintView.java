@@ -66,18 +66,23 @@ public class ImageTextHintView extends CustomView {
     @Override
     public void afterInitialize() {
         if (hintTextMessage == null || hintImage == null) return;
-        int imageWidth = (int) DensityUtils.px2dp(context, hintImage.getWidth());//图片的宽度
-        int textWidth = (int) DensityUtils.px2dp(context, paint.measureText(hintTextMessage));//文字的宽度
+        int imageWidth = hintImage.getWidth();//图片的宽度
+        int textWidth = (int) paint.measureText(hintTextMessage);//文字的宽度
         defaultWidth = imageWidth > textWidth ? imageWidth : textWidth;//设置宽度
-        int imageHeight = (int) DensityUtils.px2dp(context, hintImage.getHeight());//图片的高度
+        int imageHeight =hintImage.getHeight();//图片的高度
         int textHeight = (int) (-paint.ascent() + paint.descent());//文字高度
-        defaultHeight = (int) (imageHeight + hintInterval + DensityUtils.px2dp(context, textHeight));
+        defaultHeight = imageHeight + hintInterval + textHeight;
         //设置绘制图片的区域
         int imageOffset = (defaultWidth - hintImage.getWidth()) / 2;//绘制图片的偏移量
-        drawImageRect = new Rect(imageOffset, 0, defaultWidth - imageOffset, hintImage.getHeight());
+        drawImageRect = new Rect(DensityUtils.dp2px(context,imageOffset), 0,
+                DensityUtils.dp2px(context,defaultWidth - imageOffset),
+                DensityUtils.dp2px(context,hintImage.getHeight()));
         //设置绘制文字的区域
         int textOffset = (defaultWidth - textWidth) / 2;//设置绘制文字的偏移量
-        drawTextRect = new Rect(textOffset, defaultHeight - textHeight, defaultWidth - textOffset, defaultHeight);
+        drawTextRect = new Rect(DensityUtils.dp2px(context,textOffset),
+                DensityUtils.dp2px(context,defaultHeight - textHeight),
+                DensityUtils.dp2px(context,defaultWidth - textOffset),
+                DensityUtils.dp2px(context,defaultHeight) );
     }
 
     /**
@@ -120,7 +125,7 @@ public class ImageTextHintView extends CustomView {
         canvas.drawColor(Color.BLUE);
         //绘制图片
         if (null != hintImage) {
-            canvas.drawBitmap(hintImage, drawTextRect, drawTextRect, null);
+            canvas.drawBitmap(hintImage, null, drawImageRect, null);
         }
         //绘制文字
         if (null != hintTextMessage) {
